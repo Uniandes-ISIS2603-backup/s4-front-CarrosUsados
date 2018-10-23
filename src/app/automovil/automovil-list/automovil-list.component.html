@@ -1,0 +1,33 @@
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Marca</th>
+                    <th>Año</th>   
+                    <th>Color</th> 
+                    <th>Numero chasis</th>
+                    <th>Placa</th>
+                    <th>Fecha Agregación</th>
+                    <th>Precio Original</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let automovil of automoviles">
+                    <td>{{automovil.id}}</td>
+                    <th>{{automovil.modelo}}</th>
+                    <th>{{automovil.marca}}</th>
+                    <th>{{automovil.anio}}</th>   
+                    <th>{{automovil.color}}</th> 
+                    <th>{{automovil.numChasis}}</th>
+                    <th>{{automovil.placa}}</th>
+                    <th>{{automovil.fechaAgregacion}}</th>
+                    <th>{{automovil.precioOriginal}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

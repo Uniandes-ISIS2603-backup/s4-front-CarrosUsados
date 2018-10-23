@@ -1,6 +1,8 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-<app-Marca-list></app-Marca-list>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+      <a id="automovilesTag" class="nav-link" routerLink="/automoviles/list">Automoviles</a>
+  </li>
+</ul>
+<div class="list">
+  <router-outlet></router-outlet>
 </div>
