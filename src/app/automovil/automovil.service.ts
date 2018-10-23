@@ -6,7 +6,7 @@ import { Automovil } from './automovil'
 import { HttpClient } from '@angular/common/http';
 
 const API_URL = "../../assets/";
-const editorials = '/automoviles.json';
+const automoviles = '/automoviles.json';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class AutomovilService {
   constructor(private http:HttpClient) { }
 
   getAutomoviles():Observable<Automovil[]>{
-    return this.http.get<Automovil[]>(API_URL + editorials);
+    return this.http.get<Automovil[]>(API_URL + automoviles);
   }
 
 }
