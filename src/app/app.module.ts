@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MarcaModule } from './marca/marca.module';
 import { AutomovilModule } from './automovil/automovil.module';
+import {PuntoventaModule} from './puntoventa/puntoventa.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
 import { AppRoutingModule } from './routing-module/app-routing.module';
 import { FormsModule } from '@angular/forms';
 
@@ -17,6 +19,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     MarcaModule,
     AutomovilModule,
+    PuntoventaModule,
+    CalificacionModule,
     FormsModule
   ],
   providers: [],
