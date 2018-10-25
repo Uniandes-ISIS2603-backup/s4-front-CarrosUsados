@@ -7,6 +7,7 @@ import { AutomovilModule } from './automovil/automovil.module';
 import { ArticuloModule } from './articulo/articulo.module';
 import {PuntoventaModule} from './puntoventa/puntoventa.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
+import {ClienteModule} from './cliente/cliente.module';
 import { AppRoutingModule } from './routing-module/app-routing.module';
 import { FormsModule } from '@angular/forms';
 
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     AutomovilModule,
     PuntoventaModule,
     CalificacionModule,
+    ClienteModule,
     FormsModule
   ],
   providers: [],
