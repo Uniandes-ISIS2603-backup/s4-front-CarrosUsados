@@ -1,6 +1,4 @@
-import {Calificacion} from '../calificacion/calificacion';
-
-export interface Puntoventa {
+export class Puntoventa {
     
     
     /*
@@ -9,20 +7,14 @@ export interface Puntoventa {
     id:number;
     
     /*
-     * ubicacion del punto de venta
-     */
-    ubicacion: string;
-    
-    /*
      * ciudad donde se encuentra punto de venta.
      */
      
-     ciudad: string;
+    ciudad: string;
     /*
-     * número de vendedores
+     * ubicacion del punto de venta
      */
-    numeroVendedores: number;
-    
+    ubicacion: string;
     /*
      * latitud de ubicacion punto de venta
      */
@@ -32,12 +24,9 @@ export interface Puntoventa {
      * longitud de ubicacion
      */
     longitud: number;
-    
     /*
-     * lista de calificaciones del putno de venta
+     * número de vendedores
      */
-     calificaciones: Calificacion[];
-    
-    
+    numeroVendedores: number;
     
 }
