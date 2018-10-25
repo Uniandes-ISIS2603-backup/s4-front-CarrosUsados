@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Puntoventa } from '../puntoventa';
+import { PuntoventaService } from '../puntoventa.service';
+
+
 
 @Component({
   selector: 'app-puntoventa-list',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PuntoventaListComponent implements OnInit {
 
-  constructor() { }
+  puntosVenta:Puntoventa[];
+
+  constructor(private puntoVentaService:PuntoventaService) { }
+
+
+  getPuntosVenta(){
+    this.puntoVentaService.getPuntos()
+        .subscribe(puntosVenta => this.puntosVenta = puntosVenta);
+  }
 
   ngOnInit() {
+    this.getPuntosVenta();
   }
 
 }

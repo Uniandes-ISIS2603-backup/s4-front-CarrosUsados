@@ -1,3 +1,27 @@
-<p>
-  puntoventa-list works!
-</p>
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-bordered table-hover">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Ciudad</th>
+                    <th>Ubicacion</th>
+                    <th>Latitud</th>   
+                    <th>Longitud</th> 
+                    <th>Numero Vendedores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let puntos of puntosVenta">
+                    <td>{{puntos.id}}</td>
+                    <td>{{puntos.ciudad}}</td>
+                    <td>{{puntos.ubicacion}}</td>
+                    <td>{{puntos.latitud}}</td>
+                    <td>{{puntos.longitud}}</td>
+                    <td>{{puntos.numeroVendedores}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
