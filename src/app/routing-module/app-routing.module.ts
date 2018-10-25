@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import { AutomovilListComponent } from '../automovil/automovil-list/automovil-list.component' 
-
+import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 
 const routes: Routes = [
     
@@ -15,6 +15,15 @@ const routes: Routes = [
               component: AutomovilListComponent
           }
       ]
+  },
+  {
+    path: 'clientes',
+    children: [
+        {
+            path: 'list',
+            component: ClienteListComponent
+        }
+    ]
   }
 ];
 
