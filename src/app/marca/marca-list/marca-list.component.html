@@ -1,3 +1,23 @@
-<div>
-  marca-list works!
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-bordered table-hover">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Pais</th>
+                    <th>Descripción</th>   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let marca of marcas">
+                    <td>{{marca.id}}</td>
+                    <th>{{marca.nombre}}</th>
+                    <th>{{marca.pais}}</th>
+                    <th>{{automovil.descripcion}}</th>   
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
