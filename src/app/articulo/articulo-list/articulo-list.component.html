@@ -1,0 +1,23 @@
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-bordered table-hover">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Precio</th>
+                    <th>Descripcion</th>
+                    <th>Disponibilidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let articulo of articulos">
+                    <td>{{articulo.id}}</td>
+                    <th>{{articulo.precio}}</th>
+                    <th>{{articulo.descripcion}}</th>
+                    <th>{{articulo.disponibilidad}}</th>  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
