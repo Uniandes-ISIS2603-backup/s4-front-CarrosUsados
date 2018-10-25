@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import { AutomovilListComponent } from '../automovil/automovil-list/automovil-list.component' 
-
+import {PuntoventaListComponent} from '../puntoventa/puntoventa-list/puntoventa-list.component'
 
 const routes: Routes = [
     
@@ -13,6 +13,15 @@ const routes: Routes = [
           {
               path: 'list',
               component: AutomovilListComponent
+          }
+      ]
+  },
+  {
+      path: 'puntos',
+      children: [
+          {
+              path: 'list',
+              component: PuntoventaListComponent
           }
       ]
   }
