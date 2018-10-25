@@ -1,4 +1,5 @@
-import {Calificacion} from "../calificacion/calificacion";
+import {Calificacion} from '../calificacion/calificacion';
+
 export interface Puntoventa {
     
     

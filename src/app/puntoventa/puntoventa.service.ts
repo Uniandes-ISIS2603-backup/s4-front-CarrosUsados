@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Puntoventa} from './puntoventa/puntoventa';
+import {Puntoventa} from './puntoventa';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 
 
+
 const puntos ='/puntos';
-const API_URL = environment.apiURL;
+const API_URL = "../../assets/";
 @Injectable({
   providedIn: 'root'
 })
