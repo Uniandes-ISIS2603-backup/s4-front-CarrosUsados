@@ -1,6 +1,6 @@
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-2">
+    <div class="col-md-12">
         <table class="table table-bordered table-hover">
             <thead class = "thead-dark">
                 <tr>
@@ -13,9 +13,9 @@
             <tbody>
                 <tr *ngFor = "let marca of marcas">
                     <td>{{marca.id}}</td>
-                    <th>{{marca.nombre}}</th>
-                    <th>{{marca.pais}}</th>
-                    <th>{{automovil.descripcion}}</th>   
+                    <td>{{marca.nombre}}</td>
+                    <td>{{marca.pais}}</td>
+                    <td>{{marca.descripcion}}</td>   
                 </tr>
             </tbody>
         </table>

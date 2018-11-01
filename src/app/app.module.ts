@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MarcaModule } from './marca/marca.module';
+import { ModeloModule } from './modelo/modelo.module';
 import { AutomovilModule } from './automovil/automovil.module';
 import { ArticuloModule } from './articulo/articulo.module';
 import {PuntoventaModule} from './puntoventa/puntoventa.module';
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     PuntoventaModule,
     CalificacionModule,
     ClienteModule,
+    ModeloModule,
     FormsModule
   ],
   providers: [],

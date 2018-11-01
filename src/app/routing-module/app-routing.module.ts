@@ -6,6 +6,8 @@ import { AutomovilListComponent } from '../automovil/automovil-list/automovil-li
 import {PuntoventaListComponent} from '../puntoventa/puntoventa-list/puntoventa-list.component'
 import {ArticuloListComponent} from '../articulo/articulo-list/articulo-list.component'
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
+import { MarcaListComponent } from '../marca/marca-list/marca-list.component';
+import { ModeloListComponent } from '../modelo/modelo-list/modelo-list.component';
 
 const routes: Routes = [
     
@@ -42,6 +44,24 @@ const routes: Routes = [
         {
             path: 'list',
             component: ClienteListComponent
+        }
+    ]
+},
+{
+    path: 'marcas',
+    children: [
+        {
+            path: 'list',
+            component: MarcaListComponent
+        }
+    ]
+},
+{
+    path: 'modelos',
+    children: [
+        {
+            path: 'list',
+            component: ModeloListComponent
         }
     ]
 }

@@ -1,6 +1,6 @@
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-2">
+    <div class="col-md-12">
         <table class="table table-bordered table-hover">
             <thead class = "thead-dark">
                 <tr>
@@ -12,10 +12,10 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let modelo of modelos">
-                    <td>{{marca.id}}</td>
-                    <th>{{marca.num_puertas}}</th>
-                    <th>{{marca.transmision}}</th>
-                    <th>{{automovil.centimetros_cubicos}}</th>   
+                    <td>{{modelo.id}}</td>
+                    <td>{{modelo.num_puertas}}</td>
+                    <td>{{modelo.transmision}}</td>
+                    <td>{{modelo.centimetros_cubicos}}</td>   
                 </tr>
             </tbody>
         </table>
