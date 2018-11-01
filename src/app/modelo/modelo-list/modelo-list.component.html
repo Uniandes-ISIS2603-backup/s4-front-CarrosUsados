@@ -5,17 +5,17 @@
             <thead class = "thead-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Pais</th>
-                    <th>Descripción</th>   
+                    <th>Numero de Puertas</th>
+                    <th>Transmision</th>
+                    <th>Centimetros Cubicos</th>   
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let marca of marcas">
+                <tr *ngFor = "let modelo of modelos">
                     <td>{{marca.id}}</td>
-                    <th>{{marca.nombre}}</th>
-                    <th>{{marca.pais}}</th>
-                    <th>{{automovil.descripcion}}</th>   
+                    <th>{{marca.num_puertas}}</th>
+                    <th>{{marca.transmision}}</th>
+                    <th>{{automovil.centimetros_cubicos}}</th>   
                 </tr>
             </tbody>
         </table>
