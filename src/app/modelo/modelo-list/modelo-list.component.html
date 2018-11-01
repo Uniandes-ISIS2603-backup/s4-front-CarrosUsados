@@ -1,0 +1,23 @@
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-bordered table-hover">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Numero de Puertas</th>
+                    <th>Transmision</th>
+                    <th>Centimetros Cubicos</th>   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let modelo of modelos">
+                    <td>{{marca.id}}</td>
+                    <th>{{marca.num_puertas}}</th>
+                    <th>{{marca.transmision}}</th>
+                    <th>{{automovil.centimetros_cubicos}}</th>   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
