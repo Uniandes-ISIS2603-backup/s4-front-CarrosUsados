@@ -15,6 +15,7 @@ import { ClienteService } from './cliente.service';
     FormsModule
   ],
   declarations: [ClienteListComponent],
+  exports: [ClienteListComponent],
   providers: [ClienteService]
 })
 export class ClienteModule { }
