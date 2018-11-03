@@ -4,11 +4,11 @@ export class Cliente extends Usuario {
     /**
      * El teléfono del cliente.
      */
-    public telefono: string;
+    telefono: string;
 
     /**
      * La dirección del cliente.
      */
-    public direccion: string;
+    direccion: string;   
 
 }
