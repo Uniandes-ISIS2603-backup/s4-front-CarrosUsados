@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
-import { AutomovilListComponent } from '../automovil/automovil-list/automovil-list.component' 
-import {PuntoventaListComponent} from '../puntoventa/puntoventa-list/puntoventa-list.component'
-import {ArticuloListComponent} from '../articulo/articulo-list/articulo-list.component'
+import { InicioComponent } from '../inicio/inicio.component';
+import { IngresarComponent } from '../ingresar/ingresar.component';
+import { AutomovilListComponent } from '../automovil/automovil-list/automovil-list.component';
+import { PuntoventaListComponent} from '../puntoventa/puntoventa-list/puntoventa-list.component';
+import { ArticuloListComponent} from '../articulo/articulo-list/articulo-list.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { MarcaListComponent } from '../marca/marca-list/marca-list.component';
 import { ModeloListComponent } from '../modelo/modelo-list/modelo-list.component';
@@ -64,6 +66,14 @@ const routes: Routes = [
             component: ModeloListComponent
         }
     ]
+},
+{
+      path: 'inicio',
+      component: InicioComponent
+},
+{
+      path: 'ingresar',
+      component: IngresarComponent
 }
 ];
 
