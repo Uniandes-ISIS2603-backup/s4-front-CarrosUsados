@@ -1,26 +1,208 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-      <a id="automovilesTag" class="nav-link" routerLink="/automoviles/list">Automoviles</a>
-  </li>
-  
-  <li class="nav-item">
-      <a id="puntosventaTag" class="nav-link" routerLink="/puntos/list">Puntos de venta</a>
-  </li>
-  
-  <li class="nav-item">
-      <a id="articulosTag" class="nav-link" routerLink="/articulos/list">Articulo</a>
-  </li>
-    
-  <li class="nav-item">
-    <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
-</li>
-<li class="nav-item">
-      <a id="marcasTag" class="nav-link" routerLink="/marcas/list">Marcas</a>
-  </li>
-  <li class="nav-item">
-    <a id="modelosTag" class="nav-link" routerLink="/modelos/list">Modelos</a>
-</li>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+
+<ul class="nav nav-tabs" style="background-image:url('../assets/images/banner.jpg'); z-index: 2;">
+
+    <li class="nav-item" >
+        <img src="../assets/images/carlogo.png" alt="logoCarteam" height="50" width="130" style="margin-left:10px; margin-right: 10px">
+
+    </li>
+    <li class="nav-item">
+        <a id="automovilesTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/automoviles/list">Automoviles</a>    
+    </li>
+
+    <li class="nav-item">
+        <a id="puntosventaTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/puntos/list">Puntos de venta</a>
+    </li>
+
+    <li class="nav-item">
+        <a id="articulosTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/articulos/list">Articulo</a>
+    </li>
+
+    <li class="nav-item">
+        <a id="clientesTag"  style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/clientes/list">Clientes</a>
+    </li>
+    <li class="nav-item">
+        <a id="marcasTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/marcas/list">Marcas</a>
+    </li>
+    <li class="nav-item">
+        <a id="modelosTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/modelos/list">Modelos</a>
+    </li>
 </ul>
 <div class="list">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+</div>
+
+<div  style="z-index: 2; position: absolute;align-content: flex-end; width: 100%; text-align: right">
+    <h1 style="margin-right: 100px; margin-top: 120px; color: white; font-family: 'Raleway', sans-serif; font-size: 70px" >Tu Nave</h1>
+    <h2 style="color: white; margin-right: 20px; font-family:'Raleway', sans-serif;font-size: 20px  ">El carro de tus sueños al alcance de un click</h2>
+</div>
+<div >
+    <img class="responsive" src="../assets/images/indexhead.jpg" alt="head" width="600" 
+         style="z-index: 0; position: absolute; float: right">
+    <div class="top-right">Tu Nave</div>
+</div> 
+
+<div class="row justify-content-end" style="width:100%; background-color: black; ">
+    <div class="col-6" style="width: 400px; height: 540px; z-index: 1; position: absolute; 
+         background-color: #f74a2c; box-shadow: 5px 10px 18px #888888; text-align: center; margin-top: 30px">
+
+
+        <h1 style="color: white; font-family: 'Raleway', sans-serif; margin-top: 40px">Empieza aquí</h1>
+
+        <form>
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;">
+                <label for="exampleSelect1" ></label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>Todos los tipos de vehiculos</option>
+                    <option>Carros</option>
+                    <option>Camionetas</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+                <label for="exampleSelect1" ></label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>Todos las marcas</option>
+                    <option>Audi</option>
+                    <option>Volkswagen</option>
+                    <option>Chevrolet</option>
+                    <option>Renault</option>
+                    <option>Nissan</option>
+                    <option>BMW</option>
+                    <option>Mazda</option>
+                    <option>Citroen</option>
+                    <option>Mercedez-Benz</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+                <label for="exampleSelect1" ></label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>Todos los modelos</option>
+                    <option>A1</option>
+                    <option>A3</option>
+                    <option>A4</option>
+                    <option>A5</option>
+                    <option>A6</option>
+                    <option>Cabrio</option>
+                    <option>Q2</option>
+                    <option>Q3</option>
+                    <option>TT</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+                <label for="exampleInputEmail1"></label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Precio desde" >
+            </div>
+
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+                <label for="exampleInputEmail1"></label>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Precio hasta" >
+            </div>
+
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+                <label for="exampleSelect1" ></label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>Año desde</option>
+                    <option>1995</option>
+                    <option>1996</option>
+                    <option>1997</option>
+                    <option>1998</option>
+                    <option>1999</option>
+                    <option>2000</option>
+                    <option>2001</option>
+                    <option>2002</option>
+                    <option>2003</option>
+                    <option>2004</option>
+                    <option>2005</option>
+                    <option>2006</option>
+                    <option>2007</option>
+                    <option>2008</option>
+                    <option>2009</option>
+                    <option>2010</option>
+                    <option>2011</option>
+                    <option>2012</option>
+                    <option>2013</option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+                <label for="exampleSelect1" ></label>
+                <select class="form-control" id="exampleSelect1">
+                    <option>Año Hasta</option>
+                    <option>1995</option>
+                    <option>1996</option>
+                    <option>1997</option>
+                    <option>1998</option>
+                    <option>1999</option>
+                    <option>2000</option>
+                    <option>2001</option>
+                    <option>2002</option>
+                    <option>2003</option>
+                    <option>2004</option>
+                    <option>2005</option>
+                    <option>2006</option>
+                    <option>2007</option>
+                    <option>2008</option>
+                    <option>2009</option>
+                    <option>2010</option>
+                    <option>2011</option>
+                    <option>2012</option>
+                    <option>2013</option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                </select>
+            </div>
+            <button type="button" class="btn" style="width: 120px">Buscar</button>
+        </form>
+    </div>
+</div>
+
+<div style="position: absolute;align-content: flex-end; width: 100%; text-align: right; margin-top: 520px">
+    <h1 style="font-family:'Raleway', sans-serif; margin-right: 220px">Publicaciones Destacadas</h1> 
+</div>
+
+<div class="card" style="width: 28rem; position: absolute; margin-top: 630px; margin-left: 100px; box-shadow: 5px 10px 18px #888888;">
+    <img class="card-img-top" src="../assets/images/generic.png" alt="Card image cap" style="width: 280px">
+  <div class="card-body">
+      <h1 class="card-title" style="font-family:'Raleway', sans-serif ">$20.000.000</h1>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card" style="width: 28rem; position: absolute; margin-top: 630px; margin-left: 500px; box-shadow: 5px 10px 18px #888888;">
+    <img class="card-img-top" src="../assets/images/generic.png" alt="Card image cap" style="width: 280px">
+  <div class="card-body">
+      <h1 class="card-title" style="font-family:'Raleway', sans-serif ">$20.000.000</h1>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card" style="width: 28rem; position: absolute; margin-top: 630px; margin-left: 900px; box-shadow: 5px 10px 18px #888888;">
+    <img class="card-img-top" src="../assets/images/generic.png" alt="Card image cap" style="width: 280px">
+  <div class="card-body">
+      <h1 class="card-title" style="font-family:'Raleway', sans-serif ">$20.000.000</h1>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+<div style="margin-top: 1120px">
+    <img class="card-img-top" src="../assets/images/banner.jpg" alt="Card image cap" style="width: 100%; height: 200px; position: absolute;">
+    
 </div>
