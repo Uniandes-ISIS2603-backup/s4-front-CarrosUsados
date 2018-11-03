@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { InicioModule} from './inicio/inicio.module';
+import { IngresarModule } from './ingresar/ingresar.module';
 import { MarcaModule } from './marca/marca.module';
 import { ModeloModule } from './modelo/modelo.module';
 import { AutomovilModule } from './automovil/automovil.module';
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     CalificacionModule,
     ClienteModule,
     ModeloModule,
-    FormsModule
+    FormsModule,
+    IngresarModule,
+    InicioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

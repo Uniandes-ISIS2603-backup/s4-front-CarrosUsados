@@ -1,6 +1,6 @@
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-12">
+    <div class="col-md-2">
         <table class="table table-bordered table-hover">
             <thead class = "thead-dark">
                 <tr>
@@ -11,11 +11,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let articulo of articulos">
-                    <td>{{articulo.id}}</td>
-                    <td>{{articulo.precio}}</td>
-                    <td>{{articulo.descripcion}}</td>
-                    <td>{{articulo.disponibilidad}}</td>  
+                <tr *ngFor = "let factura of facturas">
+                    <td>{{factura.id}}</td>
+                    <td>{{factura.comprobantePago}}</td>
+                    <td>{{factura.descripcion}}</td>
+                    <td>{{factura.total}}</td>  
+                    <td>{{factura.subtotal}}</td>  
                 </tr>
             </tbody>
         </table>
