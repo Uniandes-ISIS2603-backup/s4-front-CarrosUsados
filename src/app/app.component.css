@@ -2,3 +2,6 @@
     width: 100%;
     height: auto;
 }
+.navbar-nav > .active {
+  background-color: black;
+}

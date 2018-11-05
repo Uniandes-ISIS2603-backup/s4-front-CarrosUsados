@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { InicioModule} from './inicio/inicio.module';
+import { RegistroModule } from './registro/registro.module';
 import { IngresarModule } from './ingresar/ingresar.module';
 import { MarcaModule } from './marca/marca.module';
 import { ModeloModule } from './modelo/modelo.module';
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     ModeloModule,
     FormsModule,
     IngresarModule,
-    InicioModule
+    InicioModule,
+    RegistroModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -74,7 +74,7 @@ const routes: Routes = [
 {
       path: 'ingresar',
       component: IngresarComponent
-}
+}   
 ];
 
 @NgModule({
