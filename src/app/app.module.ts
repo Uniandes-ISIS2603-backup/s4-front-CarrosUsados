@@ -14,6 +14,10 @@ import {CalificacionModule} from './calificacion/calificacion.module';
 import {ClienteModule} from './cliente/cliente.module';
 import { AppRoutingModule } from './routing-module/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
+
 
 
 @NgModule({
@@ -31,11 +35,18 @@ import { FormsModule } from '@angular/forms';
     ClienteModule,
     ModeloModule,
     FormsModule,
+    ToastrModule.forRoot(),
     IngresarModule,
     InicioModule,
     RegistroModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
