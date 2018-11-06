@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AutomovilService } from './automovil.service';
+import { AutomovilDetailComponent } from './automovil-detail/automovil-detail.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { AutomovilService } from './automovil.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [AutomovilListComponent],
+  declarations: [AutomovilListComponent, AutomovilDetailComponent],
   providers: [AutomovilService]
 })
 export class AutomovilModule { }
