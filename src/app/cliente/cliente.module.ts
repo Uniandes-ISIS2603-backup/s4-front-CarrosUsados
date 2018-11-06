@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MarcaListComponent } from './marca-list/marca-list.component';
+import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { MarcaService } from './marca.service';
-
+import { ClienteService } from './cliente.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -15,7 +14,8 @@ import { MarcaService } from './marca.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [MarcaListComponent],
-  exports: [MarcaListComponent]
+  declarations: [ClienteListComponent],
+  exports: [ClienteListComponent],
+  providers: [ClienteService]
 })
-export class MarcaModule { }
+export class ClienteModule { }

@@ -1,0 +1,24 @@
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-bordered table-hover">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Precio</th>
+                    <th>Descripcion</th>
+                    <th>Disponibilidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let factura of facturas">
+                    <td>{{factura.id}}</td>
+                    <td>{{factura.comprobantePago}}</td>
+                    <td>{{factura.descripcion}}</td>
+                    <td>{{factura.total}}</td>  
+                    <td>{{factura.subtotal}}</td>  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
