@@ -10,6 +10,7 @@ import { ArticuloListComponent} from '../articulo/articulo-list/articulo-list.co
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { MarcaListComponent } from '../marca/marca-list/marca-list.component';
 import { ModeloListComponent } from '../modelo/modelo-list/modelo-list.component';
+import { FichatecnicaListComponent } from '../fichatecnica/fichatecnica-list/fichatecnica-list.component';
 
 const routes: Routes = [
     
@@ -22,6 +23,15 @@ const routes: Routes = [
           }
       ]
   },
+  {
+    path: 'fichastecnicas',
+    children: [
+        {
+            path: 'list',
+            component: FichatecnicaListComponent
+        }
+    ]
+},
   {
       path: 'puntos',
       children: [

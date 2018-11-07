@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
+import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
 
 
 
@@ -30,6 +31,7 @@ import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.servic
     MarcaModule,
     ArticuloModule,
     AutomovilModule,
+    FichatecnicaModule,
     PuntoventaModule,
     CalificacionModule,
     ClienteModule,
