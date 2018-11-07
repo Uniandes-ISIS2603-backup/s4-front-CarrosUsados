@@ -7,6 +7,10 @@ import { HttpClient } from '@angular/common/http';
 
 const API_URL = "../../assets/";
 const automoviles = '/automoviles.json';
+/*
+const API_URL = "http://localhost:8080/s4_CarrosUsados-api";
+const automoviles = '/automoviles';
+*/
 
 @Injectable({
   providedIn: 'root'

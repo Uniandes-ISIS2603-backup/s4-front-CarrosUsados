@@ -1,0 +1,31 @@
+<br>
+<br>
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-bordered table-hover">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Vidrios</th>
+                    <th>camaraReversa</th>
+                    <th>Sensores</th>   
+                    <th>Rines</th> 
+                    <th>Aire Acondicionado</th>
+                    <th>Num Airbags</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let fichatecnica of fichasTecnicas">
+                    <td>{{fichatecnica.id}}</td>
+                    <td>{{fichatecnica.vidrios}}</td>
+                    <td>{{fichatecnica.camaraReversa}}</td>
+                    <td>{{fichatecnica.sensores}}</td>   
+                    <td>{{fichatecnica.rines}}</td> 
+                    <td>{{fichatecnica.aireAcondicionado}}</td>
+                    <td>{{fichatecnica.numAirbags}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
