@@ -18,12 +18,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
+import { AdministradorListComponent } from './administrador/administrador-list/administrador-list.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdministradorListComponent
   ],
   imports: [
     BrowserModule,
