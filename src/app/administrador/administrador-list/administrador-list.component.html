@@ -1,33 +1,40 @@
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-12">
-        <table class="table table-bordered table-hover">
-            <thead class = "thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo electrónico</th>   
-                    <th>Nombre de usuario</th> 
-                    <th>Contraseña</th>
-                    <th>Fecha Nacimiento</th>
-                    <th>Dirección</th>
-                    <th>Teléfono</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let administrador of administradores">
-                    <td>{{administrador.id}}</td>
-                    <td>{{administrador.nombre}}</td>
-                    <td>{{administrador.apellido}}</td>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Nombre de usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let administrador of administradores" style="cursor: pointer;" (click)="onSelected(administrador.id)">
+                        <td>{{administrador.id}}</td>
+                        <td>{{administrador.nombreUsuario}}</td>
+                        <td>{{administrador.nombre}}</td>
+                        <td>{{administrador.apellido}}</td>
+                        <!--
                     <td>{{administrador.correo}}</td>   
                     <td>{{administrador.nombreUsuario}}</td> 
                     <td>{{administrador.contrasena}}</td> 
-                    <td>{{administrador.fechaNacimiento | date: medium}}</td>
+                    <td>{{parseDate(administrador.fechaNacimiento) | date: medium}}</td>
                     <td>{{administrador.direccion}}</td>
                     <td>{{administrador.telefono}}</td>
-                </tr>
-            </tbody>
-        </table>
+                    -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+
+            <div *ngIf="selectedAdministrador">
+                <app-administrador-detail [administradorDetail]="selectedAdministrador"></app-administrador-detail>
+            </div>
+            
+        </div>
     </div>
 </div>

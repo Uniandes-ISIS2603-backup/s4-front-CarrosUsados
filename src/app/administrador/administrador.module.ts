@@ -6,6 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdministradorService } from './administrador.service';
+import { AdministradorDetailComponent } from './administrador-detail/administrador-detail.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -14,7 +16,7 @@ import { AdministradorService } from './administrador.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [AdministradorListComponent],
+  declarations: [AdministradorListComponent, AdministradorDetailComponent],
   exports: [AdministradorListComponent],
   providers: [AdministradorService]
 })

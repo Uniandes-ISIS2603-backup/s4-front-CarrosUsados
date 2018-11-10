@@ -13,6 +13,7 @@ import { ModeloListComponent } from '../modelo/modelo-list/modelo-list.component
 import { FichatecnicaListComponent } from '../fichatecnica/fichatecnica-list/fichatecnica-list.component';
 import { FichatecnicaDetailComponent } from '../fichatecnica/fichatecnica-detail/fichatecnica-detail.component';
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
+import { AdministradorDetailComponent } from '../administrador/administrador-detail/administrador-detail.component';
 
 const routes: Routes = [
     
@@ -72,6 +73,11 @@ const routes: Routes = [
             path: 'list',
             component: AdministradorListComponent
     }
+    ,
+        {
+            path: ':id',
+            component: AdministradorDetailComponent
+        }
     ]
 },
 {

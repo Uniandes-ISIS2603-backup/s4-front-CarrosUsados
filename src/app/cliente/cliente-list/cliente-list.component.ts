@@ -27,6 +27,11 @@ export class ClienteListComponent implements OnInit {
     this.clienteService.getClientes()
         .subscribe(clientes => this.clientes = clientes);
   }
+
+  parseDate( date:String) : Date
+  {
+    return new Date (Date.parse(date.substring(0,date.length-5)));
+  }
   /**
    * Instancia el componente solicitando la lista de clientes
    * Este metodo es llamado cuando se crea el componente

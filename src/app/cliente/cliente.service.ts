@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from './cliente'
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 const API_URL = "../../assets/";
-const clientes = '/clientes.json';
+const clientes = '/clientes';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +18,7 @@ export class ClienteService {
   constructor(private http:HttpClient) { }
 
   getClientes():Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(API_URL + clientes);
+    return this.http.get<Cliente[]>(environment.apiURL + clientes);
   }
 }
 
