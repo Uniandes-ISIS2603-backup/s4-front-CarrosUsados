@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Administrador } from './administrador'
 import { HttpClient } from '@angular/common/http';
 import { AdministradorDetail } from './administrador-detail';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 const API_URL = "../../assets/";
 const clientes = '/clientes.json';
