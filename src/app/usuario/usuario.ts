@@ -1,36 +1,28 @@
-export class Usuario {
+import { Persona } from "../persona/persona";
+
+export class Usuario extends Persona{
     /**
-     * El id único del cliente.
+     * El id único del usuario.
      */
     protected id: number;
 
-    /**
-    * El nombre del cliente.
-    */
-    protected nombre: string;
-
-    /**
-    * El apellido del cliente.
-    */
-    protected apellido: string;
-
-    /**
-   * El correo único del cliente.
+   /**
+   * El correo único del usuario.
    */
     protected correo: string;
 
     /**
-     * La contraseña del cliente.
+     * La contraseña del usuario.
      */
     protected contrasena: string;
 
     /**
-     * El nombre de usuario del cliente.
+     * El nombre de usuario del usuario.
      */
     protected nombreUsuario: string;
 
     /**
-   * La fecha de nacimiento del cliente.
+   * La fecha de nacimiento del usuario.
    */
     protected fechaNacimiento: Date;
 
