@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ModeloService } from './modelo.service';
+import { ModeloCreateComponent } from './modelo-create/modelo-create.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { ModeloService } from './modelo.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [ModeloListComponent],
+  declarations: [ModeloListComponent, ModeloCreateComponent],
   exports: [ModeloListComponent]
 })
 export class ModeloModule { }

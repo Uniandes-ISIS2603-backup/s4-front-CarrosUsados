@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MarcaService } from './marca.service';
+import { MarcaCreateComponent } from './marca-create/marca-create.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { MarcaService } from './marca.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [MarcaListComponent],
-  exports: [MarcaListComponent]
+  declarations: [MarcaListComponent, MarcaCreateComponent, MarcaCreateComponent],
+  exports: [MarcaListComponent],
+  providers: [MarcaService]
 })
 export class MarcaModule { }
