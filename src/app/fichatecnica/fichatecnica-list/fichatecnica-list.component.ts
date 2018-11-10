@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Fichatecnica } from '../fichatecnica'
 import { FichatecnicaService } from '../fichatecnica.service';
+import { FichatecnicaDetail } from '../fichatecnica-detail';
 
 
 @Component({
@@ -20,6 +21,16 @@ export class FichatecnicaListComponent implements OnInit {
    * La lista de fichas tecnicas
    */
   fichasTecnicas:Fichatecnica[];
+  fichaTecnica_id:number;
+  selectedFichaTecnica:Fichatecnica;
+
+  onSelected(fichaTecnica_id: number):void {
+    this.fichaTecnica_id = fichaTecnica_id;
+    this.selectedFichaTecnica = new FichatecnicaDetail();
+    this.getFichaTecnicaDetail();
+
+  }
+
 
   /**
    * Le pregunta al servicio para actualizar las fichastecnicas
@@ -28,6 +39,13 @@ export class FichatecnicaListComponent implements OnInit {
     this.fichaTecnicaService.getFichasTecnicas()
         .subscribe(fichasTecnicas => this.fichasTecnicas = fichasTecnicas);
   }
+
+  getFichaTecnicaDetail(): void {
+    this.fichaTecnicaService.getFichaTecnicaDetail(this.fichaTecnica_id)
+        .subscribe(selectedFichaTecnica => {
+            this.selectedFichaTecnica = selectedFichaTecnica;
+        });
+}
 
   ngOnInit() {
     this.getFichasTecnicas();
