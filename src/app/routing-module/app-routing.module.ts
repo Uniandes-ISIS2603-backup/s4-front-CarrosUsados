@@ -11,6 +11,7 @@ import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.compo
 import { MarcaListComponent } from '../marca/marca-list/marca-list.component';
 import { ModeloListComponent } from '../modelo/modelo-list/modelo-list.component';
 import { FichatecnicaListComponent } from '../fichatecnica/fichatecnica-list/fichatecnica-list.component';
+import { FichatecnicaDetailComponent } from '../fichatecnica/fichatecnica-detail/fichatecnica-detail.component';
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
 
 const routes: Routes = [
@@ -30,6 +31,10 @@ const routes: Routes = [
         {
             path: 'list',
             component: FichatecnicaListComponent
+        },
+        {
+            path: ':id',
+            component: FichatecnicaDetailComponent
         }
     ]
 },

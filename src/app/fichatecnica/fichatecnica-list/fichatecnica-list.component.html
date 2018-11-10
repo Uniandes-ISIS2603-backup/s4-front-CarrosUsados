@@ -2,30 +2,50 @@
 <br>
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-bordered table-hover">
-            <thead class = "thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Vidrios</th>
-                    <th>camaraReversa</th>
-                    <th>Sensores</th>   
-                    <th>Rines</th> 
-                    <th>Aire Acondicionado</th>
-                    <th>Num Airbags</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let fichatecnica of fichasTecnicas">
-                    <td>{{fichatecnica.id}}</td>
-                    <td>{{fichatecnica.vidrios}}</td>
-                    <td>{{fichatecnica.camaraReversa}}</td>
-                    <td>{{fichatecnica.sensores}}</td>   
-                    <td>{{fichatecnica.rines}}</td> 
-                    <td>{{fichatecnica.aireAcondicionado}}</td>
-                    <td>{{fichatecnica.numAirbags}}</td>
-                </tr>
-            </tbody>
-        </table>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Vidrios</th>
+                        <th>camaraReversa</th>
+                        <th>Sensores</th>
+                        <th>Rines</th>
+                        <th>Aire Acondicionado</th>
+                        <th>Num Airbags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let fichatecnica of fichasTecnicas" style="cursor: pointer;" (click)="onSelected(fichatecnica.id)">
+
+                        <!--
+                                <td style="cursor: pointer;">
+                                    <dd class="figure-caption" routerLink="/fichastecnicas/{{fichatecnica.id}}">{{fichatecnica.id}}</dd>
+                                </td> -->
+
+                        <td>{{fichatecnica.id}}</td>
+                        <td>{{fichatecnica.vidrios}}</td>
+                        <td>{{fichatecnica.camaraReversa}}</td>
+                        <td>{{fichatecnica.sensores}}</td>
+                        <td>{{fichatecnica.rines}}</td>
+                        <td>{{fichatecnica.aireAcondicionado}}</td>
+                        <td>{{fichatecnica.numAirbags}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+
+                <div *ngIf="selectedFichaTecnica">
+                        <app-fichatecnica-detail [fichaTecnicaDetail]="selectedFichaTecnica"></app-fichatecnica-detail>
+                    </div>
+        </div>
     </div>
+
+   
+
 </div>
