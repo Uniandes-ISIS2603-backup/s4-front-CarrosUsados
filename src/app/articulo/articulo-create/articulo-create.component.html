@@ -1,0 +1,49 @@
+<div>
+    <br>
+    <h2 class = "text-center">Crear un articulo</h2>
+    <br>
+    <form name="articulo" style="margin-right: 20%; font-family:'Raleway', sans-serif;" type=text 
+          class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+          placeholder="Agregar una id" (ngSubmit)="f.form.valid && createArticulo()" #f="ngForm" novalidate>
+    <div>
+        <label for="idAutoArticulo"><b>IdAutomovil</b></label>
+        <input type="text" name="idAutoArticulo" class="form-control" id="idAutoArticulo" [(ngModel)]="articulo.id"
+         #idAutoArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idAutoArticulo.invalid }" required >
+        <div class="invalid-feedback">
+            <div>La id del automovil no fue puesta</div>
+        </div>
+   </div>
+   <div>
+        <label for="descripcionArticulo"><b>Descripcion</b></label>
+        <input type="text" name="descripcionArticulo" class="form-control" id="descripcionArticulo" [(ngModel)]="articulo.descripcion"
+         #descripcionArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && descripcionArticulo.invalid }" required >
+        <div class="invalid-feedback">
+            <div>La descripcion no fue puesta</div>
+        </div>
+   </div>
+   <div>
+        <label for="precioArticulo"><b>Precio</b></label>
+        <input type="text" name="precioArticulo" class="form-control" id="precioArticulo" [(ngModel)]="articulo.precio"
+         #precioArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && precioArticulo.invalid }" required >
+        <div class="invalid-feedback">
+            <div>El precio no fue puesto</div>
+        </div>
+   </div>
+   <div>
+        <label for="imagenArticulo"><b>DireccionImagen</b></label>
+        <input type="text" name="imagenArticulo" class="form-control" id="imagenArticulo" [(ngModel)]="articulo.imagen"
+         #imagenArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imagenArticulo.invalid }" required >
+        <div class="invalid-feedback">
+            <div>La direccion de la imagen no fue puesta</div>
+        </div>
+   </div>
+          <div class="row form-inline justify-content-center align-self-center" style="align-content: center; margin-left: 40%; margin-right: 30%; width: 40%">
+          <button type="submit" class="btn btn-primary" style="width: 50%; font-family: 'Raleway', sans-serif ">Crear</button>
+                <div class="divider"></div>
+                <button type="button" style="margin-top: 5px; width: 50%; font-family: 'Raleway', sans-serif" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+

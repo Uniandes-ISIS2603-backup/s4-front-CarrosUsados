@@ -15,5 +15,8 @@ export class Articulo{
      * La disponibilidad del articulo
      */
     disponibilidad:boolean;
-    
+    /**
+     * El link de la imagen del articulo
+     */
+    imagen:string;    
 }

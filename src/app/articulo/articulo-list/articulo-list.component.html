@@ -1,10 +1,15 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<div>
+    <button type="submit" class="btn btn-primary" style="background-color:#e24e42 ;border-color: transparent" (click)="showCreate">Crear Articulo</button>
+</div>
+<div style="width: 70%; height: 500px; margin-top: 2%; margin-right: 15%; margin-left: 15%">
+      <app-articulo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-articulo-create>
+</div>
 <div style="align-content: center; width: 100%">
     <h3 style="text-align: center;font-family:'Raleway', sans-serif;">Articulo #12345</h3> 
 </div>
-
 <div>
     <div class="row">
         <div style="float: left; width: 40%; z-index: 0; margin-left: 10%">
@@ -92,7 +97,6 @@
     <img src="../assets/images/logowhite.png" alt="logoCarteam" height="30" width="130" style="margin-left:10px; margin-right: 10px; margin-top: 15px; ">
     <p style="color: white; font-family: 'Raleway', sans-serif; margin-left:10px; margin-top: 10">TuNave Inc.</p>
 </div>
-
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
     <div class="col-md-12">
@@ -103,6 +107,7 @@
                     <th>Precio</th>
                     <th>Descripcion</th>
                     <th>Disponibilidad</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
             <tbody>
@@ -111,6 +116,7 @@
                     <td>{{articulo.precio}}</td>
                     <td>{{articulo.descripcion}}</td>
                     <td>{{articulo.disponibilidad}}</td>  
+                    <td>{{articulo.imagen}}</td>
                 </tr>
             </tbody>
         </table>

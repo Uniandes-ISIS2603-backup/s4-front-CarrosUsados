@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Articulo } from '../articulo'
 import { ArticuloService } from '../articulo.service';
 
+
 @Component({
   selector: 'app-articulo-list',
   templateUrl: './articulo-list.component.html',
