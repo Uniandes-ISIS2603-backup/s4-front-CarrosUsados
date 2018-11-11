@@ -6,6 +6,13 @@
     <div class="row">
 
         <div class="col-md-6">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear una ficha técnica</button>
+            </div>
+            <br>
+            <br>
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                     <tr>
@@ -37,15 +44,26 @@
                 </tbody>
             </table>
         </div>
+        <!--
 
-        <div class="col-md-6">
+            <div class="col-md-6">
 
                 <div *ngIf="selectedFichaTecnica">
                         <app-fichatecnica-detail [fichaTecnicaDetail]="selectedFichaTecnica"></app-fichatecnica-detail>
                     </div>
         </div>
+        -->
+
+        <div class="col-md-6">
+            <div *ngIf="showView">
+                <app-fichatecnica-detail [fichaTecnicaDetail]="selectedFichaTecnica"></app-fichatecnica-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-fichatecnica-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-fichatecnica-create>
+            </div>
+        </div>
     </div>
 
-   
+
 
 </div>
