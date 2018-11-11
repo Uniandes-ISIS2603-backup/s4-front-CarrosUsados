@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticuloCreateComponent} from './articulo-create/articulo-create.component';
 import { ArticuloListComponent } from './articulo-list/articulo-list.component';
+import { ArticuloDetailComponent } from './articulo-detail/articulo-detail.component';
 import { ArticuloService } from './articulo.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,8 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule
   ],
-  declarations: [ArticuloListComponent, ArticuloCreateComponent],
-  exports: [ArticuloListComponent, ArticuloCreateComponent],
+  declarations: [ArticuloListComponent, ArticuloCreateComponent, ArticuloDetailComponent],
+  exports: [ArticuloListComponent, ArticuloCreateComponent, ArticuloDetailComponent],
   providers: [ArticuloService],
 })
 export class ArticuloModule { }

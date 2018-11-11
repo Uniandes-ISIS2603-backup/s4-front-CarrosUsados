@@ -11,18 +11,22 @@ import { ArticuloService } from '../articulo.service';
 export class ArticuloListComponent implements OnInit {
 
   articulos:Articulo[];
+  showCreate: boolean;
 
   constructor(private articuloService:ArticuloService) { }
   
   ngOnInit() {
     this.getArticulos();
+    this.showCreate = false;
   }
 
   getArticulos(){
       this.articuloService.getArticulos()
         .subscribe(articulos => this.articulos = articulos);
   }
-
   
+  showHideCreate(): void {
+        this.showCreate = !this.showCreate!
+    }
 
 }
