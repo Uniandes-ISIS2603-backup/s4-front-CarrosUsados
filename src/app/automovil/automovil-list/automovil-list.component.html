@@ -1,33 +1,58 @@
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-bordered table-hover">
-            <thead class = "thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Modelo</th>
-                    <th>Marca</th>
-                    <th>Año</th>   
-                    <th>Color</th> 
-                    <th>Numero chasis</th>
-                    <th>Placa</th>
-                    <th>Fecha Agregación</th>
-                    <th>Precio Original</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let automovil of automoviles">
-                    <td>{{automovil.id}}</td>
-                    <td>{{automovil.modelo}}</td>
-                    <td>{{automovil.marca}}</td>
-                    <td>{{automovil.anio}}</td>   
-                    <td>{{automovil.color}}</td> 
-                    <td>{{automovil.numChasis}}</td>
-                    <td>{{automovil.placa}}</td>
-                    <td>{{automovil.fechaAgregacion}}</td>
-                    <td>{{automovil.precioOriginal}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <br>
+        <div class="justify-content-center align-self-center">
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear un automóvil</button>
+        </div>
+        <br>
+        <br>
     </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Modelo</th>
+                        <th>Marca</th>
+                        <th>Año</th>
+                        <th>Color</th>
+                        <th>Numero chasis</th>
+                        <th>Placa</th>
+                        <th>Fecha Agregación</th>
+                        <th>Precio Original</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let automovil of automoviles" style="cursor:pointer;" (click)="onSelected(automovil.id)">
+                        <td>{{automovil.id}}</td>
+                        <td>{{automovil.modelo}}</td>
+                        <td>{{automovil.marca}}</td>
+                        <td>{{automovil.anio}}</td>
+                        <td>{{automovil.color}}</td>
+                        <td>{{automovil.numChasis}}</td>
+                        <td>{{automovil.placa}}</td>
+                        <td>{{automovil.fechaAgregacion}}</td>
+                        <td>{{automovil.precioOriginal}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-5">
+            <div *ngIf="showView">
+                <app-automovil-detail [automovilDetail]="selectedAutomovil"></app-automovil-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-automovil-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-automovil-create>
+            </div>
+        </div>
+
+
+
+    </div>
+
 </div>

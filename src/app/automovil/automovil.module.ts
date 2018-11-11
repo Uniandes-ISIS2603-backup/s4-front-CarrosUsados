@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AutomovilService } from './automovil.service';
 import { AutomovilDetailComponent } from './automovil-detail/automovil-detail.component';
+import { AutomovilCreateComponent } from './automovil-create/automovil-create.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { AutomovilDetailComponent } from './automovil-detail/automovil-detail.co
     CommonModule,
     FormsModule
   ],
-  declarations: [AutomovilListComponent, AutomovilDetailComponent],
+  declarations: [AutomovilListComponent, AutomovilDetailComponent, AutomovilCreateComponent],
   providers: [AutomovilService]
 })
 export class AutomovilModule { }
