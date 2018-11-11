@@ -20,7 +20,7 @@ export class MarcaListComponent implements OnInit {
   showCreate: boolean;
 
 
-    edit_editorial_id: number;
+    edit_marca_id: number;
   
   getMarcas() {
       this.marcaService.getMarcas()
