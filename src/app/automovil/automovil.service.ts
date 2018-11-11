@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { HttpClient } from '@angular/common/http';
 
 import { Automovil } from './automovil'
-import { HttpClient } from '@angular/common/http';
+import { AutomovilDetail } from './automovil-detail'
 
 const API_URL = "../../assets/";
 const automoviles = '/automoviles.json';
@@ -25,6 +25,23 @@ export class AutomovilService {
 
   getAutomoviles():Observable<Automovil[]>{
     return this.http.get<Automovil[]>(API_URL + automoviles);
+  }
+
+  /**
+    * Retorna el objeto observable del detalle de automovil del API
+    * @returns Los detalles del automovil
+    */
+   getAutomovilDetail(automovilId): Observable<AutomovilDetail> {
+    return this.http.get<AutomovilDetail>(API_URL + automoviles + '/' + automovilId);
+  }
+
+  /**
+    * Crea un automovil
+    * @param automovil El nuevo automovil
+    * @returns La confirmacion de que el automovil fue creado
+    */
+   createAutomovil(automovil): Observable<Automovil> {
+    return this.http.post<Automovil>(API_URL + automoviles, automovil);
   }
 
 }
