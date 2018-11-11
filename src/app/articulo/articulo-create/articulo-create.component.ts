@@ -13,7 +13,6 @@ import { ArticuloService } from '../articulo.service';
 export class ArticuloCreateComponent implements OnInit {
 
   articulo:Articulo;
-  articulos:Articulo[];
   
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
