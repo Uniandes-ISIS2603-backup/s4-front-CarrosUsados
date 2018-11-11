@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -28,6 +29,7 @@ import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MarcaModule,
     ArticuloModule,

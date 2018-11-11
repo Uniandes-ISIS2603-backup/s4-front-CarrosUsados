@@ -8,10 +8,12 @@ import { FichatecnicaService } from './fichatecnica.service';
 import { FichatecnicaListComponent } from './fichatecnica-list/fichatecnica-list.component';
 import { FichatecnicaDetailComponent } from './fichatecnica-detail/fichatecnica-detail.component';
 import { FichatecnicaCreateComponent } from './fichatecnica-create/fichatecnica-create.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
