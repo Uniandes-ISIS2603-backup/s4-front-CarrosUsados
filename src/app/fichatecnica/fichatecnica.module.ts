@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FichatecnicaService } from './fichatecnica.service';
 import { FichatecnicaListComponent } from './fichatecnica-list/fichatecnica-list.component';
 import { FichatecnicaDetailComponent } from './fichatecnica-detail/fichatecnica-detail.component';
+import { FichatecnicaCreateComponent } from './fichatecnica-create/fichatecnica-create.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { FichatecnicaDetailComponent } from './fichatecnica-detail/fichatecnica-
     CommonModule,
     FormsModule
   ],
-  declarations: [FichatecnicaListComponent, FichatecnicaDetailComponent],
+  declarations: [FichatecnicaListComponent, FichatecnicaDetailComponent, FichatecnicaCreateComponent],
   providers: [FichatecnicaService]
 })
 export class FichatecnicaModule { }

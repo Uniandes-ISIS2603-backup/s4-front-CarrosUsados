@@ -1,0 +1,75 @@
+<div class="col-3"></div>
+<div class="col-6">
+    <br>
+    <h2 class="text-center">Crear una ficha técnica</h2>
+    <br>
+    <form name="fichatecnica" (ngSubmit)="f.form.valid && createFichaTecnica()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label for="vidrios"><b>Vidrios</b></label>
+            <input type="text" name="vidrios" class="form-control" id="vidrios" [(ngModel)]="fichaTecnica.vidrios"
+                #vidrios="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vidrios.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+        <div class="form-group">
+
+            <label for="camaraReversa" style="padding-right: 15px"><b>Cámara de reversa:</b></label>
+            <input id="checkCamara" type="checkbox" name="camaraReversa" id="camaraReversa" [(ngModel)]="fichaTecnica.camaraReversa"
+                #camaraReversa="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sensores.invalid }" required>
+
+        </div>
+        <div class="form-group">
+
+            <label for="sensores" style="padding-right: 15px"><b>Sensores:</b></label>
+            <input id="checkSensores" type="checkbox" name="sensores" id="sensores" [(ngModel)]="fichaTecnica.sensores"
+                #sensores="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sensores.invalid }" required>
+
+        </div>
+        <div class="form-group">
+            <label for="rines"><b>Rines</b></label>
+            <input type="text" name="rines" class="form-control" id="rines" [(ngModel)]="fichaTecnica.rines" #rines="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && rines.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los rines estan faltando</div>
+                </div>
+            -->
+        </div>
+        <div class="form-group">
+
+            <label for="aireAcondicionado" style="padding-right: 15px"><b>Aire acondicionado:</b></label>
+            <input id="checkAire" type="checkbox" name="aireAcondicionado"  [(ngModel)]="fichaTecnica.aireAcondicionado"
+                #aireAcondicionado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && aireAcondicionado.invalid }" required>
+
+        </div>
+        <div class="form-group">
+            <label for="numAirbags"><b>Numero de airbags</b></label>
+            <input type="text" name="numAirbags" class="form-control" id="numAirbags" [(ngModel)]="fichaTecnica.numAirbags"
+                #numAirbags="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numAirbags.invalid }" required>
+
+            <!--
+                <div class="invalid-feedback">
+                <div>El numero de airbags está faltando</div>
+            </div>
+            -->
+
+        </div>
+        <div class="row form-inline justify-content-center align-self-center">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+            <div class="col-md-6">
+
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </div>
+
+
+
+    </form>
+</div>
+<div class="col-3"></div>
