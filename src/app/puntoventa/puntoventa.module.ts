@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PuntoventaListComponent } from './puntoventa-list/puntoventa-list.component';
-import { PuntoventaService } from './puntoventa.service';
+import { PuntoventaService } from './puntoventa.service'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
+import { PuntoventaDetailComponent } from './puntoventa-detail/puntoventa-detail.component';
+import { PuntoventaCreateComponent } from './puntoventa-create/puntoventa-create.component';
 
 @NgModule({
   imports: [
@@ -15,8 +17,8 @@ import { AppRoutingModule } from '../routing-module/app-routing.module';
     HttpClientModule,
     FormsModule
   ],
-  declarations: [PuntoventaListComponent],
-  exports:[PuntoventaListComponent],
+  declarations: [PuntoventaListComponent, PuntoventaDetailComponent, PuntoventaCreateComponent],
+  exports:[PuntoventaListComponent, PuntoventaDetailComponent],
   providers:[PuntoventaService]
 })
 export class PuntoventaModule { }
