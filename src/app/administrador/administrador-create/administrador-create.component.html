@@ -1,0 +1,133 @@
+<div class="col-3"></div>
+<div class="col-6">
+    <br>
+    <h2 class="text-center">Crear un administrador</h2>
+    <br>
+    <form name="administrador" (ngSubmit)="f.form.valid && createAdministrador()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label for="nombre"><b>Nombre</b></label>
+            <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="administrador.nombre"
+                #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="apellido"><b>Apellido</b></label>
+            <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="administrador.apellido"
+                #apellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellido.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="nombreUsuario"><b>Nombre de usuario</b></label>
+            <input type="text" name="nombreUsuario" class="form-control" id="nombreUsuario" [(ngModel)]="administrador.nombreUsuario"
+                #nombreUsuario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreUsuario.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="correo"><b>Correo electrónico</b></label>
+            <input type="text" name="correo" class="form-control" id="correo" [(ngModel)]="administrador.correo"
+                #correo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && correo.invalid }"  required>
+              
+
+        </div>
+
+        <div class="form-group">
+            <label for="contrasena"><b>Contraseña</b></label>
+            <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="administrador.contrasena"
+                #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="fechaInicio"><b>Fecha de inicio</b></label>
+            <input type="date" name="fechaInicio" class="form-control" id="fechaInicio" [(ngModel)]="administrador.fechaInicio"
+                #fechaInicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaInicio.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="fechaNacimiento"><b>Fecha de nacimiento</b></label>
+            <input type="date" name="fechaNacimiento" class="form-control" id="fechaNacimiento" [(ngModel)]="administrador.fechaNacimiento"
+                #fechaNacimiento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaNacimiento.invalid }" required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+     <!--   <div class="form-group">
+            <label for="fechaNacimiento"><b>Fecha de nacimiento</b></label>
+        <input [matDatepicker]="myDatepicker" name="fechaNacimiento" class ="form-control" id="fechaNacimiento" [(ngModel)]="administrador.fechaNacimiento" #fechaNacimiento="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && fechaNacimiento.invalid }" required>
+<mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+<mat-datepicker #myDatepicker></mat-datepicker>
+        </div>
+        -->
+
+        <div class="form-group">
+            <label for="cargo"><b>Cargo</b></label>
+            <input type="text" name="cargo" maxlength="15" class="form-control" id="cargo" [(ngModel)]="administrador.cargo"
+                #cargo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cargo.invalid }"  required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="telefono"><b>Teléfono</b></label>
+            <input type="number" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="administrador.telefono"
+                #cargo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }"  required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+      <div class="row form-inline justify-content-center align-self-center">
+          <div class="col-md-6">
+              <button type="submit" class="btn btn-primary " (click) = "createAdministrador()" >Create</button>
+          </div>
+          <div class="col-md-6">
+
+              <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+          </div>
+      </div>
+
+
+
+    </form>
+</div>
+<div class="col-3"></div>

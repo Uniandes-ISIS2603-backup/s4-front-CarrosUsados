@@ -17,6 +17,16 @@ export class ClienteListComponent implements OnInit {
   cliente_id:number;
   selectedCliente:Cliente;
 
+   /**
+  * Muestra o esconde el componente fichatecnica-create-component
+  */
+ showCreate: boolean;
+
+ showEdit:boolean;
+ /**
+   * Muestra o esconde el detalle de una a ficha tecnica
+   */
+  showView: boolean;
  /**
    * Constructor para el componente
    * @param clienteService El proveedor del servicio cliente
@@ -29,7 +39,31 @@ export class ClienteListComponent implements OnInit {
     this.getClienteDetail();
 
   }
-
+  /**
+    * Muestra o esconde el componente de crear un cliente
+    * 
+    * */
+   showHideCreate(): void {
+    this.showView = false;
+    this.showCreate = !this.showCreate;
+  }
+/**
+      * Shows or hides the create component
+      */
+     showHideEdit(cliente_id: number): void {
+      if (!this.showEdit || (this.showEdit && cliente_id != this.selectedCliente.id)) {
+        this.showView = false;
+        this.showCreate = false;
+        this.showEdit = true;
+        this.cliente_id = cliente_id;
+        this.selectedCliente= new Cliente();
+        this.getClienteDetail();
+      }
+      else {
+        this.showEdit = false;
+        this.showView = true;
+      }
+    }
   /**
    * Le pregunta al servicio para actualizar los clientes
    */

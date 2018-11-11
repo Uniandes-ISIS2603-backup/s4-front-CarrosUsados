@@ -28,12 +28,20 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="row justify-content-center align-self-center">
+                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                        (click)="showHideCreate()">Crear un administrador</button>
+                </div>
         </div>
         <div class="col-md-6">
 
             <div *ngIf="selectedAdministrador">
                 <app-administrador-detail [administradorDetail]="selectedAdministrador"></app-administrador-detail>
             </div>
+
+            <div *ngIf="showCreate">
+                    <app-administrador-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-administrador-create>
+                </div>
             
         </div>
     </div>

@@ -11,12 +11,10 @@ const API_URL = "http://localhost:8080/s4_CarrosUsados-api/api"
 //const marcas = '/marcas.json';
 const marcas = '/marcas';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class MarcaService {
-
-    headers = new HttpHeaders({
-        'Access-Control-Allow-Origin': '*'
-    });
 
   /**
    * El constructor del servicio
@@ -28,8 +26,8 @@ export class MarcaService {
     return this.http.get<Marca[]>(API_URL + marcas);
   }
   
-     createMarca(marca): Observable<boolean> {
-        return this.http.post<boolean>(API_URL + marcas, marca);
+     createMarca(marca): Observable<Marca> {
+        return this.http.post<Marca>(API_URL + marcas, marca);
     }
     
         private handleError(error: any) {

@@ -2,11 +2,11 @@ export class Persona {
     /**
     * El nombre de la persona.
     */
-   protected nombre: string;
+   public nombre: string;
 
    /**
    * El apellido de la persona.
    */
-   protected apellido: string;
+  public apellido: string;
 
 }
