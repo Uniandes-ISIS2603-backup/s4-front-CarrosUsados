@@ -28,3 +28,12 @@
         </table>
     </div>
 </div>
+
+<div style="width: 90%; margin-left: 7%; margin-right: 5%; align-content: flex-end">
+        <button style="font-family: 'Raleway', sans-serif " [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+             (click)="showHideCreate()">Create Modelo</button>
+</div>        
+ <div>
+     <app-modelo-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-modelo-create>
+
+</div>

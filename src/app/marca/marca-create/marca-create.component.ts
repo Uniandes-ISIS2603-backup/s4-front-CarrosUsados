@@ -20,20 +20,19 @@ export class MarcaCreateComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
   
-  createMarca(): void {
-        var marca_create = {
-            nombre: this.marca.nombre,
-            pais: this.marca.pais,
-            descripcion: this.marca.descripcion
-        };
-        this.marcaService.createMarca(marca_create)
-            .subscribe(() => {
-                this.create.emit();
-                this.toastrService.success("The author was created", "Author creation");
-            }, err => {
-                this.toastrService.error(err, "Error");
-            });
-    }
+  createMarca(): Marca {
+
+    
+    console.log(this.marca);
+    this.marcaService.createMarca(this.marca)
+      .subscribe((marca) => {
+        this.marca = marca;
+        this.create.emit();
+        this.toastrService.success("La marca fue creada", "Creación de la marca");
+
+      });
+    return this.marca;
+  }
 
     cancelCreation(): void {
         this.cancel.emit();

@@ -23,6 +23,7 @@
     "angular-popper": "^2.0.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
+    "datepicker": "0.0.0",
     "jquery": "^1.9.1",
     "ngx-bootstrap": "^3.0.1",
     "ngx-modal-dialog": "^3.0.0",

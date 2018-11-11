@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdministradorService } from './administrador.service';
 import { AdministradorDetailComponent } from './administrador-detail/administrador-detail.component';
+import { AdministradorCreateComponent } from './administrador-create/administrador-create.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { AdministradorDetailComponent } from './administrador-detail/administrad
     CommonModule,
     FormsModule
   ],
-  declarations: [AdministradorListComponent, AdministradorDetailComponent],
+  declarations: [AdministradorListComponent, AdministradorDetailComponent, AdministradorCreateComponent],
   exports: [AdministradorListComponent],
   providers: [AdministradorService]
 })

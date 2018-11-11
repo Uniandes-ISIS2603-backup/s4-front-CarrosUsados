@@ -4,26 +4,26 @@ export class Usuario extends Persona{
     /**
      * El id único del usuario.
      */
-    protected id: number;
+    public id: number;
 
    /**
    * El correo único del usuario.
    */
-    protected correo: string;
+  public correo: string;
 
     /**
      * La contraseña del usuario.
      */
-    protected contrasena: string;
+    public contrasena: string;
 
     /**
      * El nombre de usuario del usuario.
      */
-    protected nombreUsuario: string;
+    public nombreUsuario: string;
 
     /**
    * La fecha de nacimiento del usuario.
    */
-    protected fechaNacimiento: Date;
+  public fechaNacimiento: Date;
 
 }

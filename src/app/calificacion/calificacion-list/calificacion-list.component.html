@@ -1,0 +1,51 @@
+<div id="alertPanel" style="text-align: center"></div>
+<div class="container-fluid">
+
+<div style="align-content: center; width: 100%">
+  <h1 style="text-align: center;font-family:'Raleway', sans-serif;">Calificaciones</h1> 
+</div>
+
+<div class="row">
+        <br>
+        <div class="justify-content-center align-self-center">
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear una calificacion</button>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div class="row">
+    <div class="col-md-7">
+ 
+      <table class="table table-bordered table-hover">
+          <thead class = "thead-dark">
+              <tr>
+                  <th>ID</th>
+                  <th>Numero Estrellas</th>
+                  <th>Comentario</th>
+                
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let calificacion of calificaciones">
+                  <td>{{calificacion.id}}</td>
+                  <td>{{calificacion.numeroEstrellas}}</td>
+                  <td>{{calificacion.comentario}}</td>
+                 
+              </tr>
+          </tbody>
+      </table>
+
+  </div>
+  </div>
+
+  <div class="col-md-6">
+        <div *ngIf="showView">
+            <app-calificacion-detail [calificacionDetail]="selectedCalificacion"></app-calificacion-detail>
+        </div>
+        <div *ngIf="showCreate">
+            <app-calificacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-calificacion-create>
+        </div>
+    </div>
+</div>
+ 
