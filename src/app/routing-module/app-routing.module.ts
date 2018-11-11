@@ -14,6 +14,7 @@ import { FichatecnicaListComponent } from '../fichatecnica/fichatecnica-list/fic
 import { FichatecnicaDetailComponent } from '../fichatecnica/fichatecnica-detail/fichatecnica-detail.component';
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
 import { AdministradorDetailComponent } from '../administrador/administrador-detail/administrador-detail.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 
 const routes: Routes = [
     
@@ -63,6 +64,10 @@ const routes: Routes = [
         {
             path: 'list',
             component: ClienteListComponent
+        },
+        {
+            path: ':id',
+            component: ClienteDetailComponent
         }
     ]
 },

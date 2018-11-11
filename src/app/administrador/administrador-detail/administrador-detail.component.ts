@@ -35,6 +35,11 @@ export class AdministradorDetailComponent implements OnInit {
       });
   }
 
+  parseDate( date:String) : Date
+  {
+    return new Date (Date.parse(date.substring(0,date.length-5)));
+  }
+
   ngOnInit() {
 
     this.administrador_id = +this.route.snapshot.paramMap.get('id');

@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClienteService } from './cliente.service';
+import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -14,7 +15,7 @@ import { ClienteService } from './cliente.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [ClienteListComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent],
   exports: [ClienteListComponent],
   providers: [ClienteService]
 })

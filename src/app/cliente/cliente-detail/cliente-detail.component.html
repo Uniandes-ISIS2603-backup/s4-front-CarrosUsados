@@ -1,0 +1,29 @@
+<div class="panel-body">
+    <div class="border margin">
+        <p class="h3 p-3">Cliente: {{clienteDetail.id}}<p> 
+        <div class="row">
+            <div class="col">
+                <dl>     
+                    <dt>Nombre</dt>
+                    <dd>{{clienteDetail.nombre}}</dd>
+                    <dt>Apellido</dt>
+                    <dd>{{clienteDetail.apellido}}</dd>
+                    <dt>Nombre de usuario</dt>
+                    <dd>{{clienteDetail.nombreUsuario}}</dd>
+                    <dt>Correo electrónico</dt>
+                    <dd>{{clienteDetail.correo}}</dd>
+                    <dt>Contraseña</dt>
+                    <dd>{{clienteDetail.contrasena}}</dd>
+                    <dt>Fecha de nacimiento</dt>
+                    <dd>{{parseDate(clienteDetail.fechaNacimiento) | date: medium}}</dd>
+                    <dt>Dirección</dt>
+                    <dd>{{clienteDetail.direccion}}</dd>
+                    <dt>Teléfono</dt>
+                    <dd>{{clienteDetail.telefono}}</dd>
+                </dl>
+            </div>
+  
+        </div>
+    </div>
+  </div>
+  

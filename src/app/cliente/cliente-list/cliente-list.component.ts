@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { Cliente } from '../cliente';
+import { ClienteDetail } from '../cliente-detail';
 
 @Component({
   selector: 'app-cliente-list',
@@ -13,12 +14,21 @@ export class ClienteListComponent implements OnInit {
    * La lista de clientes.
    */
   clientes:Cliente[];
+  cliente_id:number;
+  selectedCliente:Cliente;
 
  /**
    * Constructor para el componente
    * @param clienteService El proveedor del servicio cliente
    */
   constructor(private clienteService:ClienteService) { }
+
+  onSelected(cliente_id: number):void {
+    this.cliente_id = cliente_id;
+    this.selectedCliente = new ClienteDetail();
+    this.getClienteDetail();
+
+  }
 
   /**
    * Le pregunta al servicio para actualizar los clientes
@@ -27,6 +37,13 @@ export class ClienteListComponent implements OnInit {
     this.clienteService.getClientes()
         .subscribe(clientes => this.clientes = clientes);
   }
+
+  getClienteDetail(): void {
+    this.clienteService.getClienteDetail(this.cliente_id)
+        .subscribe(selectedCliente => {
+            this.selectedCliente = selectedCliente;
+        });
+}
 
   parseDate( date:String) : Date
   {

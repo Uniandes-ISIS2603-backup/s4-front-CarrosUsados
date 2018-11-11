@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let cliente of clientes">
+                <tr *ngFor = "let cliente of clientes" style="cursor: pointer;" (click)="onSelected(cliente.id)">
                     <td>{{cliente.id}}</td>
                     <td>{{cliente.nombreUsuario}}</td>
                     <td>{{cliente.nombre}}</td>
@@ -28,4 +28,11 @@
             </tbody>
         </table>
     </div>
+    <div class="col-md-6">
+
+            <div *ngIf="selectedCliente">
+                <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
+            </div>
+            
+        </div>
 </div>

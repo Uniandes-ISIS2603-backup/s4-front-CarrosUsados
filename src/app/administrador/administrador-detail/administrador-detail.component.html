@@ -10,6 +10,14 @@
                   <dd>{{administradorDetail.apellido}}</dd>
                   <dt>Nombre de usuario</dt>
                   <dd>{{administradorDetail.nombreUsuario}}</dd>
+                  <dt>Correo electrónico</dt>
+                  <dd>{{administradorDetail.correo}}</dd>
+                  <dt>Contraseña</dt>
+                  <dd>{{administradorDetail.contrasena}}</dd>
+                  <dt>Fecha de nacimiento</dt>
+                  <dd>{{parseDate(administradorDetail.fechaNacimiento) | date: medium}}</dd>
+                  <dt>Teléfono</dt>
+                  <dd>{{administradorDetail.telefono}}</dd>
                   
               </dl>
           </div>
