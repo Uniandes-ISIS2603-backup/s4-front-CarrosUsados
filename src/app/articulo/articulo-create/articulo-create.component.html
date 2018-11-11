@@ -1,12 +1,11 @@
-<div>
-    <br>
+<div style="margin-left: 7%; margin-right: 40%; width: 35%; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+    
     <h2 class = "text-center">Crear un articulo</h2>
-    <br>
-    <form name="articulo" style="margin-right: 20%; font-family:'Raleway', sans-serif;" type=text 
-          class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
-          placeholder="Agregar una id" (ngSubmit)="f.form.valid && createArticulo()" #f="ngForm" novalidate>
+    <form name="articulo" (ngSubmit)="f.form.valid && createMarca()" #f="ngForm" novalidate>
+          <div class="form-group" style="margin-left: 5%; margin-right: 5%">
+    <div><label for="idAutoArticulo"><b></b></label></div>
     <div>
-        <label for="idAutoArticulo"><b>IdAutomovil</b></label>
+        <label for="idAutoArticulo"><b>Id Automovil</b></label>
         <input type="text" name="idAutoArticulo" class="form-control" id="idAutoArticulo" [(ngModel)]="articulo.id"
          #idAutoArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idAutoArticulo.invalid }" required >
         <div class="invalid-feedback">
@@ -30,7 +29,7 @@
         </div>
    </div>
    <div>
-        <label for="imagenArticulo"><b>DireccionImagen</b></label>
+        <label for="imagenArticulo"><b>Direccion Imagen</b></label>
         <input type="text" name="imagenArticulo" class="form-control" id="imagenArticulo" [(ngModel)]="articulo.imagen"
          #imagenArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imagenArticulo.invalid }" required >
         <div class="invalid-feedback">
@@ -38,12 +37,13 @@
         </div>
    </div>
           <div class="row form-inline justify-content-center align-self-center" style="align-content: center; margin-left: 40%; margin-right: 30%; width: 40%">
-          <button type="submit" class="btn btn-primary" style="width: 50%; font-family: 'Raleway', sans-serif ">Crear</button>
+          <button type="submit" class="btn btn-primary" style="width: 100%; font-family: 'Raleway', sans-serif ">Crear</button>
                 <div class="divider"></div>
-                <button type="button" style="margin-top: 5px; width: 50%; font-family: 'Raleway', sans-serif" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
-            </div>
-        </form>
-    </div>
+                <button type="button" style="margin-top: 5px; width: 100%; font-family: 'Raleway', sans-serif" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+          </div>
+        </div>>
+    </form>
+</div>
 
 
 
