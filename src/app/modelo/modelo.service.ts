@@ -15,32 +15,32 @@ const modelos = '/modelos';
 const automoviles = '/automoviles';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ModeloService {
 
-  /**
-   * El constructor del servicio
-   * @param http Necesario para hacer peticiones
-   */
-  constructor(private http:HttpClient) { }
+    /**
+     * El constructor del servicio
+     * @param http Necesario para hacer peticiones
+     */
+    constructor(private http: HttpClient) { }
 
-  getModelos():Observable<Modelo[]>{
-    return this.http.get<Modelo[]>(API_URL + modelos);
-  }
-  
-      getModelo(modeloId): Observable<Modelo> {
+    getModelos(): Observable<Modelo[]> {
+        return this.http.get<Modelo[]>(API_URL + modelos);
+    }
+
+    getModelo(modeloId): Observable<Modelo> {
         return this.http.get<Modelo>(API_URL + modelos + '/' + modeloId);
     }
-    
-       getAutomovilesOfModelo(modeloId): Observable<Automovil[]> {
+
+    getAutomovilesOfModelo(modeloId): Observable<Automovil[]> {
         return this.http.get<Automovil[]>(API_URL + modelos + '/' + modeloId + automoviles);
     }
 
     createModelo(modelo): Observable<boolean> {
         return this.http.post<boolean>(API_URL + modelos, modelo);
     }
-    
+
     private handleError(error: any) {
         return throwError(error.error.errorMessage);
     }

@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AutomovilService } from './automovil.service';
 import { AutomovilDetailComponent } from './automovil-detail/automovil-detail.component';
 import { AutomovilCreateComponent } from './automovil-create/automovil-create.component';
+import { ModeloService } from '../modelo/modelo.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { AutomovilCreateComponent } from './automovil-create/automovil-create.co
     FormsModule
   ],
   declarations: [AutomovilListComponent, AutomovilDetailComponent, AutomovilCreateComponent],
-  providers: [AutomovilService]
+  providers: [AutomovilService, ModeloService]
 })
 export class AutomovilModule { }

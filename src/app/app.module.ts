@@ -20,6 +20,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPopper } from 'angular-popper';
 
 
 
@@ -44,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IngresarModule,
     InicioModule,
     RegistroModule,
-    AdministradorModule
+    AdministradorModule,
+    NgxPopper
   ],
   providers: [
     {

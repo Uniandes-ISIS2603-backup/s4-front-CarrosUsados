@@ -4,13 +4,15 @@ import { HttpClient } from '@angular/common/http';
 
 import { Automovil } from './automovil'
 import { AutomovilDetail } from './automovil-detail'
-
+/*
 const API_URL = "../../assets/";
 const automoviles = '/automoviles.json';
-/*
-const API_URL = "http://localhost:8080/s4_CarrosUsados-api";
-const automoviles = '/automoviles';
 */
+
+const API_URL = "http://localhost:8080/s4_CarrosUsados-api/api";
+const modelos = '/modelos';
+const automoviles = '/automoviles';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +29,24 @@ export class AutomovilService {
     return this.http.get<Automovil[]>(API_URL + automoviles);
   }
 
+  getAutomovilesOfModelo(modeloId): Observable<Automovil[]> {
+    return this.http.get<Automovil[]>(API_URL + modelos + '/' + modeloId + automoviles);
+}
+
   /**
     * Retorna el objeto observable del detalle de automovil del API
     * @returns Los detalles del automovil
     */
    getAutomovilDetail(automovilId): Observable<AutomovilDetail> {
     return this.http.get<AutomovilDetail>(API_URL + automoviles + '/' + automovilId);
+  }
+
+  /**
+    * Retorna el objeto observable del detalle de automovil del API
+    * @returns Los detalles del automovil
+    */
+   getAutomovilDetailConModelo(modeloId, automovilId): Observable<AutomovilDetail> {
+    return this.http.get<AutomovilDetail>(API_URL + modelos + '/' + modeloId + automoviles + '/' + automovilId);
   }
 
   /**

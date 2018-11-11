@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Automovil } from '../automovil'
 import { AutomovilService } from '../automovil.service';
 import { AutomovilDetail } from '../automovil-detail';
+import { Modelo } from 'src/app/modelo/modelo';
+import { ModeloService } from 'src/app/modelo/modelo.service';
+
 @Component({
   selector: 'app-automovil-list',
   templateUrl: './automovil-list.component.html',
@@ -15,7 +18,7 @@ export class AutomovilListComponent implements OnInit {
    * Constructor para el componente
    * @param automovilService El proveedor del servicio automovil
    */
-  constructor(private automovilService: AutomovilService) { }
+  constructor(private automovilService: AutomovilService, private modeloService: ModeloService) { }
 
   /**
    * La lista de automoviles
@@ -23,6 +26,11 @@ export class AutomovilListComponent implements OnInit {
   automoviles: Automovil[];
 
   automovil_id: number;
+
+
+
+  modelos: Modelo[];
+
 
 
   /**
@@ -73,11 +81,26 @@ export class AutomovilListComponent implements OnInit {
       this.showView = true;
     }
   }
+
+  getModelos() {
+
+    this.modeloService.getModelos()
+      .subscribe(modelos => this.modelos = modelos);
+  }
+
   /**
    * Le pregunta al servicio para actualizar los automoviles
    */
   getAutomoviles() {
     this.automovilService.getAutomoviles()
+      .subscribe(automoviles => this.automoviles = automoviles);
+  }
+
+  /**
+   * Le pregunta al servicio para actualizar los automoviles
+   */
+  getAutomovilesOfModelo(modeloId) {
+    this.automovilService.getAutomovilesOfModelo(modeloId)
       .subscribe(automoviles => this.automoviles = automoviles);
   }
 
@@ -96,7 +119,13 @@ export class AutomovilListComponent implements OnInit {
     this.showView = false;
     this.selectedAutomovil = undefined;
     this.automovil_id = undefined;
-    this.getAutomoviles();
+
+    this.getModelos();
+    
+    
+
+    var id = 1; 
+    this.getAutomovilesOfModelo(id);
   }
 
 }
