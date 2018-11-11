@@ -13,9 +13,30 @@ const API_URL = "../../assets/";
   providedIn: 'root'
 })
 export class PuntoventaService {
+  getPuntoventaDetail(punto_id: any): any {
+    throw new Error("Method not implemented.");
+  }
+
+    /**
+    * The headers sent in every request to the API
+    */
+   headers = new HttpHeaders({
+    'Access-Control-Allow-Origin': '*'
+});
 
   constructor(private http: HttpClient) { }
   getPuntos(): Observable<Puntoventa[]>{
       return this.http.get<Puntoventa[]>(API_URL+ puntos);
   }
+
+  getPuntoDetail(puntoId){
+    return this.http.get<Puntoventa>(API_URL +puntos+"/"+puntoId);
+  }
+
+  createPunto(puntoId): Observable<Puntoventa>
+  {
+    return this.http.post<Puntoventa>(API_URL + puntos + '/' + puntoId, { headers: this.headers });
+  }
+
+ 
 }

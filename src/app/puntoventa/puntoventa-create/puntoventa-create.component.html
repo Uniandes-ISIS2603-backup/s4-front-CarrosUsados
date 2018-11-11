@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+      <br>
+      <h2 class="text-center">Crear un punto de venta</h2>
+      <br>
+      <form name="puntoventa" (ngSubmit)="f.form.valid && createPunto()" #f="ngForm" novalidate>
+        
+        <div class="form-group">
+              <label for="puntoventaCiudad"><b>Ciudad</b></label>
+              <input type="text" name="puntoventaCiudad" class="form-control" id="puntoventaCiudad" [(ngModel)]="puntoventa.Ciudad"
+                  #puntoventaCiudad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puntoventaCiudad.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>Se requiere la ciudad del punto de venta.</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="puntoventaUbicacion"><b>Ubicacion</b></label>
+                  <input  type="text" class="form-control" id="puntoventaUbicacion" name="puntoventaUbicacion" [(ngModel)]="puntoventa.Ubicacion"
+                  #puntoventaUbicacion="ngModel" [ngClass]="{'is-invalid': f.submitted &&  puntoventaUbicacion.invalid }"
+                      required>
+                  <div class="invalid-feedback">
+                      <div>Se requiere la ubicación del punto de venta.</div>
+                  </div>
+              </div>
+         
+
+              <div class="form-group">
+                <label for="puntoventaLatitud"><b>Latitud</b></label>
+                <input type="text" name="puntoventaLatitud" class="form-control" id="puntoventaLatitud" [(ngModel)]="puntoventa.Latitud"
+                    #puntoventaLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puntoventaLatitud.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Se requiere la latitud del punto de venta</div>
+                </div>
+            </div>
+
+              <div class="form-group">
+                <label for="puntoventaLongitud"><b>Longitud</b></label>
+                <input type="text" name="puntoventaLongitud" class="form-control" id="puntoventaLongitud" [(ngModel)]="puntoventa.Longitud"
+                    #puntoventalongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puntoventaLongitud.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Se requiere la longitud del punto de venta</div>
+                </div>
+            </div>
+
+   
+
+          <div class="form-group">
+            <label for="puntoventaNumerovendedores"><b>Número de vendedores</b></label>
+            <input  type ="text" name="puntoventaNumerovendedores" class="form-control" id="puntoventaNumerovendedores" [(ngModel)]="puntoventa.Numerovendedores"
+                #puntoventaNumerovendedores="ngModel" [ngClass]=" { 'is-invalid': f.submitted && puntoventaNumerovendedores.invalid }" required>
+
+                <div class="invalid-feedback">
+                <div>Debe seleccionar el numero de vendedores</div>
+            </div>
+        </div>
+ 
+        <div class="row form-inline justify-content-center align-self-center">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary " (click) = "createPunto()" >Create</button>
+            </div>
+            <div class="col-md-6">
+                
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </div>
+        
+             
+        
+        <div class="col-3"></div>
+     </form>
+</div>
