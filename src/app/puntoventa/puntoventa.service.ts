@@ -13,9 +13,7 @@ const API_URL = "../../assets/";
   providedIn: 'root'
 })
 export class PuntoventaService {
-  getPuntoventaDetail(punto_id: any): any {
-    throw new Error("Method not implemented.");
-  }
+  
 
     /**
     * The headers sent in every request to the API
@@ -29,7 +27,7 @@ export class PuntoventaService {
       return this.http.get<Puntoventa[]>(API_URL+ puntos);
   }
 
-  getPuntoDetail(puntoId){
+  getPuntoventaDetail(puntoId){
     return this.http.get<Puntoventa>(API_URL +puntos+"/"+puntoId);
   }
 

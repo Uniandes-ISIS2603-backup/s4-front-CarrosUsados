@@ -15,6 +15,11 @@ import { FichatecnicaDetailComponent } from '../fichatecnica/fichatecnica-detail
 import { AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component'
 import { AdministradorDetailComponent } from '../administrador/administrador-detail/administrador-detail.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
+import { PuntoventaDetail } from '../puntoventa/puntoventa-detail';
+import { PuntoventaCreateComponent } from '../puntoventa/puntoventa-create/puntoventa-create.component';
+import { CalificacionCreateComponent } from '../calificacion/calificacion-create/calificacion-create.component';
+import { CalificacionDetail } from '../calificacion/calificacion-detail';
+import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
 
 const routes: Routes = [
     
@@ -46,9 +51,34 @@ const routes: Routes = [
           {
               path: 'list',
               component: PuntoventaListComponent
+          },
+          {
+              path:':id',
+              component: PuntoventaDetail
+          },
+          {
+              path:'create',
+              component: PuntoventaCreateComponent
           }
       ]
   },
+  {
+    path: 'calificaciones',
+    children: [
+        {
+            path: 'list',
+            component: CalificacionListComponent
+        },
+        {
+            path:':id',
+            component: CalificacionDetail
+        },
+        {
+            path:'create',
+            component: CalificacionCreateComponent
+        }
+    ]
+},
   {
       path: 'articulos',
       children: [

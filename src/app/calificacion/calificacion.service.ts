@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import 'rxjs/add/operator/catch';
 
-const calificacion ='/calificacion.json';
+const calificacion ='/calificaciones.json';
 const API_URL = "../../assets/";
 
 @Injectable({
