@@ -31,4 +31,18 @@ export class AdministradorService {
    getAdministradorDetail(administradorId): Observable<AdministradorDetail> {
     return this.http.get<AdministradorDetail>(environment.apiURL + administradores + '/' + administradorId);
 }
+
+  /**
+    * Crea un cliente en la base de datos mediante un POST al servidor.
+    * @param cliente El nuevo cliente a persistir.
+    * @returns Mensaje del POST
+    */
+   createAdministrador(administrador): Observable<Administrador> {
+    console.log(administrador.fechaInicio);
+    
+    administrador.fechaInicio = new Date (administrador.fechaInicio ); 
+    administrador.fechaNacimiento = new Date (administrador.fechaNacimiento ); 
+    console.log(administrador);
+   return this.http.post<Administrador>(environment.apiURL + administradores, administrador);
+ }
 }

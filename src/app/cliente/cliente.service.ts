@@ -29,5 +29,19 @@ export class ClienteService {
    getClienteDetail(clienteId): Observable<ClienteDetail> {
     return this.http.get<ClienteDetail>(environment.apiURL + clientes + '/' + clienteId);
 }
+
+  /**
+    * Crea un cliente en la base de datos mediante un POST al servidor.
+    * @param cliente El nuevo cliente a persistir.
+    * @returns Mensaje del POST
+    */
+   createCliente(cliente): Observable<Cliente> {
+     console.log(cliente.fechaNacimiento);
+     
+     cliente.fechaNacimiento = new Date (cliente.fechaNacimiento ); 
+     console.log(cliente);
+     console.log(cliente.fechaNacimiento);
+    return this.http.post<Cliente>(environment.apiURL + clientes, cliente);
+  }
 }
 

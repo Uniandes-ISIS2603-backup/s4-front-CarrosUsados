@@ -16,6 +16,17 @@ administradores: Administrador[];
 administrador_id:number;
 selectedAdministrador:Administrador;
 
+   /**
+  * Muestra o esconde el componente fichatecnica-create-component
+  */
+ showCreate: boolean;
+
+ showEdit:boolean;
+ /**
+   * Muestra o esconde el detalle de una a ficha tecnica
+   */
+  showView: boolean;
+ /**
     /**
     * Constructor para el componente
     * @param administradorService El proveedor del servicio administrador
@@ -28,7 +39,31 @@ selectedAdministrador:Administrador;
     this.getAdministradorDetail();
 
   }
-
+/**
+    * Muestra o esconde el componente de crear un cliente
+    * 
+    * */
+   showHideCreate(): void {
+    this.showView = false;
+    this.showCreate = !this.showCreate;
+  }
+/**
+      * Shows or hides the create component
+      */
+     showHideEdit(administrador_id: number): void {
+      if (!this.showEdit || (this.showEdit && administrador_id != this.selectedAdministrador.id)) {
+        this.showView = false;
+        this.showCreate = false;
+        this.showEdit = true;
+        this.administrador_id = administrador_id;
+        this.selectedAdministrador= new Administrador();
+        this.getAdministradorDetail();
+      }
+      else {
+        this.showEdit = false;
+        this.showView = true;
+      }
+    }
   /**
    * Le pregunta al servicio para actualizar los administradores
    */
