@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MarcaService } from './marca.service';
 import { MarcaCreateComponent } from './marca-create/marca-create.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -16,8 +17,8 @@ import { MarcaCreateComponent } from './marca-create/marca-create.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [MarcaListComponent, MarcaCreateComponent, MarcaCreateComponent],
-  exports: [MarcaListComponent],
+  declarations: [MarcaListComponent, MarcaCreateComponent, MarcaCreateComponent, FilterPipe],
+  exports: [MarcaListComponent, FilterPipe],
   providers: [MarcaService]
 })
 export class MarcaModule { }

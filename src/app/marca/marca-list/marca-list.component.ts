@@ -18,7 +18,7 @@ export class MarcaListComponent implements OnInit {
   marcas:Marca[];
   
   showCreate: boolean;
-
+  public searchString: string;
 
     edit_marca_id: number;
   

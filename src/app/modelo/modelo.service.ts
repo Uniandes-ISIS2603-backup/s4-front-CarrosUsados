@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 //const modelos = '/modelos.json';
 
 const API_URL = "http://localhost:8080/s4_CarrosUsados-api/api"
+const API_URL_M = "http://localhost:8080/s4_CarrosUsados-api/api/marcas/"
 //const marcas = '/marcas.json';
 const modelos = '/modelos';
 const automoviles = '/automoviles';
@@ -37,8 +38,8 @@ export class ModeloService {
         return this.http.get<Automovil[]>(API_URL + modelos + '/' + modeloId + automoviles);
     }
 
-    createModelo(modelo): Observable<boolean> {
-        return this.http.post<boolean>(API_URL + modelos, modelo);
+    createModelo(modelo, id_marca): Observable<boolean> {
+        return this.http.post<boolean>(API_URL_M + id_marca + modelos, modelo);
     }
 
     private handleError(error: any) {
