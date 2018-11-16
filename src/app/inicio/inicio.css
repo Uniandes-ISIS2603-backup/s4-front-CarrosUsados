@@ -2,3 +2,8 @@
     width: 100%;
     height: auto;
 }
+.rcorners1 {
+    border-radius: 25px;
+    background: white;
+    padding: 20px;   
+}

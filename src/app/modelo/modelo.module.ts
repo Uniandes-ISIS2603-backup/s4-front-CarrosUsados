@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModeloService } from './modelo.service';
 import { ModeloCreateComponent } from './modelo-create/modelo-create.component';
 import { ModeloDetailComponent } from './modelo-detail/modelo-detail.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -17,8 +18,8 @@ import { ModeloDetailComponent } from './modelo-detail/modelo-detail.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [ModeloListComponent, ModeloCreateComponent, ModeloDetailComponent],
-  exports: [ModeloListComponent],
+  declarations: [ModeloListComponent, ModeloCreateComponent, ModeloDetailComponent, FilterPipe],
+  exports: [ModeloListComponent, FilterPipe],
   providers: [ModeloService]
 })
 export class ModeloModule { }

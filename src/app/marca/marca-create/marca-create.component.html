@@ -1,6 +1,6 @@
 
 <div class="row">
-    <div style="margin-left: 7%; margin-right: 60%; width: 35%; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+    <div class="rcorners1 col-4" style="margin-left: 8%; width: 35%; height: 450px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
         
         <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear Marca</h1>
 <form name="marca" (ngSubmit)="f.form.valid && createMarca()" #f="ngForm" novalidate>
@@ -30,11 +30,12 @@
                 </div>
             </div>
       <div class="row form-inline justify-content-center align-self-center" style="align-content: center; margin-left: 40%; margin-right: 30%; width: 40%">
-          <button type="submit" class="btn btn-primary" style="width: 50%; font-family: 'Raleway', sans-serif ">Crear</button>
+          <button type="submit" class="btn" style="width: 50%; font-family: 'Raleway', sans-serif; background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); ">Crear</button>
                 <div class="divider"></div>
                 <button type="button" style="margin-top: 5px; width: 50%; font-family: 'Raleway', sans-serif" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
             </div>
         </form>
     </div>
+
 
 </div>

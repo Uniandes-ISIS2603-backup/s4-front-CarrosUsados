@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-
+import { Marca } from 'src/app/marca/marca'
 import { ModeloService } from '../modelo.service';
+import { MarcaService } from 'src/app/marca/marca.service';
 import { Modelo } from '../modelo';
 
 @Component({
@@ -12,9 +13,11 @@ import { Modelo } from '../modelo';
 export class ModeloCreateComponent implements OnInit {
 
   constructor(private modeloService: ModeloService,
+  private marcaService:MarcaService,
         private toastrService: ToastrService) { }
         
   modelo: Modelo;
+   marcas: Marca[];
  
   
   @Output() cancel = new EventEmitter();
@@ -22,11 +25,13 @@ export class ModeloCreateComponent implements OnInit {
   
   createModelo(): void {
         var modelo_create = {
+            nombre: this.modelo.nombre,
             num_puertas: this.modelo.num_puertas,
             transmision: this.modelo.transmision,
-            centimetros_cubicos: this.modelo.centimetros_cubicos
+            centimetros_cubicos: this.modelo.centimetros_cubicos,
+            id_marca: this.modelo.id_marca
         };
-        this.modeloService.createModelo(modelo_create)
+        this.modeloService.createModelo(modelo_create, this.modelo.id_marca)
             .subscribe(() => {
                 this.create.emit();
                 this.toastrService.success("The author was created", "Author creation");
@@ -39,8 +44,15 @@ export class ModeloCreateComponent implements OnInit {
         this.cancel.emit();
     }
     
+  getMarcas() {
+
+    this.marcaService.getMarcas()
+      .subscribe(marcas => this.marcas = marcas);
+  }
+    
   ngOnInit() {
       this.modelo = new Modelo();
+      this.getMarcas();
   }
 
 }
