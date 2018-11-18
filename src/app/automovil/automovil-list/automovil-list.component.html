@@ -9,8 +9,8 @@
         <br>
 
         <label >Seleccione un modelo:</label>
-        <select id = "34" >
-            <option  *ngFor = "let modelo of modelos" value="{{modelo.id}}">{{modelo.id}}</option>
+        <select id = "mySelect" [(ngModel)] = "modelo_id" (ngModelChange) = 'onModeloSelected($event)'>
+            <option  *ngFor = "let modelo of modelos" [value]="modelo.id">{{modelo.id}}</option>
         </select>
         <br>
         <div class="row">

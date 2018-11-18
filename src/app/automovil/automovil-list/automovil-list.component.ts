@@ -31,6 +31,7 @@ export class AutomovilListComponent implements OnInit {
 
   modelos: Modelo[];
 
+  modelo_id:any;
 
 
   /**
@@ -54,6 +55,11 @@ export class AutomovilListComponent implements OnInit {
     this.selectedAutomovil = new AutomovilDetail();
     this.getAutomovilDetail();
 
+  }
+
+  onModeloSelected(idModelo:any){
+    this.modelo_id = idModelo;
+    this.getAutomovilesOfModelo(idModelo);
   }
 
   /**
@@ -99,13 +105,13 @@ export class AutomovilListComponent implements OnInit {
   /**
    * Le pregunta al servicio para actualizar los automoviles
    */
-  getAutomovilesOfModelo(modeloId) {
+  getAutomovilesOfModelo(modeloId:any) {
     this.automovilService.getAutomovilesOfModelo(modeloId)
       .subscribe(automoviles => this.automoviles = automoviles);
   }
 
   getAutomovilDetail(): void {
-    this.automovilService.getAutomovilDetail(this.automovil_id)
+    this.automovilService.getAutomovilDetail(this.modelo_id,this.automovil_id)
       .subscribe(selectedAutomovil => {
         this.selectedAutomovil = selectedAutomovil;
       });
@@ -122,10 +128,8 @@ export class AutomovilListComponent implements OnInit {
 
     this.getModelos();
     
-    
-
-    var id = 1; 
-    this.getAutomovilesOfModelo(id);
+    this.modelo_id = -1;
+    //this.getAutomovilesOfModelo(this.modelo_id);
   }
 
 }
