@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 
 import { AutomovilService } from '../automovil.service';
 import { Automovil } from '../automovil';
+import { Modelo } from 'src/app/modelo/modelo';
+import { ModeloService } from 'src/app/modelo/modelo.service';
 
 @Component({
   selector: 'app-automovil-create',
@@ -13,6 +15,7 @@ export class AutomovilCreateComponent implements OnInit {
 
   constructor(
     private automovilService: AutomovilService,
+    private modeloService: ModeloService,
     private toastrService: ToastrService
   ) { }
   
@@ -20,6 +23,11 @@ export class AutomovilCreateComponent implements OnInit {
     * El nuevo Automovil
     */
    automovil: Automovil;
+
+
+   modelos: Modelo[];
+
+   modelo_id:any;
 
    /**
    * The output which tells the parent component
@@ -41,7 +49,8 @@ export class AutomovilCreateComponent implements OnInit {
 
     
     console.log(this.automovil);
-    this.automovilService.createAutomovil(this.automovil)
+    this.automovil.fechaAgregacion = new Date();
+    this.automovilService.createAutomovil(this.modelo_id,this.automovil)
       .subscribe((automovil) => {
         this.automovil = automovil;
         this.create.emit();
@@ -49,6 +58,16 @@ export class AutomovilCreateComponent implements OnInit {
 
       });
     return this.automovil;
+  }
+
+  getModelos() {
+
+    this.modeloService.getModelos()
+      .subscribe(modelos => this.modelos = modelos);
+  }
+
+  onModeloSelected(idModelo:any){
+    this.modelo_id = idModelo;
   }
 
   /**
@@ -60,7 +79,10 @@ export class AutomovilCreateComponent implements OnInit {
 }
 
   ngOnInit() {
+    this.getModelos();
+    this.modelo_id = -1;
     this.automovil = new Automovil();
+    this.automovil.fechaAgregacion = new Date();
   }
 
 }

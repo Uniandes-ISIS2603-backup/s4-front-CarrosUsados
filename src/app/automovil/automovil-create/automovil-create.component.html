@@ -4,6 +4,11 @@
         <br>
         <h2 class="text-center">Crear un automóvil</h2>
         <br>
+        <label>Seleccione un modelo:</label>
+        <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
+            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.id}}</option>
+        </select>
+        <br>
         <form name="automovil" (ngSubmit)="f.form.valid && createAutomovil()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="modeloAutomovil"><b>Modelo</b></label>
@@ -15,43 +20,43 @@
                     <div>No se ha llenado el campo del modelo</div>
                 </div>
                 -->
-                
+
             </div>
             <div class="form-group">
                 <label for="marcaAutomovil"><b>Marca</b></label>
                 <input type="text" name="marcaAutomovil" class="form-control" id="marcaAutomovil" [(ngModel)]="automovil.marca"
                     #marcaAutomovil="ngModel" [ngClass]="{ 'is-invalid': f.submitted && marcaAutomovil.invalid }"
                     required>
-                    <!--
+                <!--
                             <div class="invalid-feedback">
                     <div>No se ha llenado el campo de la marca del automovil</div>
                 </div>
                     -->
-                
+
             </div>
             <div class="form-group">
                 <label for="anioAutomovil"><b>Año</b></label>
                 <input type="text" name="anioAutomovil" class="form-control" id="anioAutomovil" [(ngModel)]="automovil.anio"
                     #anioAutomovil="ngModel" [ngClass]="{ 'is-invalid': f.submitted && anioAutomovil.invalid }"
                     required>
-                    <!--
+                <!--
                         <div class="invalid-feedback">
                     <div>No se ha llenado el campo del año del automovil</div>
                 </div>
                     -->
-                
+
             </div>
             <div class="form-group">
                 <label for="colorAutomovil"><b>Color</b></label>
                 <input type="text" name="colorAutomovil" class="form-control" id="colorAutomovil" [(ngModel)]="automovil.color"
                     #colorAutomovil="ngModel" [ngClass]="{ 'is-invalid': f.submitted && colorAutomovil.invalid }"
                     required>
-                    <!--
+                <!--
                         <div class="invalid-feedback">
                     <div>No se ha llenado el campo del color del automovil</div>
                 </div>
                     -->
-                
+
             </div>
             <div class="form-group">
                 <label for="numChasisAutomovil"><b>Numero de chasis</b></label>
@@ -59,12 +64,12 @@
                     #numChasisAutomovil="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numChasisAutomovil.invalid }"
                     required>
 
-                    <!--
+                <!--
                             <div class="invalid-feedback">
                     <div>No se ha llenado el campo del numero de chasis del automovil</div>
                 </div>
                     -->
-                
+
             </div>
             <div class="form-group">
                 <label for="placaAutomovil"><b>Placa</b></label>
@@ -87,7 +92,7 @@
                     <div>No se ha llenado el campo del precio original del automovil</div>
                 </div>
                 -->
-                
+
             </div>
             <div class="row form-inline justify-content-center align-self-center">
                 <div class="col-md-6">

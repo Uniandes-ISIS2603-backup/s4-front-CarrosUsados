@@ -23,21 +23,21 @@ export class AutomovilService {
    * El constructor del servicio
    * @param http Necesario para hacer peticiones
    */
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAutomoviles():Observable<Automovil[]>{
+  getAutomoviles(): Observable<Automovil[]> {
     return this.http.get<Automovil[]>(API_URL + automoviles);
   }
 
-  getAutomovilesOfModelo(modeloId:any): Observable<Automovil[]> {
+  getAutomovilesOfModelo(modeloId: any): Observable<Automovil[]> {
     return this.http.get<Automovil[]>(API_URL + modelos + '/' + modeloId + automoviles);
-}
+  }
 
   /**
     * Retorna el objeto observable del detalle de automovil del API
     * @returns Los detalles del automovil
     */
-   getAutomovilDetail(modeloId,automovilId): Observable<AutomovilDetail> {
+  getAutomovilDetail(modeloId, automovilId): Observable<AutomovilDetail> {
     return this.http.get<AutomovilDetail>(API_URL + modelos + '/' + modeloId + automoviles + '/' + automovilId);
   }
 
@@ -45,7 +45,7 @@ export class AutomovilService {
     * Retorna el objeto observable del detalle de automovil del API
     * @returns Los detalles del automovil
     */
-   getAutomovilDetailConModelo(modeloId, automovilId): Observable<AutomovilDetail> {
+  getAutomovilDetailConModelo(modeloId, automovilId): Observable<AutomovilDetail> {
     return this.http.get<AutomovilDetail>(API_URL + modelos + '/' + modeloId + automoviles + '/' + automovilId);
   }
 
@@ -54,8 +54,8 @@ export class AutomovilService {
     * @param automovil El nuevo automovil
     * @returns La confirmacion de que el automovil fue creado
     */
-   createAutomovil(automovil): Observable<Automovil> {
-    return this.http.post<Automovil>(API_URL + automoviles, automovil);
+  createAutomovil(modeloId,automovil): Observable<Automovil> {
+    return this.http.post<Automovil>(API_URL + modelos + '/'+ modeloId +automoviles, automovil);
   }
 
 }
