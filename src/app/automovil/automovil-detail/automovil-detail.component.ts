@@ -32,17 +32,6 @@ export class AutomovilDetailComponent implements OnInit {
   */
   automovil_id: number;
 
-
-  /**
-     * El metodo que obtiene el detalle del automovil que queremos mostrar
-     */
-  getAutomovilDetail(): void {
-    this.automovilService.getAutomovilDetail(this.automovil_id)
-      .subscribe(automovilDetail => {
-        this.automovilDetail = automovilDetail
-      });
-  }
-
   /**
      * El metodo que obtiene el detalle del automovil que queremos mostrar
      */
