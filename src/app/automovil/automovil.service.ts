@@ -29,7 +29,7 @@ export class AutomovilService {
     return this.http.get<Automovil[]>(API_URL + automoviles);
   }
 
-  getAutomovilesOfModelo(modeloId): Observable<Automovil[]> {
+  getAutomovilesOfModelo(modeloId:any): Observable<Automovil[]> {
     return this.http.get<Automovil[]>(API_URL + modelos + '/' + modeloId + automoviles);
 }
 
@@ -37,8 +37,8 @@ export class AutomovilService {
     * Retorna el objeto observable del detalle de automovil del API
     * @returns Los detalles del automovil
     */
-   getAutomovilDetail(automovilId): Observable<AutomovilDetail> {
-    return this.http.get<AutomovilDetail>(API_URL + automoviles + '/' + automovilId);
+   getAutomovilDetail(modeloId,automovilId): Observable<AutomovilDetail> {
+    return this.http.get<AutomovilDetail>(API_URL + modelos + '/' + modeloId + automoviles + '/' + automovilId);
   }
 
   /**

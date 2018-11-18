@@ -46,12 +46,12 @@ export class AutomovilDetailComponent implements OnInit {
   /**
      * El metodo que obtiene el detalle del automovil que queremos mostrar
      */
-    getAutomovilDetailConModelo(modeloId): void {
-      this.automovilService.getAutomovilDetailConModelo(modeloId,this.automovil_id)
-        .subscribe(automovilDetail => {
-          this.automovilDetail = automovilDetail
-        });
-    }
+  getAutomovilDetailConModelo(modeloId): void {
+    this.automovilService.getAutomovilDetailConModelo(modeloId, this.automovil_id)
+      .subscribe(automovilDetail => {
+        this.automovilDetail = automovilDetail
+      });
+  }
 
   ngOnInit() {
     this.automovil_id = +this.route.snapshot.paramMap.get('id');
