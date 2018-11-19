@@ -5,8 +5,8 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import 'rxjs/add/operator/catch';
 
-const calificacion ='/calificaciones.json';
-const API_URL = "../../assets/";
+const calificacion ='/calificaciones';
+const API_URL = "http://localhost:8000/s4_CarrosUsados-api/api";
 
 @Injectable({
   providedIn: 'root'

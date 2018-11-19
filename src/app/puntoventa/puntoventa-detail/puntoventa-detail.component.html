@@ -1,23 +1,32 @@
 <div class="panel-body">
   <div class="border margin">
-      <p class="h3 p-3">Punto de venta: {{puntoventaDetail.id}}<p> 
-      <div class="row">
+      <p class="h3 p-3" style="color:white ;font-family:'Raleway', sans-serif;">Punto de venta: {{puntoventaDetail.id}}<p> 
+      
           <div class="col">
-              <dl>     
-                  <dt>Ciudad</dt>
-                  <dd>{{puntoventaDetail.ciudad}}</dd>
-                  <dt>Ubicación</dt>
-                  <dd>{{puntoventaDetail.ubicacion}}</dd>
-                  <dt>Latitud</dt>
-                  <dd>{{puntoventaDetail.latitud}}</dd>
-                  <dt>Longitud</dt>
-                  <dd>{{puntoventaDetail.longitud}}</dd>
-                  <dt>Numero de vendedores</dt>
-                  <dd>{{puntoventaDetail.numeroVendedores}}</dd>
-                 
+              
+            <table class="table table-hovered table-bordered">
+              <thead  class = "thead-dark"  style="background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); "> 
+             <tr>
+                  <th style="font-family: 'Raleway', sans-serif;color: white">Ciudad</th>
+                  <th style="font-family: 'Raleway', sans-serif;color: white">Ubicación</th>
+                  <th style="font-family: 'Raleway', sans-serif;color: white">Latitud</th>
+                  <th style="font-family: 'Raleway', sans-serif;color: white">Longitud</th>
+                  <th style="font-family: 'Raleway', sans-serif;color: white">Número de vendedores</th>
+                  </tr>
                   
-              </dl>
-          </div>
+            </thead>
+            <tbody>
+                <tr>
+            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ciudad}}</td>
+            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ubicacion}}</td>
+            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.latitud}}</td>
+            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.longitud}}</td>
+            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.numeroVendedores}}</td>
+                  
+                </tr>
+        </tbody> 
+            </table>
+          
 
       </div>
   </div>

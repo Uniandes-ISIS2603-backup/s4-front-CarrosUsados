@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 
-const puntos ='/puntoVenta.json';
-const API_URL = "../../assets/";
+const puntos ='/puntos';
+const API_URL = "http://localhost:8080/s4_CarrosUsados-api/api";
 @Injectable({
   providedIn: 'root'
 })
@@ -31,9 +31,9 @@ export class PuntoventaService {
     return this.http.get<Puntoventa>(API_URL +puntos+"/"+puntoId);
   }
 
-  createPunto(puntoId): Observable<Puntoventa>
+  createPunto(punto): Observable<Puntoventa>
   {
-    return this.http.post<Puntoventa>(API_URL + puntos + '/' + puntoId, { headers: this.headers });
+    return this.http.post<Puntoventa>(API_URL + puntos, punto);
   }
 
  

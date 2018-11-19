@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Fichatecnica } from './fichatecnica'
 import { FichatecnicaDetail } from './fichatecnica-detail';
-
+import {environment} from 'src/environments/environment'
 
 
 
@@ -31,7 +31,7 @@ export class FichatecnicaService {
     * @returns La lista de fichas tecnicas en tiempo real
     */
   getFichasTecnicas(): Observable<Fichatecnica[]> {
-    return this.http.get<Fichatecnica[]>(API_URL + fichastecnicas);
+    return this.http.get<Fichatecnica[]>(environment.apiURL + fichastecnicas);
   }
 
 
@@ -40,7 +40,7 @@ export class FichatecnicaService {
     * @returns Los detalles del autor
     */
   getFichaTecnicaDetail(fichaTecnicaId): Observable<FichatecnicaDetail> {
-    return this.http.get<FichatecnicaDetail>(API_URL + fichastecnicas + '/' + fichaTecnicaId);
+    return this.http.get<FichatecnicaDetail>(environment.apiURL + fichastecnicas + '/' + fichaTecnicaId);
   }
 
 
@@ -50,7 +50,7 @@ export class FichatecnicaService {
     * @returns The confirmation that the author was created
     */
   createFichaTecnica(fichatecnica): Observable<Fichatecnica> {
-    return this.http.post<Fichatecnica>(API_URL + fichastecnicas, fichatecnica);
+    return this.http.post<Fichatecnica>(environment.apiURL + fichastecnicas, fichatecnica);
   }
 
 }

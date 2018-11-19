@@ -33,21 +33,15 @@ export class PuntoventaCreateComponent implements OnInit {
    /**
     * Crea punto
     */
-   createPunto(): void {
-    var punto_create = {
-        ciudad: this.puntoventa.ciudad,
-        ubicacion: this.puntoventa.ubicacion,
-        latitud: this.puntoventa.latitud,
-        longitud: this.puntoventa.longitud,
-        numeroVendedores: this.puntoventa.numeroVendedores
-    };
-    this.puntoventaService.createPunto(punto_create)
-        .subscribe(() => {
+   createPunto(): Puntoventa {
+ 
+    this.puntoventaService.createPunto(this.puntoventa)
+        .subscribe((puntoventa) => {
+            this.puntoventa= puntoventa;
             this.create.emit();
             this.toastrService.success("El punto de venta fue creado", "Creación de punto de venta");
-        }, err => {
-            this.toastrService.error(err, "Error");
-        });
+        }) ;
+    return this.puntoventa;
 }
 
 /**
