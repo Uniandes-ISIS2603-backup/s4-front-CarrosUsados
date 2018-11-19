@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import 'rxjs/add/operator/catch';
 
 const calificacion ='/calificaciones';
-const API_URL = "http://localhost:8000/s4_CarrosUsados-api/api";
+const API_URL = "http://localhost:8080/s4_CarrosUsados-api/api";
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +34,9 @@ export class CalificacionService {
     return this.http.get<Calificacion>(API_URL +calificacion+"/"+calificacionId);
   }
 
-  createCalificacion(calificacionId): Observable<Calificacion>
+  createCalificacion(calificacion): Observable<Calificacion>
   {
-    return this.http.post<Calificacion>(API_URL + calificacion + '/' + calificacionId, { headers: this.headers });
+    return this.http.post<Calificacion>(API_URL + calificacion,calificacion);
   }
 
 }

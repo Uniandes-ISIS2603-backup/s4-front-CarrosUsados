@@ -15,14 +15,7 @@
        
         <br>
     </div>
-    <div class="row">
-    <tr>
-    (click)="onSelected(calificacion.id)">
-     <td style="cursor: pointer;"> 
-         <dd>{{calificacion.numeroEstrellas}}</dd>
-     </td>
-</tr>
-    </div>
+   
     <div class="row">
     <div class="col-md-7">
  
@@ -36,7 +29,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor = "let calificacion of calificaciones">
+              <tr *ngFor = "let calificacion of calificaciones" style="cursor: pointer;" (click)="onSelected(calificacion.id)">
                   <td>{{calificacion.id}}</td>
                   <td>{{calificacion.numeroEstrellas}}</td>
                   <td>{{calificacion.comentario}}</td>

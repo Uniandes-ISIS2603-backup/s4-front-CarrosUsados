@@ -7,11 +7,11 @@
       <form name="calificacion" (ngSubmit)="f.form.valid && createCalificacion()" #f="ngForm" novalidate>
         
         <div class="form-group">
-              <label for="calificacionNumeroestrellas"><b>Numero de Estrellas</b></label>
+              <label for="calificacionNumeroestrellas"><b>Número de Estrellas</b></label>
               <input type="text" name="calificacionNumeroestrellas" class="form-control" id="calificacionNumeroestrellas" [(ngModel)]="calificacion.Numeroestrellas"
                   #calificacionNumeroestrellas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && calificacionNumeroestrellas.invalid }" required>
               <div class="invalid-feedback">
-                  <div>Se requiere un número de estrellas.</div>
+                  <!-- <div>Se requiere un número de estrellas.</div> -->
               </div>
           </div>
 
@@ -21,7 +21,7 @@
                   #calificacionComentario="ngModel" [ngClass]="{'is-invalid': f.submitted &&  calificacionComentario.invalid }"
                       required>
                   <div class="invalid-feedback">
-                      <div>Se requiere  un comentario.</div>
+                      <!-- <div>Se requiere  un comentario.</div> -->
                   </div>
               </div>
           
