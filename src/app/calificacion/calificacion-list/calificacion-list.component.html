@@ -12,7 +12,16 @@
                 (click)="showHideCreate()">Crear una calificacion</button>
         </div>
         <br>
+       
         <br>
+    </div>
+    <div class="row">
+    <tr>
+    (click)="onSelected(calificacion.id)">
+     <td style="cursor: pointer;"> 
+         <dd>{{calificacion.numeroEstrellas}}</dd>
+     </td>
+</tr>
     </div>
     <div class="row">
     <div class="col-md-7">

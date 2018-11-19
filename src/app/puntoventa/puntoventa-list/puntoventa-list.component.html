@@ -1,15 +1,32 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="../src/bootstrap-table-filter.js"></script>
+</head>
+
+<div style="background-color: black; z-index: 0">
+    <img class="responsive" src="../assets/images/genericBack52.jpg" alt="head"
+         style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
+</div>
+
+<div style="width: 100%; height: 100%; background-color: black"></div>
+  
+
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
 
 <div style="align-content: center; width: 100%">
-    <h1 style="text-align: center;font-family:'Raleway', sans-serif;">Puntos de venta</h1> 
+    <h1 style="text-align: center;font-family:'Raleway', sans-serif;color: white">Puntos de venta</h1> 
 </div>
 
 <div class="row">
         <br>
         <div class="justify-content-center align-self-center">
             <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear un punto de venta</button>
+                (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
         </div>
 
         <br>
@@ -18,32 +35,34 @@
     <div class="row">
     <div class="col-md-7">
     
-        <table class="table table-bordered table-hover">
-            <thead class = "thead-dark">
+        <table class="table table-bordered table-hover" style="width: 90%; margin-left: 5%; margin-top: 1%; 
+        margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: white">
+            <thead class = "thead-dark"  style="background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); ">
                 <tr>
-                    <th>ID</th>
-                    <th>Ciudad</th>
-                    <th>Ubicacion</th>
-                    <th>Latitud</th>   
-                    <th>Longitud</th> 
-                    <th>Numero Vendedores</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Ciudad</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Ubicacion</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Latitud</th>   
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Longitud</th> 
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Número de vendedores</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let puntos of puntosVenta">
-                    <td>{{puntos.id}}</td>
-                    <td>{{puntos.ciudad}}</td>
-                    <td>{{puntos.ubicacion}}</td>
-                    <td>{{puntos.latitud}}</td>
-                    <td>{{puntos.longitud}}</td>
-                    <td>{{puntos.numeroVendedores}}</td>
+                <tr *ngFor = "let puntos of puntosVenta" style="cursor: pointer;" (click)="onSelected(puntos.id)" >
+                    <td style="font-family: 'Raleway', sans-serif;" id="punto-id" class="figure-caption">{{puntos.id}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.ciudad}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.ubicacion}}</td>
+                    <td  style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.latitud}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.longitud}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.numeroVendedores}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-6" style="width: 90%; margin-left: 7%; margin-right: 5%; align-content: flex-end">
         <div *ngIf="showView">
             <app-puntoventa-detail [puntoventaDetail]="selectedPuntoventa"></app-puntoventa-detail>
         </div>
