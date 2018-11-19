@@ -35,17 +35,12 @@ export class CalificacionCreateComponent implements OnInit {
     * Crea punto
     */
    createCalificacion(): void {
-    var calificacion_create = {
-        numeroEstrellas: this.calificacion.numeroEstrellas,
-        comentario: this.calificacion.comentario,
-        
-    };
-    this.calificacionService.createCalificacion(calificacion_create)
-        .subscribe(() => {
+   
+    this.calificacionService.createCalificacion(this.calificacion)
+        .subscribe((calificacion) => {
+            this.calificacion= calificacion;
             this.create.emit();
             this.toastrService.success("La calificación fue creada", "Creación de calilficación");
-        }, err => {
-            this.toastrService.error(err, "Error");
         });
 }
 
