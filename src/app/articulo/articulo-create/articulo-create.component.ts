@@ -3,6 +3,8 @@ import { DatePipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { Articulo } from '../articulo'
 import { ArticuloService } from '../articulo.service';
+import {AutomovilService} from '../../automovil/automovil.service';
+import {AutomovilDetail} from '../../automovil/automovil-detail';
 
 @Component({
   selector: 'app-articulo-create',
@@ -13,12 +15,13 @@ import { ArticuloService } from '../articulo.service';
 export class ArticuloCreateComponent implements OnInit {
 
   articulo:Articulo;
+  automovil:AutomovilDetail;
   
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
-  constructor(private dp : DatePipe,
-        private articuloService:ArticuloService,
+  constructor(private articuloService:ArticuloService,
+        private automovilService:AutomovilService,
         private toastrService: ToastrService) { }
   
   ngOnInit() {
@@ -27,13 +30,20 @@ export class ArticuloCreateComponent implements OnInit {
 
   createArticulo(): Articulo {
        
-        this.articuloService.createArticulo(this.articulo)
-            .subscribe((articulo) => {
-                this.articulo = articulo;
-                this.create.emit();
-                this.toastrService.success("El articulo fue creado", "Creación Articulo");                
-            });
-            return this.articulo;
+        console.log(this.articulo);
+      this.automovilService.getAutomovilDetail(this.articulo.idMod, this.articulo.idAuto)
+      .subscribe((automovil) => {
+          this.automovil = automovil;
+      });
+      this.articulo.automovil=this.automovil;
+    this.articuloService.createArticulo(this.articulo)
+      .subscribe((articulo) => {
+        this.articulo = articulo;
+        this.create.emit();
+        this.toastrService.success("El articulo fue creado", "Creación del articulo");
+
+      });
+    return this.articulo;
   }
   
   cancelCreation(): void {
