@@ -17,6 +17,7 @@ import {AdministradorModule} from './administrador/administrador.module';
 import { AppRoutingModule } from './routing-module/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
@@ -34,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MarcaModule,
     ArticuloModule,
+    ModalDialogModule.forRoot(),
     AutomovilModule,
     FichatecnicaModule,
     PuntoventaModule,
@@ -41,7 +43,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ClienteModule,
     ModeloModule,
     FormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+  }),
     IngresarModule,
     InicioModule,
     RegistroModule,

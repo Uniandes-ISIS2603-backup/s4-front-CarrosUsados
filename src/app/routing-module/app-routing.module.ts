@@ -64,12 +64,13 @@ const routes: Routes = [
           {
             path: ':id/edit',
             component: PuntoventaEditComponent,
-            canActivate: [NgxPermissionsGuard],
-            data: {
-                permissions: {
-                    only: ['ADMIN']
-                }
-          }}
+         
+          },
+          {
+            path: ':id/delete',
+            component: PuntoventaEditComponent,
+          
+          }
       ]
   },
   {

@@ -1,14 +1,17 @@
 <div class="row">
+
+        <div class="rcorners1 col-2" style="margin-left: 8%; width: 55%; height: 550px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+ 
   <div class="col-3"></div>
   <div class="col-6">
       <br>
-      <h2 class="text-center">Crear una calificacion</h2>
+      <h2 class="text-center" style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear una calificacion</h2>
       <br>
       <form name="calificacion" (ngSubmit)="f.form.valid && createCalificacion()" #f="ngForm" novalidate>
         
         <div class="form-group">
-              <label for="calificacionNumeroestrellas"><b>Número de Estrellas</b></label>
-              <input type="text" name="calificacionNumeroestrellas" class="form-control" id="calificacionNumeroestrellas" [(ngModel)]="calificacion.Numeroestrellas"
+              <label for="calificacionNumeroestrellas" style="font-family: 'Raleway', sans-serif "><b>Número de Estrellas</b></label>
+              <input type="number" name="calificacionNumeroestrellas" class="form-control" id="calificacionNumeroestrellas" [(ngModel)]="calificacion.numEstrellas"
                   #calificacionNumeroestrellas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && calificacionNumeroestrellas.invalid }" required>
               <div class="invalid-feedback">
                   <!-- <div>Se requiere un número de estrellas.</div> -->
@@ -16,7 +19,7 @@
           </div>
 
           <div class="form-group">
-              <label for="calificacionComentario"><b>Comentario</b></label>
+              <label for="calificacionComentario" style="font-family: 'Raleway', sans-serif "><b>Comentario</b></label>
                   <input  type="text" class="form-control" id="calificacionComentario" name="calificacionComentario" [(ngModel)]="calificacion.Comentario"
                   #calificacionComentario="ngModel" [ngClass]="{'is-invalid': f.submitted &&  calificacionComentario.invalid }"
                       required>
@@ -35,4 +38,5 @@
     </div>
     
   <div class="col-3"></div>
+        </div>
 </div>

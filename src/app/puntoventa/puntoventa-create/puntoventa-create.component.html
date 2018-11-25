@@ -50,7 +50,7 @@
 
           <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
             <label for="puntoventaNumeroVendedores"  style="font-family: 'Raleway', sans-serif "><b>Número de vendedores</b></label>
-            <input  type ="number" name="puntoventaNumeroVendedores" class="form-control" id="puntoventaNumeroVendedores" [(ngModel)]="puntoventa.numeroVendedores"
+            <input  type ="number" min="0"name="puntoventaNumeroVendedores" class="form-control" id="puntoventaNumeroVendedores" [(ngModel)]="puntoventa.numVendedores"
                 #puntoventaNumeroVendedores="ngModel" [ngClass]=" { 'is-invalid': f.submitted && puntoventaNumeroVendedores.invalid }" required>
 
                 <div class="invalid-feedback">

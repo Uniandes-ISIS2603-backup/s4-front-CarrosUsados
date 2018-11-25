@@ -42,7 +42,7 @@
 
         <div class="form-group">
             <label for="correo"><b>Correo electrónico</b></label>
-            <input type="text" name="correo" class="form-control" id="correo" [(ngModel)]="cliente.correo"
+            <input type="email" name="correo" class="form-control" id="correo" [(ngModel)]="cliente.correo"
                 #correo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && correo.invalid }"  required>
               
 
@@ -50,8 +50,10 @@
 
         <div class="form-group">
             <label for="contrasena"><b>Contraseña</b></label>
+   
             <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="cliente.contrasena"
-                #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" required>
+                #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$" title="La contraseña debe tener mínimo: un número, un símbolo, una mayúscula y una minúscula. Su longitud debe ser superior a 8 caracteres" required>
+                <password-strength-meter [password]=cliente.contrasena [enableFeedback]=false ></password-strength-meter>
             <!--
                 <div class="invalid-feedback">
                 <div>Los vidrios de la ficha técnica estan faltando</div>
@@ -95,7 +97,7 @@
 
       <div class="row form-inline justify-content-center align-self-center">
           <div class="col-md-6">
-              <button type="submit" class="btn btn-primary " (click) = "createCliente()" >Create</button>
+              <button type="submit" class="btn btn-primary " >Create</button>
           </div>
           <div class="col-md-6">
 

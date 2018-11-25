@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClienteService } from './cliente.service';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
+import { PasswordStrengthMeterModule } from 'angular-password-strength-meter';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ClienteCreateComponent } from './cliente-create/cliente-create.componen
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    PasswordStrengthMeterModule
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],
   exports: [ClienteListComponent],

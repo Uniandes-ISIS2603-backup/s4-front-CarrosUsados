@@ -21,18 +21,21 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
+    "angular-password-strength-meter": "0.0.4",
     "angular-popper": "^2.0.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
     "datepicker": "0.0.0",
     "jquery": "^1.9.1",
+    "ng2-password-strength-bar": "^1.2.2",
     "ngx-bootstrap": "^3.0.1",
     "ngx-modal-dialog": "^3.0.0",
     "ngx-permissions": "^6.0.4",
     "ngx-toastr": "^9.1.1",
     "popper.js": "^1.14.5",
     "rxjs": "^6.0.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.7.5",

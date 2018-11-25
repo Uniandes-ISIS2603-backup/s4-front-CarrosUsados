@@ -38,11 +38,8 @@ export class AdministradorService {
     * @returns Mensaje del POST
     */
    createAdministrador(administrador): Observable<Administrador> {
-    console.log(administrador.fechaInicio);
-    
     administrador.fechaInicio = new Date (administrador.fechaInicio ); 
     administrador.fechaNacimiento = new Date (administrador.fechaNacimiento ); 
-    console.log(administrador);
    return this.http.post<Administrador>(environment.apiURL + administradores, administrador);
  }
 }

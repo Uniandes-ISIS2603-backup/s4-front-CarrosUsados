@@ -16,6 +16,7 @@ export class PuntoventaEditComponent implements OnInit, OnChanges {
   @Output() cancel= new EventEmitter();
   @Output() update= new EventEmitter();
 
+
   ngOnChanges(){this.ngOnInit();} 
   
 
@@ -24,16 +25,25 @@ export class PuntoventaEditComponent implements OnInit, OnChanges {
   editPunto(): void{
     this.puntoventaService.editPunto(this.puntoventa)
     .subscribe(() => {
+
+      this.update.emit();
         this.toastrService.success("La información del punto de venta ha sido actualizada.", "Edición de punto");
     });
-this.update.emit();
   }
 
-  cancelEdit()
+  getPunto(): void {
+    this.puntoventaService.getPuntoventaDetail(this.puntoventa.id)
+        .subscribe(puntoventa => {
+            this.puntoventa = puntoventa;
+        });
+}
+  cancelEdition()
   {
     this.cancel.emit();
   }
   ngOnInit() {
+    this.puntoventa= new PuntoventaDetail();
+    this.getPunto();
   }
 
 }

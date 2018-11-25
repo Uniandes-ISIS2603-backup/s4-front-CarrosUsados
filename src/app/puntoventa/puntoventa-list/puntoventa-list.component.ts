@@ -59,19 +59,24 @@ export class PuntoventaListComponent implements OnInit {
   /**
       * Shows or hides the create component
       */
-  showHideEdit(Puntoventa_id: number): void {
-    if (!this.showEdit || (this.showEdit && this.puntoventa_id != this.selectedPuntoventa.id)) {
+  showHideEdit(puntoventa_id: number): void {
+    if (!this.showEdit || (this.showEdit && puntoventa_id != this.selectedPuntoventa.id)) {
       this.showView = false;
       this.showCreate = false;
       this.showEdit = true;
-      this.puntoventa_id = Puntoventa_id;
+      this.puntoventa_id = puntoventa_id;
       this.selectedPuntoventa= new PuntoventaDetail();
       this.getPuntoventaDetail();
     }
     else {
       this.showEdit = false;
-      this.showView = true;
+    
     }}
+
+    updatePunto(): void {
+      this.showEdit= false;
+      this.showView= true;
+    }
 
     /*obtiene todos los puntos de venta*/
   getPuntosventa(){
@@ -90,27 +95,15 @@ export class PuntoventaListComponent implements OnInit {
 
   /**elimina un punto de venta */
   deletePunto(puntoId): void {
-    this.modalDialogService.openDialog(this.viewRef, {
-        title: 'Borrar un punto',
-        childComponent: SimpleModalComponent,
-        data: {text: '¿Estás seguro de eliminar este punto de venta?'},
-        actionButtons: [
-            {
-                text: 'Sí',
-                buttonClass: 'btn btn-danger',
-                onAction: () => {
+     
                     this.puntoVentaService.deletePunto(puntoId).subscribe(() => {
                         this.toastrService.error("El punto de venta fue eliminado correctamente.", "Punto eliminado.");
                         this.ngOnInit();
                     }, err => {
                         this.toastrService.error(err, "Error");
                     });
-                    return true;
-                }
-            },
-            {text: 'No', onAction: () => true}
-        ]
-    });
+                   // return true;
+       
 }
 
 

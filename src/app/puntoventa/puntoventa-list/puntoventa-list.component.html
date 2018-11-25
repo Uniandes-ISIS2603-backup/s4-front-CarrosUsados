@@ -55,15 +55,15 @@
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-ubicacion" class="figure-caption">{{puntos.ubicacion}}</td>
                     <td  style="font-family: 'Raleway', sans-serif;" id="punto-latitud" class="figure-caption">{{puntos.latitud}}</td>
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-longitud" class="figure-caption">{{puntos.longitud}}</td>
-                    <td style="font-family: 'Raleway', sans-serif;" id="punto-numeroVendedores" class="figure-caption">{{puntos.numeroVendedores}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="punto-numeroVendedores" class="figure-caption">{{puntos.numVendedores}}</td>
               
               
-                    <!-- <td *ngxPermissionsOnly="['ADMIN']">
-                        <button class="btn btn-primary" (click)="showHideEdit(punto.id)"><span class="fa fa-pencil"></span></button>
+                    <td  >
+                        <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="fa fa-pencil">Editar</span></button>
                     </td>
-                    <td *ngxPermissionsOnly="['ADMIN']">
-                        <button class="btn btn-danger" (click)="deletePunto(punto.id)"><span class="fa fa-trash"></span></button>
-                    </td> -->
+                    <td  >
+                        <button class="btn btn-danger" (click)="deletePunto(puntos.id)"><span class="fa fa-trash">Eliminar</span></button>
+                    </td>
                 </tr>
             </tbody>
         </table>

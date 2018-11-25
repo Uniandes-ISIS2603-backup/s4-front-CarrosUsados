@@ -6,7 +6,7 @@
         <br>
         <h2 class="text-center" style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Editar un punto de venta</h2>
         <br>
-        <form name="puntoventa" (ngSubmit)="f.form.valid && createPunto()" #f="ngForm" novalidate>
+        <form name="puntoventa" (ngSubmit)="f.form.valid && editPunto()" #f="ngForm" novalidate>
           
           <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
                 <label for="puntoventaCiudad"  style="font-family: 'Raleway', sans-serif "><b>Ciudad</b></label>
@@ -50,16 +50,23 @@
   
             <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
               <label for="puntoventaNumeroVendedores"  style="font-family: 'Raleway', sans-serif "><b>Número de vendedores</b></label>
-              <input  type ="text" name="puntoventaNumeroVendedores" class="form-control" id="puntoventaNumeroVendedores" [(ngModel)]="puntoventa.numeroVendedores"
+              <input  type ="number" name="puntoventaNumeroVendedores" class="form-control" id="puntoventaNumeroVendedores" [(ngModel)]="puntoventa.numVendedores"
                   #puntoventaNumeroVendedores="ngModel" [ngClass]=" { 'is-invalid': f.submitted && puntoventaNumeroVendedores.invalid }" required>
   
                   <div class="invalid-feedback">
                   <!-- <div>Debe seleccionar el numero de vendedores</div> -->
               </div>
           </div>
-          </form>
-          </div>
-          </div>
-          </div>
+          
+        </form>
+    </div>
+</div>
+
+</div>
+          <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <div class="divider"></div>
+            <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+        </div>
           
     
