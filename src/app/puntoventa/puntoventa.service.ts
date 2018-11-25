@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Puntoventa} from './puntoventa';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PuntoventaDetail } from './puntoventa-detail';
 //import 'rxjs/add/operator/catch';
 
 
@@ -27,14 +28,23 @@ export class PuntoventaService {
       return this.http.get<Puntoventa[]>(API_URL+ puntos);
   }
 
-  getPuntoventaDetail(puntoId){
-    return this.http.get<Puntoventa>(API_URL +puntos+"/"+puntoId);
+  getPuntoventaDetail(puntoId): Observable<PuntoventaDetail>{
+    return this.http.get<PuntoventaDetail>(API_URL +puntos+"/"+puntoId);
   }
 
   createPunto(punto): Observable<Puntoventa>
   {
     return this.http.post<Puntoventa>(API_URL + puntos, punto);
   }
+
+  editPunto(punto): Observable<PuntoventaDetail>
+  {
+    return this.http.put<PuntoventaDetail>(API_URL+puntos+"/"+punto.id,punto);
+  }
+
+  deletePunto(puntoId): Observable<boolean> {
+    return this.http.delete<boolean>(API_URL + puntos + '/' + puntoId);
+}
 
  
 }

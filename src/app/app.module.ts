@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { AppComponent } from './app.component';
 import { InicioModule} from './inicio/inicio.module';
 import { RegistroModule } from './registro/registro.module';
@@ -44,7 +45,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IngresarModule,
     InicioModule,
     RegistroModule,
-    AdministradorModule
+    AdministradorModule,
+    NgxPermissionsModule.forRoot()
   ],
   providers: [
     {

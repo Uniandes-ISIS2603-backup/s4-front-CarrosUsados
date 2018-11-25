@@ -49,9 +49,9 @@
    
 
           <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
-            <label for="numeroVendedores"  style="font-family: 'Raleway', sans-serif "><b>Número de vendedores</b></label>
-            <input  type ="text" name="numeroVendedores" class="form-control" id="numeroVendedores" [(ngModel)]="puntoventa.numeroVendedores"
-                #numeroVendedores="ngModel" [ngClass]=" { 'is-invalid': f.submitted && numeroVendedores.invalid }" required>
+            <label for="puntoventaNumeroVendedores"  style="font-family: 'Raleway', sans-serif "><b>Número de vendedores</b></label>
+            <input  type ="number" name="puntoventaNumeroVendedores" class="form-control" id="puntoventaNumeroVendedores" [(ngModel)]="puntoventa.numeroVendedores"
+                #puntoventaNumeroVendedores="ngModel" [ngClass]=" { 'is-invalid': f.submitted && puntoventaNumeroVendedores.invalid }" required>
 
                 <div class="invalid-feedback">
                 <!-- <div>Debe seleccionar el numero de vendedores</div> -->
