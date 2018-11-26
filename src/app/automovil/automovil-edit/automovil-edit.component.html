@@ -6,18 +6,7 @@
       <br>
       
       <form name="automovil" (ngSubmit)="f.form.valid && createAutomovil()" #f="ngForm" novalidate>
-          <div class="form-group">
-              <label for="modeloAutomovil"><b>Modelo</b></label>
-              <input type="text" name="modeloAutomovil" class="form-control" id="modeloAutomovil" [(ngModel)]="automovil.modelo"
-                  #modeloAutomovil="ngModel" [ngClass]="{ 'is-invalid': f.submitted && modeloAutomovil.invalid }"
-                  required>
-              <!--
-                  <div class="invalid-feedback">
-                  <div>No se ha llenado el campo del modelo</div>
-              </div>
-              -->
-
-          </div>
+          
           <div class="form-group">
               <label for="marcaAutomovil"><b>Marca</b></label>
               <input type="text" name="marcaAutomovil" class="form-control" id="marcaAutomovil" [(ngModel)]="automovil.marca"

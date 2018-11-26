@@ -9,7 +9,7 @@ export class Automovil{
      * El modelo del automovil
      */
 
-    modelo:string;
+    //modelo:string;
     /**
      * La marca del automóvil
      */
