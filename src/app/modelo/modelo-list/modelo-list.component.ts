@@ -49,28 +49,13 @@ export class ModeloListComponent implements OnInit {
     }
 
         deleteModelo(modeloId): void {
-        this.modalDialogService.openDialog(this.viewRef, {
-            title: 'Eliminar un Modelo',
-            childComponent: SimpleModalComponent,
-            data: { text: 'Esta seguro de eliminar esta Marca y todos sus Automoviles de Tu Nave?' },
-            actionButtons: [
-                {
-                    text: 'Yes',
-                    buttonClass: 'btn btn-danger',
-                    onAction: () => {
-                        this.modeloService.deleteModelo(modeloId).subscribe(automoviles => {
-                            this.toastrService.error("La marca y todos sus modelos fueron eliminados", "Marca deleted");
-                            this.ngOnInit();
-                        }, err => {
-                            //this.toastrService.error(err, "Error");
-                        });
-                        return true;
-                    }
-                },
-                { text: 'No', onAction: () => true }
-            ]
-        });
-        }
+    this.modeloService.deleteModelo(modeloId).subscribe(() => {
+      this.toastrService.success("El Modelo fue eliminado correctamente.", "Modelo eliminado.");
+      this.ngOnInit();
+    }, err => {
+      this.toastrService.error(err, "Error");
+    });
+    }
         
         
   getMarcas() {

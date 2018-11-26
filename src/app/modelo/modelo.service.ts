@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 
@@ -30,7 +31,7 @@ export class ModeloService {
         return this.http.get<Modelo[]>(API_URL + modelos);
     }
 
-    getModelo(modeloId): Observable<Modelo> {
+      getModelo(modeloId): Observable<Modelo> {
         return this.http.get<Modelo>(API_URL + modelos + '/' + modeloId);
     }
 
@@ -38,15 +39,15 @@ export class ModeloService {
         return this.http.get<Automovil[]>(API_URL + modelos + '/' + modeloId + automoviles);
     }
 
-    createModelo(modelo, id_marca): Observable<boolean> {
-        return this.http.post<boolean>(API_URL_M + id_marca + modelos, modelo);
+     createModelo(modelo): Observable<Modelo> {
+        return this.http.post<Modelo>(API_URL + modelos, modelo);
     }
     
-    updateModelo(modelo, id_marca): Observable<Modelo> {
-        return this.http.put<Modelo>(API_URL_M + id_marca + modelos + '/' + modelo.id, modelo);
+        updateModelo(modelo): Observable<boolean> {
+        return this.http.put<boolean>(API_URL + modelos + '/' + modelo.id, modelo);
     }
     
-    deleteModelo(modeloId): Observable<boolean> {
+        deleteModelo(modeloId): Observable<boolean> {
         return this.http.delete<boolean>(API_URL + modelos + '/' + modeloId);
     }
 

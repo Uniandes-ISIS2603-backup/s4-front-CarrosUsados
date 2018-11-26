@@ -36,7 +36,7 @@ export class MarcaEditComponent implements OnInit {
         this.marcaService.updateMarca(this.marca)
             .subscribe(() => {
                 this.update.emit();
-                this.toastrService.success("The editorial's information was updated", "Editorial edition");
+                this.toastrService.success("La infomación de la Marca fue actualizada", "Marca edition");
             }, err => {
                 this.toastrService.error(err, "Error");
             });

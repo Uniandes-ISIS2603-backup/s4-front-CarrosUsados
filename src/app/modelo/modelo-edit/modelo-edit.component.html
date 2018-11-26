@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="rcorners1 col-4" style="margin-left: 8%; width: 35%; height: 450px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+    <div class="rcorners1 col-4" style="margin-left: 8%; width: 35%; height: 550px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
    
         
        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Editar Marca</h1>        
-            <form name="modelo" (ngSubmit)="f.form.valid && updateModelo()" #f="ngForm" novalidate>
+            <form name="modelo" (ngSubmit)="f.form.valid && editModelo()" #f="ngForm" novalidate>
                   <div class="form-group" style="margin-left: 5%; margin-right: 5%">
                     <label for="modeloId_marca">Seleccionar Marca</label>
                         <select name="modeloId_marca" class="form-control" id="modeloId_marca" [(ngModel)]="modelo.id_marca"
@@ -11,26 +11,40 @@
                             <option *ngFor = "let marca of marcas" value="{{marca.id}}">{{marca.nombre}}</option>
                         </select>
                   </div>
-                <div class="form-group">
-                    <label for="modeloNombre"><b>Nombre</b></label>
+                <div class="form-group" style="margin-left: 5%; margin-right: 5%">
+                    <label for="modeloNombre" style="margin-left: 5%; margin-right: 5%"><b>Nombre</b></label>
                     <input type="text" name="modeloNombre" class="form-control" id="modeloNombre" [(ngModel)]="modelo.nombre"
                         #modeloNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && modeloNombre.invalid }" required>
                     <div class="invalid-feedback">
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-left: 5%; margin-right: 5%">
                     <label for="modeloNum_Puertas"><b>Numero de Puertas</b></label>
                     <input type="number" name="modeloNum_Puertas" class="form-control" id="modeloNum_Puertas" [(ngModel)]="modelo.num_puertas"
                         #modeloNum_Puertas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && modeloNum_Puertas.invalid }" required>
                     <div class="invalid-feedback">
                     </div>
                 </div>
+                  <div class="form-group" style="margin-left: 5%; margin-right: 5%">
+                    <label for="modeloTransmision"><b>Tipo de Transmision</b></label>
+                    <input type="text" name="modeloTransmision" class="form-control" id="modeloTransmision" [(ngModel)]="modelo.transmision"
+                        #modeloTransmision="ngModel" [ngClass]="{ 'is-invalid': f.submitted && modeloTransmision.invalid }" required>
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-left: 5%; margin-right: 5%">
+                    <label for="modeloCenti"><b>Centimetros Cubicos</b></label>
+                    <input type="text" name="modeloCenti" class="form-control" id="modeloCenti" [(ngModel)]="modelo.centimetros_cubicos"
+                        #modeloCenti="ngModel" [ngClass]="{ 'is-invalid': f.submitted && modeloCenti.invalid }" required>
+                    <div class="invalid-feedback">
+                    </div>
+                </div>  
 
-                <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                <div class="row form-inline justify-content-center align-self-center" style="align-content: center; margin-left: 40%; margin-right: 30%; width: 40%">
+                    <button type="submit" class="btn" style="width: 50%; font-family: 'Raleway', sans-serif; background-image: linear-gradient(to right top, #00b25f, #00b25f, #00b25f, #00b25f, #00b25f); color: white ">Edit</button>
                     <div class="divider"></div>
-                    <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+                    <button type="button" class="btn btn-danger" style="margin-top: 5px; width: 50%; font-family: 'Raleway', sans-serif" (click)="cancelEdition()">Cancel</button>
                 </div>
             </form>
      </div>

@@ -31,10 +31,10 @@ export class ModeloCreateComponent implements OnInit {
             centimetros_cubicos: this.modelo.centimetros_cubicos,
             id_marca: this.modelo.id_marca
         };
-        this.modeloService.createModelo(modelo_create, this.modelo.id_marca)
+        this.modeloService.createModelo(modelo_create)
             .subscribe(() => {
                 this.create.emit();
-                this.toastrService.success("The author was created", "Author creation");
+                this.toastrService.success("The Model was created", "Model creation");
             }, err => {
                 this.toastrService.error(err, "Error");
             });
