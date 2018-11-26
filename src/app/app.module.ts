@@ -1,15 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-<<<<<<< HEAD
-import { NgxPermissionsModule } from 'ngx-permissions';
-=======
 import {NgxPermissionsModule} from 'ngx-permissions';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
->>>>>>> d16cf1ae032af5d7d7bf9c508702c5cda73c0c93
 import { AppComponent } from './app.component';
 import { InicioModule} from './inicio/inicio.module';
 import { RegistroModule } from './registro/registro.module';
@@ -66,11 +62,11 @@ import { AuthModule } from './auth/auth.module';
     InicioModule,
     RegistroModule,
     AdministradorModule,
-<<<<<<< HEAD
-    NgxPermissionsModule.forRoot()
-=======
+ 
+    NgxPermissionsModule.forRoot(),
+ 
     AuthModule
->>>>>>> d16cf1ae032af5d7d7bf9c508702c5cda73c0c93
+ 
   ],
   providers: [
     {
