@@ -3,14 +3,14 @@
     <div class="row">
         <br>
         <div class="justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            <button [ngClass]="{ 'btn-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                 (click)="showHideCreate()">Crear un automóvil</button>
         </div>
         <br>
 
         <label>Seleccione un modelo:</label>
         <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
-            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.id}}</option>
+            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.nombre}}</option>
         </select>
         <br>
         <div class="row">
