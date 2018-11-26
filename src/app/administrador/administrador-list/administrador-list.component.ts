@@ -96,28 +96,15 @@ updateAdministrador(): void {
     * Deletes an author
     */
    deleteAdministrador(administradorId): void {
-    this.modalDialogService.openDialog(this.viewRef, {
-        title: 'Borrar un administrador',
-        childComponent: SimpleModalComponent,
-        data: {text: '¿Estás seguro que quieres borrar este administrador?'},
-        actionButtons: [
-            {
-                text: 'Sí',
-                buttonClass: 'btn btn-danger',
-                onAction: () => {
+    
                     this.administradorService.deleteAdministrador(administradorId).subscribe(() => {
                         this.toastrService.error("El administrador fue eliminado correctamente", "Administrador eliminado");
                         this.ngOnInit();
                     }, err => {
                         this.toastrService.error(err, "Error");
                     });
-                    return true;
-                }
-            },
-            {text: 'No', onAction: () => true}
-        ]
-    });
 }
+
 
   parseDate( date:String) : Date
   {

@@ -34,7 +34,7 @@ export class AdministradorCreateComponent implements OnInit {
   */   
 
  createAdministrador(): Administrador {
-    
+    debugger;
   this.administradorService.createAdministrador(this.administrador)
     .subscribe((administrador) => {
       this.administrador = administrador;

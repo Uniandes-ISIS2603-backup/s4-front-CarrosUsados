@@ -16,14 +16,12 @@
                     <td>{{cliente.nombreUsuario}}</td>
                     <td>{{cliente.nombre}}</td>
                     <td>{{cliente.apellido}}</td>
-                    <!--
-                    <td>{{cliente.correo}}</td>   
-                    <td>{{cliente.nombreUsuario}}</td> 
-                    <td>{{cliente.contrasena}}</td> 
-                    <td>{{parseDate(cliente.fechaNacimiento) | date: medium}}</td>
-                    <td>{{cliente.direccion}}</td>
-                    <td>{{cliente.telefono}}</td>
-                    -->
+                    <td *ngxPermissionsOnly="['ADMIN']">
+                        <button class="btn btn-primary" (click)="showHideEdit(cliente.id)"><span class="fa fa-pencil"></span></button>
+                    </td>
+                    <td *ngxPermissionsOnly="['ADMIN']">
+                        <button class="btn btn-danger" (click)="deleteCliente(cliente.id)"><span class="fa fa-trash"></span></button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -43,6 +41,10 @@
 
             <div *ngIf="showCreate">
                     <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
+                </div>
+
+                <div *ngIf="showEdit">
+                    <app-cliente-edit [cliente]="selectedCliente" (cancel)="showHideEdit(selectedCliente.id)" (update)="updateCliente()" ></app-cliente-edit>
                 </div>
             
         </div>

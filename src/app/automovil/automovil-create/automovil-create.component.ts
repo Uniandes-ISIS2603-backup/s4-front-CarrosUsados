@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { AutomovilService } from '../automovil.service';
 import { Automovil } from '../automovil';
+import { Fichatecnica } from '../../fichatecnica/fichatecnica';
 import { Modelo } from 'src/app/modelo/modelo';
 import { ModeloService } from 'src/app/modelo/modelo.service';
 
@@ -18,39 +19,43 @@ export class AutomovilCreateComponent implements OnInit {
     private modeloService: ModeloService,
     private toastrService: ToastrService
   ) { }
-  
+
   /**
     * El nuevo Automovil
     */
-   automovil: Automovil;
+  automovil: Automovil;
 
 
-   modelos: Modelo[];
+  modelos: Modelo[];
 
-   modelo_id:any;
+  modelo_id: any;
 
-   /**
-   * The output which tells the parent component
-   * that the user no longer wants to create an Automovil
-   */
-   @Output() cancel = new EventEmitter();
- 
-   /**
-   * The output which tells the parent component
-   * that the user created a new Automovil
-   */
-   @Output() create = new EventEmitter();
-
-
-   /**
-  * Crea una ficha técnica
+  /**
+  * The output which tells the parent component
+  * that the user no longer wants to create an Automovil
   */
+  @Output() cancel = new EventEmitter();
+
+  /**
+  * The output which tells the parent component
+  * that the user created a new Automovil
+  */
+  @Output() create = new EventEmitter();
+
+  showFichaTecnica: boolean;
+
+  showCreateFichaTecnica() {
+    this.showFichaTecnica = !this.showFichaTecnica;
+  }
+  /**
+ * Crea una ficha técnica
+ */
   createAutomovil(): Automovil {
 
-    
+
     console.log(this.automovil);
     this.automovil.fechaAgregacion = new Date();
-    this.automovilService.createAutomovil(this.modelo_id,this.automovil)
+    this.automovilService.createAutomovil(this.modelo_id, this.automovil)
       .subscribe((automovil) => {
         this.automovil = automovil;
         this.create.emit();
@@ -66,7 +71,7 @@ export class AutomovilCreateComponent implements OnInit {
       .subscribe(modelos => this.modelos = modelos);
   }
 
-  onModeloSelected(idModelo:any){
+  onModeloSelected(idModelo: any) {
     this.modelo_id = idModelo;
   }
 
@@ -74,14 +79,16 @@ export class AutomovilCreateComponent implements OnInit {
   * Emits the signal to tell the parent component that the
   * user no longer wants to create an Automovil
   */
- cancelCreation(): void {
-  this.cancel.emit();
-}
+  cancelCreation(): void {
+    this.cancel.emit();
+  }
 
   ngOnInit() {
+    this.showFichaTecnica = false;
     this.getModelos();
     this.modelo_id = -1;
     this.automovil = new Automovil();
+    this.automovil.fichaTecnica = new Fichatecnica();
     this.automovil.fechaAgregacion = new Date();
   }
 

@@ -109,7 +109,7 @@
         <div class="form-group">
             <label for="telefono"><b>Teléfono</b></label>
             <input type="number" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="administrador.telefono"
-                #cargo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }"  required>
+                #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }"  required>
             
                 <div class="invalid-feedback">
                 <div>Los vidrios de la ficha técnica estan faltando</div>
@@ -120,7 +120,7 @@
 
       <div class="row form-inline justify-content-center align-self-center"></div>
           <div class="col-md-6">
-              <button type="submit" class="btn btn-primary">Create</button>
+              <button type="submit" class="btn btn-primary"  (click) = "createAdministrador()">Create</button>
           </div>
           <div class="divider"></div>
           <div class="col-md-6">

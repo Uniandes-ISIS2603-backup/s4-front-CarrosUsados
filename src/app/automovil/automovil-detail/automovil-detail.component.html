@@ -1,6 +1,6 @@
 <div class="panel-body">
     <div class="border margin">
-        <p class="h3 p-3">Automóvil: {{automovilDetail.id}}<p> 
+        <p class="h3 p-3 text-primary">Automóvil: {{automovilDetail.id}}<p> 
         <div class="row">
             <div class="col">
                 <dl>     
@@ -20,6 +20,25 @@
                     <dd>{{automovilDetail.fechaAgregacion}}</dd>
                     <dt>Precio original</dt>
                     <dd>{{automovilDetail.precioOriginal}}</dd>
+
+                    <div *ngIf = "automovilDetail.fichaTecnica != undefined">
+                        <h4 class = "text-success"> Ficha Tecnica: </h4>
+                        <dl>     
+                            <dt>Vidrios</dt>
+                            <dd>{{automovilDetail.fichaTecnica.vidrios}}</dd>
+                            <dt>Camara Reversa</dt>
+                            <dd>{{automovilDetail.fichaTecnica.camaraReversa}}</dd>
+                            <dt>Sensores</dt>
+                            <dd>{{automovilDetail.fichaTecnica.sensores}}</dd>
+                            <dt>Rines</dt>
+                            <dd>{{automovilDetail.fichaTecnica.rines}}</dd>
+                            <dt>Aire Acondicionado</dt>
+                            <dd>{{automovilDetail.fichaTecnica.aireAcondicionado}}</dd>
+                            <dt>Numero de airbags</dt>
+                            <dd>{{automovilDetail.fichaTecnica.numAirbags}}</dd>
+                            
+                        </dl>
+                    </div>
                     
                 </dl>
             </div>

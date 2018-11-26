@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
+
 import { ClienteService } from '../cliente.service';
 import { Cliente } from '../cliente';
 import { ClienteDetail } from '../cliente-detail';
@@ -31,12 +34,16 @@ export class ClienteListComponent implements OnInit {
    * Constructor para el componente
    * @param clienteService El proveedor del servicio cliente
    */
-  constructor(private clienteService:ClienteService) { }
+  constructor(private clienteService:ClienteService, private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService) { }
 
   onSelected(cliente_id: number):void {
+    this.showCreate = false;
+    this.showEdit = false;
+    this.showView = true;
     this.cliente_id = cliente_id;
     this.selectedCliente = new ClienteDetail();
-    console.log(this.selectedCliente.getRole());
     this.getClienteDetail();
 
   }
@@ -46,6 +53,7 @@ export class ClienteListComponent implements OnInit {
     * */
    showHideCreate(): void {
     this.showView = false;
+    this.showEdit = false;
     this.showCreate = !this.showCreate;
   }
 /**
@@ -80,7 +88,28 @@ export class ClienteListComponent implements OnInit {
         });
 }
 
-  parseDate( date:String) : Date
+updateCliente(): void {
+  this.showEdit = false;
+  this.showView = true;
+}
+
+ /**
+    * Deletes an author
+    */
+   deleteCliente(clienteId): void {
+ 
+                    this.clienteService.deleteCliente(clienteId).subscribe(() => {
+                        this.toastrService.error("El cliente fue eliminado correctamente", "Cliente eliminado");
+                        this.ngOnInit();
+                    }, err => {
+                        this.toastrService.error(err, "Error");
+                    }
+    );
+}
+
+
+
+  parseDate(date:String) : Date
   {
     return new Date (Date.parse(date.substring(0,date.length-5)));
   }
@@ -89,6 +118,11 @@ export class ClienteListComponent implements OnInit {
    * Este metodo es llamado cuando se crea el componente
    */
   ngOnInit() {
+    this.showCreate = false;
+    this.showView = false;
+    this.showEdit = false;
+    this.selectedCliente = undefined;
+    this.cliente_id = undefined;
     this.getClientes();
   }
 
