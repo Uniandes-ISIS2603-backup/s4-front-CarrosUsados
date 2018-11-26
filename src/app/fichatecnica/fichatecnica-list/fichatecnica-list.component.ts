@@ -1,6 +1,6 @@
-import { Component, OnInit,ViewContainerRef } from '@angular/core';
-import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
-import {ToastrService} from 'ngx-toastr';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
+import { ToastrService } from 'ngx-toastr';
 
 import { Fichatecnica } from '../fichatecnica'
 import { FichatecnicaService } from '../fichatecnica.service';
@@ -38,7 +38,7 @@ export class FichatecnicaListComponent implements OnInit {
   */
   showCreate: boolean;
 
-  showEdit:boolean;
+  showEdit: boolean;
 
   /**
    * Muestra o esconde el detalle de una a ficha tecnica
@@ -75,7 +75,7 @@ export class FichatecnicaListComponent implements OnInit {
       this.showCreate = false;
       this.showEdit = true;
       this.fichaTecnica_id = fichatecnica_id;
-      this.selectedFichaTecnica= new Fichatecnica();
+      this.selectedFichaTecnica = new Fichatecnica();
       this.getFichaTecnicaDetail();
     }
     else {
@@ -102,34 +102,34 @@ export class FichatecnicaListComponent implements OnInit {
   updateFichaTecnica(): void {
     this.showEdit = false;
     this.showView = true;
-}
+  }
 
-/**
-    * Elimina una ficha tecnica
-    */
-   deleteFichaTecnica(fichaTecnicaId): void {
+  /**
+      * Elimina una ficha tecnica
+      */
+  deleteFichaTecnica(fichaTecnicaId): void {
     this.modalDialogService.openDialog(this.viewRef, {
-        title: 'Eliminar una ficha tecnica',
-        childComponent: SimpleModalComponent,
-        data: {text: 'Esta seguro que desea eliminar la ficha técnica?'},
-        actionButtons: [
-            {
-                text: 'Si',
-                buttonClass: 'btn btn-danger',
-                onAction: () => {
-                    this.fichaTecnicaService.deleteFichaTecnica(fichaTecnicaId).subscribe(() => {
-                        this.toastrService.error("La ficha tecnica fue eliminada satisfactoriamente", "Fichas técnica eliminada");
-                        this.ngOnInit();
-                    }, err => {
-                        this.toastrService.error(err, "Error");
-                    });
-                    return true;
-                }
-            },
-            {text: 'No', onAction: () => true}
-        ]
+      title: 'Eliminar una ficha tecnica',
+      childComponent: SimpleModalComponent,
+      data: { text: 'Esta seguro que desea eliminar la ficha técnica?' },
+      actionButtons: [
+        {
+          text: 'Si',
+          buttonClass: 'btn btn-danger',
+          onAction: () => {
+            this.fichaTecnicaService.deleteFichaTecnica(fichaTecnicaId).subscribe(() => {
+              this.toastrService.error("La ficha tecnica fue eliminada satisfactoriamente", "Fichas técnica eliminada");
+              this.ngOnInit();
+            }, err => {
+              this.toastrService.error(err, "Error");
+            });
+            return true;
+          }
+        },
+        { text: 'No', onAction: () => true }
+      ]
     });
-}
+  }
 
   ngOnInit() {
     this.showCreate = false;

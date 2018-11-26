@@ -8,9 +8,9 @@
         </div>
         <br>
 
-        <label >Seleccione un modelo:</label>
-        <select id = "mySelect" [(ngModel)] = "modelo_id" (ngModelChange) = 'onModeloSelected($event)'>
-            <option  *ngFor = "let modelo of modelos" [value]="modelo.id">{{modelo.id}}</option>
+        <label>Seleccione un modelo:</label>
+        <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
+            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.id}}</option>
         </select>
         <br>
         <div class="row">
@@ -40,6 +40,13 @@
                             <td>{{automovil.placa}}</td>
                             <td>{{automovil.fechaAgregacion}}</td>
                             <td>{{automovil.precioOriginal}}</td>
+                            
+                            <td>
+                                <button class="btn btn-primary" (click)="showHideEdit(automovil.id)"><span class="fa fa-pencil"></span></button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteAutomovil(automovil.id)"><span class="fa fa-trash"></span></button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -51,6 +58,9 @@
                 </div>
                 <div *ngIf="showCreate">
                     <app-automovil-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-automovil-create>
+                </div>
+                <div *ngIf="showEdit">
+                    <app-automovil-edit [automovil]="selectedAutomovil" [modelo_id] = "modelo_id" (cancel)="showHideEdit(selectedAutomovil.id)" (update)="updateAutomovil()" ></app-automovil-edit>
                 </div>
             </div>
 
