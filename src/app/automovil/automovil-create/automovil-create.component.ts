@@ -46,6 +46,12 @@ export class AutomovilCreateComponent implements OnInit {
 
   showCreateFichaTecnica() {
     this.showFichaTecnica = !this.showFichaTecnica;
+    if(this.automovil.fichaTecnica == undefined){
+      this.automovil.fichaTecnica = new Fichatecnica();
+    }else{
+      this.automovil.fichaTecnica = undefined;
+    }
+    
   }
   /**
  * Crea una ficha técnica
@@ -88,7 +94,7 @@ export class AutomovilCreateComponent implements OnInit {
     this.getModelos();
     this.modelo_id = -1;
     this.automovil = new Automovil();
-    this.automovil.fichaTecnica = new Fichatecnica();
+    //this.automovil.fichaTecnica = new Fichatecnica();
     this.automovil.fechaAgregacion = new Date();
   }
 
