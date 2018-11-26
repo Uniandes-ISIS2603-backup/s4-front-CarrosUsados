@@ -8,6 +8,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { PuntoventaDetailComponent } from './puntoventa-detail/puntoventa-detail.component';
 import { PuntoventaCreateComponent } from './puntoventa-create/puntoventa-create.component';
+import { PuntoventaEditComponent } from './puntoventa-edit/puntoventa-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PuntoventaCalificacionesComponent } from './puntoventa-calificaciones/puntoventa-calificaciones.component';
+import { PuntoventaAddCalificacionComponent } from './puntoventa-add-calificacion/puntoventa-add-calificacion.component';
 
 @NgModule({
   imports: [
@@ -15,9 +20,11 @@ import { PuntoventaCreateComponent } from './puntoventa-create/puntoventa-create
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule,
+    NgbModule
   ],
-  declarations: [PuntoventaListComponent, PuntoventaDetailComponent, PuntoventaCreateComponent],
+  declarations: [PuntoventaListComponent, PuntoventaDetailComponent, PuntoventaCreateComponent, PuntoventaEditComponent, PuntoventaCalificacionesComponent, PuntoventaAddCalificacionComponent],
   exports:[PuntoventaListComponent, PuntoventaDetailComponent],
   providers:[PuntoventaService]
 })

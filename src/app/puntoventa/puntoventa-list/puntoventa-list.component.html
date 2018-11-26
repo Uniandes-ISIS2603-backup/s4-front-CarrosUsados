@@ -21,15 +21,15 @@
 <div style="align-content: center; width: 100%">
     <h1 style="text-align: center;font-family:'Raleway', sans-serif;color: white">Puntos de venta</h1> 
 </div>
-
 <div class="row">
-        <br>
-        <div class="justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
-        </div>
-
-        <br>
+    <br>
+    <div class="justify-content-center align-self-center">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
+    </div>
+    
+    <br>
+  
         <br>
     </div>
     <div class="row">
@@ -51,11 +51,19 @@
             <tbody>
                 <tr *ngFor = "let puntos of puntosVenta" style="cursor: pointer;" (click)="onSelected(puntos.id)" >
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-id" class="figure-caption">{{puntos.id}}</td>
-                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.ciudad}}</td>
-                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.ubicacion}}</td>
-                    <td  style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.latitud}}</td>
-                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.longitud}}</td>
-                    <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption">{{puntos.numeroVendedores}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="punto-ciudad" class="figure-caption">{{puntos.ciudad}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="punto-ubicacion" class="figure-caption">{{puntos.ubicacion}}</td>
+                    <td  style="font-family: 'Raleway', sans-serif;" id="punto-latitud" class="figure-caption">{{puntos.latitud}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="punto-longitud" class="figure-caption">{{puntos.longitud}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="punto-numeroVendedores" class="figure-caption">{{puntos.numVendedores}}</td>
+              
+              
+                    <td  >
+                        <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="fa fa-pencil">Editar</span></button>
+                    </td>
+                    <td  >
+                        <button class="btn btn-danger" (click)="deletePunto(puntos.id)"><span class="fa fa-trash">Eliminar</span></button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -66,9 +74,15 @@
         <div *ngIf="showView">
             <app-puntoventa-detail [puntoventaDetail]="selectedPuntoventa"></app-puntoventa-detail>
         </div>
+
+        <div *ngIf="showEdit">
+            <app-puntoventa-edit [puntoventa]="selectedPuntoventa" (cancel)="showHideEdit(selectedPuntoventa.id)" (update)="editPunto()" ></app-puntoventa-edit>
+        </div>
+
         <div *ngIf="showCreate">
             <app-puntoventa-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-puntoventa-create>
         </div>
     </div>
 </div>
+
 
