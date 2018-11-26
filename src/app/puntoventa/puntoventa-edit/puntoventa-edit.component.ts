@@ -18,8 +18,6 @@ export class PuntoventaEditComponent implements OnInit, OnChanges {
   @Output() cancel= new EventEmitter();
   @Output() update= new EventEmitter();
 
-
-  ngOnChanges(){this.ngOnInit();} 
   
 
   constructor( private puntoventaService: PuntoventaService, private toastrService: ToastrService ,  private router: Router,
@@ -34,19 +32,17 @@ export class PuntoventaEditComponent implements OnInit, OnChanges {
     this.update.emit();
   }
 
-  getPunto(): void {
-    this.puntoventaService.getPuntoventaDetail(this.punto_id)
-        .subscribe(puntoventa => {
-            this.puntoventa = puntoventa;
-        });
-}
   cancelEdition()
   {
     this.cancel.emit();
   }
-  ngOnInit() {
-    // this.punto_id = +this.route.snapshot.paramMap.get('id');
-    this.getPunto();
-  }
+   /**
+    * This function will be called when the user chooses another author to edit
+    */
+   ngOnChanges() {
+    this.ngOnInit();
+}
 
+  ngOnInit() {
+  }
 }
