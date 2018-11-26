@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+
+import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
+import { ToastrService } from 'ngx-toastr';
 
 import { Automovil } from '../automovil'
 import { AutomovilService } from '../automovil.service';
@@ -18,7 +21,13 @@ export class AutomovilListComponent implements OnInit {
    * Constructor para el componente
    * @param automovilService El proveedor del servicio automovil
    */
-  constructor(private automovilService: AutomovilService, private modeloService: ModeloService) { }
+  constructor(
+    private automovilService: AutomovilService, 
+    private modeloService: ModeloService,
+    private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService
+  ) { }
 
   /**
    * La lista de automoviles
@@ -50,6 +59,7 @@ export class AutomovilListComponent implements OnInit {
 
   onSelected(automovil_id: number): void {
     this.showCreate = false;
+    //this.showEdit = true;
     this.showView = true;
     this.automovil_id = automovil_id;
     this.selectedAutomovil = new AutomovilDetail();
@@ -67,6 +77,7 @@ export class AutomovilListComponent implements OnInit {
     */
   showHideCreate(): void {
     this.showView = false;
+    this.showEdit = false;
     this.showCreate = !this.showCreate;
   }
 
@@ -116,6 +127,42 @@ export class AutomovilListComponent implements OnInit {
         this.selectedAutomovil = selectedAutomovil;
       });
   }
+
+  updateAutomovil(): void {
+    this.showEdit = false;
+    this.showView = true;
+  }
+
+
+
+/**
+      * Elimina un automovil
+      */
+     deleteAutomovil(automovilId): void {
+      this.modalDialogService.openDialog(this.viewRef, {
+        title: 'Eliminar un automovil',
+        childComponent: SimpleModalComponent,
+        data: { text: 'Esta seguro que desea eliminar un automovil?' },
+        actionButtons: [
+          {
+            text: 'Si',
+            buttonClass: 'btn btn-danger',
+            onAction: () => {
+              this.automovilService.deleteAutomovil(this.modelo_id,automovilId).subscribe(() => {
+                this.toastrService.error("El automovil fue eliminado satisfactoriamente", "Automovil eliminado");
+                this.ngOnInit();
+              }, err => {
+                this.toastrService.error(err, "Error");
+              });
+              return true;
+            }
+          },
+          { text: 'No', onAction: () => true }
+        ]
+      });
+    }
+
+
   /**
    * Instancia el componente solicitando la lista de automoviles
    * Este metodo es llamado cuando se crea el componente
@@ -123,6 +170,7 @@ export class AutomovilListComponent implements OnInit {
   ngOnInit() {
     this.showCreate = false;
     this.showView = false;
+    this.showEdit = false;
     this.selectedAutomovil = undefined;
     this.automovil_id = undefined;
 
