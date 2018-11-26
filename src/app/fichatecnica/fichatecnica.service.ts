@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Fichatecnica } from './fichatecnica'
 import { FichatecnicaDetail } from './fichatecnica-detail';
-import {environment} from 'src/environments/environment'
+import { environment } from 'src/environments/environment'
 
 
 
@@ -58,8 +58,17 @@ export class FichatecnicaService {
     * @param fichaTecnica La informacion de la ficha tecnica actualizada
     * @returns La confirmacion de que la ficha tecnica si fue actualizada
     */
-   updateFichaTecnica(fichaTecnica): Observable<Fichatecnica> {
-    return this.http.put<Fichatecnica>(environment.apiURL+ fichastecnicas + '/' + fichaTecnica.id, fichaTecnica );
-}
+  updateFichaTecnica(fichaTecnica): Observable<Fichatecnica> {
+    return this.http.put<Fichatecnica>(environment.apiURL + fichastecnicas + '/' + fichaTecnica.id, fichaTecnica);
+  }
+
+  /**
+      * Elimina una ficha tecnica
+      * @param fichaTecnicaId El id de la ficha tecnica
+      * @returns La confirmacion de que la ficha tecnica fue eliminada
+      */
+  deleteFichaTecnica(fichaTecnicaId): Observable<boolean> {
+    return this.http.delete<boolean>(environment.apiURL + fichastecnicas + '/' + fichaTecnicaId);
+  }
 
 }
