@@ -7,7 +7,7 @@ export class Calificacion {
      */
     id:number;
     
-    numEstrellas:number;
+    num_estrellas:number;
     /**
      * comentario de calificacion
      */

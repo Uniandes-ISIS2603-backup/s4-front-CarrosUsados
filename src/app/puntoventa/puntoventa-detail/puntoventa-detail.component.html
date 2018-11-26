@@ -1,57 +1,59 @@
 <div class="panel-body">
-  <div class="border margin">
-      <p class="h3 p-3" style="color:white ;font-family:'Raleway', sans-serif;">Punto de venta: {{puntoventaDetail.id}}<p> 
-      
-          <div class="col">
-              
-            <table class="table table-hovered table-bordered">
-              <thead  class = "thead-dark"  style="background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); "> 
-             <tr>
-                  <th style="font-family: 'Raleway', sans-serif;color: white">Ciudad</th>
-                  <th style="font-family: 'Raleway', sans-serif;color: white">Ubicación</th>
-                  <th style="font-family: 'Raleway', sans-serif;color: white">Latitud</th>
-                  <th style="font-family: 'Raleway', sans-serif;color: white">Longitud</th>
-                  <th style="font-family: 'Raleway', sans-serif;color: white">Número de vendedores</th>
-                  </tr>
-                  
-            </thead>
-            <tbody>
-                <tr>
-            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ciudad}}</td>
-            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ubicacion}}</td>
-            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.latitud}}</td>
-            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.longitud}}</td>
-            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.numVendedores}}</td>
-                  
-                </tr>
-        </tbody> 
-            </table>
-          
+    <div class="border margin">
+        <p class="h3 p-3" style="color:white ;font-family:'Raleway', sans-serif;">Punto de venta:
+            {{puntoventaDetail.id}}<p>
 
-      </div>
-  </div>
+                <div class="col">
+
+                    <table class="table table-hovered table-bordered">
+                        <thead class="thead-dark" style="background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); ">
+                            <tr>
+                                <th style="font-family: 'Raleway', sans-serif;color: white">Ciudad</th>
+                                <th style="font-family: 'Raleway', sans-serif;color: white">Ubicación</th>
+                                <th style="font-family: 'Raleway', sans-serif;color: white">Latitud</th>
+                                <th style="font-family: 'Raleway', sans-serif;color: white">Longitud</th>
+                                <th style="font-family: 'Raleway', sans-serif;color: white">Número de vendedores</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ciudad}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ubicacion}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.latitud}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.longitud}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.numVendedores}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
 
 
-  <div >
+                </div>
+    </div>
+
+
+    <div>
         <div class="row">
             <div class="col-md-3">
-                <p *ngIf="puntoventaDetail.calificaciones.length > 0">
-                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionListComponent.isCollapsed,'btn-outline-primary':!calificacionListComponent.isCollapsed}" (click)="toggleReviews()">
-                            Calificaciones del punto de venta
-                </button>
-            </p>
+                <p *ngIf="puntoventaDetail.calificaciones != undefined">
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': reviewListComponent.isCollapsed,'btn-outline-primary':!reviewListComponent.isCollapsed}"
+                        (click)="toggleReviews()">
+                        Calificaciones del punto de venta
+                    </button>
+                </p>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': reviewAddComponent.isCollapsed,'btn-outline-primary':!reviewAddComponent.isCollapsed}"
+                        (click)="toggleCreateReview()">
+                        Calificar el punto de venta
+                    </button>
+                </p>
+            </div>
         </div>
-        <div class="col-md-3">
-            <p>
-                <button type="button" class="btn" [ngClass]="{ 'btn-primary': reviewAddComponent.isCollapsed,'btn-outline-primary':!reviewAddComponent.isCollapsed}" (click)="toggleCreateReview()">
-                        Calificar el punto de venta.
-            </button>
-        </p>
     </div>
+    <app-puntoventa-calificaciones [calificacionespunto]="puntoventaDetail.calificaciones"></app-puntoventa-calificaciones>
+    <app-puntoventa-add-calificacion [puntoventa]="puntoventaDetail" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
+    <br>
 </div>
-</div>
-<app-puntoventa-calificaciones [calificacionespunto]="puntoventaDetail.calificaciones"></app-puntoventa-calificaciones>
-<app-puntoventa-add-calificacion [puntoventa]="puntoventaDetail" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
-<br>
-</div>
- 

@@ -4,6 +4,7 @@ import { PuntoventaDetail } from '../puntoventa-detail';
  
 import { PuntoventaService } from '../puntoventa.service';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-puntoventa-edit',
@@ -12,7 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PuntoventaEditComponent implements OnInit, OnChanges {
  
-  @Input() puntoventa: PuntoventaDetail;
+    @Input() puntoventa: PuntoventaDetail;
+    punto_id: number;
   @Output() cancel= new EventEmitter();
   @Output() update= new EventEmitter();
 
@@ -20,19 +22,20 @@ export class PuntoventaEditComponent implements OnInit, OnChanges {
   ngOnChanges(){this.ngOnInit();} 
   
 
-  constructor( private puntoventaService: PuntoventaService, private toastrService: ToastrService ) { }
+  constructor( private puntoventaService: PuntoventaService, private toastrService: ToastrService ,  private router: Router,
+    private route: ActivatedRoute) { }
 
-  editPunto(): void{
-    this.puntoventaService.editPunto(this.puntoventa)
+  updatePunto(): void{
+    this.puntoventaService.updatePunto(this.puntoventa)
     .subscribe(() => {
 
-      this.update.emit();
-        this.toastrService.success("La información del punto de venta ha sido actualizada.", "Edición de punto");
+      this.toastrService.success("La información del punto de venta ha sido actualizada.", "Edición de punto");
     });
+    this.update.emit();
   }
 
   getPunto(): void {
-    this.puntoventaService.getPuntoventaDetail(this.puntoventa.id)
+    this.puntoventaService.getPuntoventaDetail(this.punto_id)
         .subscribe(puntoventa => {
             this.puntoventa = puntoventa;
         });
@@ -42,7 +45,7 @@ export class PuntoventaEditComponent implements OnInit, OnChanges {
     this.cancel.emit();
   }
   ngOnInit() {
-    this.puntoventa= new PuntoventaDetail();
+    // this.punto_id = +this.route.snapshot.paramMap.get('id');
     this.getPunto();
   }
 
