@@ -11,4 +11,19 @@ export class Administrador extends Usuario {
    */
      fechaInicio: Date;
 
+     
+      /**
+   * El rol del usuario, por defecto un string vacío.
+   */
+  public role: String = 'Administrador';
+
+    /**
+   * Retorna el rol de un usuario
+   * @returns El rol de administrador.
+   */
+  public getRole(): String {
+    let administrador:String =  'Administrador';
+    return administrador;
+  }
+
 }

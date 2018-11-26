@@ -17,14 +17,13 @@
                         <td>{{administrador.nombreUsuario}}</td>
                         <td>{{administrador.nombre}}</td>
                         <td>{{administrador.apellido}}</td>
-                        <!--
-                    <td>{{administrador.correo}}</td>   
-                    <td>{{administrador.nombreUsuario}}</td> 
-                    <td>{{administrador.contrasena}}</td> 
-                    <td>{{parseDate(administrador.fechaNacimiento) | date: medium}}</td>
-                    <td>{{administrador.direccion}}</td>
-                    <td>{{administrador.telefono}}</td>
-                    -->
+                        <td *ngxPermissionsOnly="['ADMIN']">
+                            <button class="btn btn-primary" (click)="showHideEdit(administrador.id)"><span class="fa fa-pencil"></span></button>
+                        </td>
+                        <td *ngxPermissionsOnly="['ADMIN']">
+                            <button class="btn btn-danger" (click)="deleteAdministrador(administrador.id)"><span class="fa fa-trash"></span></button>
+                        </td>
+          
                     </tr>
                 </tbody>
             </table>
@@ -41,6 +40,9 @@
 
             <div *ngIf="showCreate">
                     <app-administrador-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-administrador-create>
+                </div>
+                <div *ngIf="showEdit">
+                    <app-administrador-edit [administrador]="selectedAdministrador" (cancel)="showHideEdit(selectedAdministrador.id)" (update)="updateAdministrador()" ></app-administrador-edit>
                 </div>
             
         </div>

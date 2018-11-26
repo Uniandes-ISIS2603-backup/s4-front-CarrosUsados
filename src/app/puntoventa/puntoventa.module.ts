@@ -11,6 +11,8 @@ import { PuntoventaCreateComponent } from './puntoventa-create/puntoventa-create
 import { PuntoventaEditComponent } from './puntoventa-edit/puntoventa-edit.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PuntoventaCalificacionesComponent } from './puntoventa-calificaciones/puntoventa-calificaciones.component';
+import { PuntoventaAddCalificacionComponent } from './puntoventa-add-calificacion/puntoventa-add-calificacion.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgxPermissionsModule,
     NgbModule
   ],
-  declarations: [PuntoventaListComponent, PuntoventaDetailComponent, PuntoventaCreateComponent, PuntoventaEditComponent],
+  declarations: [PuntoventaListComponent, PuntoventaDetailComponent, PuntoventaCreateComponent, PuntoventaEditComponent, PuntoventaCalificacionesComponent, PuntoventaAddCalificacionComponent],
   exports:[PuntoventaListComponent, PuntoventaDetailComponent],
   providers:[PuntoventaService]
 })

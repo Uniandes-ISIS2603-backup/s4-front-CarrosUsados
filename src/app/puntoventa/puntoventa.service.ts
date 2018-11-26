@@ -4,12 +4,14 @@ import {Puntoventa} from './puntoventa';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PuntoventaDetail } from './puntoventa-detail';
+import { Calificacion } from '../calificacion/calificacion';
 //import 'rxjs/add/operator/catch';
 
 
 
 const puntos ='/puntos';
 const API_URL = "http://localhost:8080/s4_CarrosUsados-api/api";
+const calificaciones= '/calificaciones';
 @Injectable({
   providedIn: 'root'
 })
@@ -44,6 +46,11 @@ export class PuntoventaService {
 
   deletePunto(puntoId): Observable<boolean> {
     return this.http.delete<boolean>(API_URL + puntos + '/' + puntoId);
+}
+
+
+createCalificacion(puntoId, calificacion): Observable<Calificacion> {
+  return this.http.post<Calificacion>(API_URL + puntos + '/' + puntoId + calificaciones, calificacion);
 }
 
  

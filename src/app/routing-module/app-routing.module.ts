@@ -21,6 +21,7 @@ import { CalificacionCreateComponent } from '../calificacion/calificacion-create
 import { CalificacionDetail } from '../calificacion/calificacion-detail';
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
 import { PuntoventaEditComponent } from '../puntoventa/puntoventa-edit/puntoventa-edit.component';
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 
 const routes: Routes = [
     
@@ -113,7 +114,7 @@ const routes: Routes = [
     ]
 },
 {
-    path: 'administrador',
+    path: 'administradores',
     children: [
             {        
             path: 'list',
@@ -150,7 +151,7 @@ const routes: Routes = [
 },
 {
       path: 'ingresar',
-      component: IngresarComponent
+      component: AuthLoginComponent
 }   
 ];
 

@@ -1,0 +1,43 @@
+<div id="collapseAddReview" [ngbCollapse]="isCollapsed">
+    <div class="container-fluid">
+        <h3 style="color:white">Agregar una calificación</h3>
+        <form name="post" (ngSubmit)="calificacionForm.form.valid && postReview(calificacionForm)" #calificacionForm="ngForm" novalidate>
+              <div class="row">
+                <!-- <div class="col"> -->
+                    <!-- <div class="form-group">
+                        <label for="Title"><b>Title</b></label>
+                        <input type="text" name="Title" class="form-control" id="Title" [(ngModel)]="calificacion.name"
+                               #reviewTitle="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && Title.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>The review's title is missing</div>
+                        </div>
+                    </div> -->
+                <!-- </div> -->
+                <div class="col">
+                    <div class="form-group">
+                        <label for="estrellas" style="color:white"><b>Número de estrellas</b></label>
+                        <input type="number" min="0" max="5"name="estrellas" class="form-control" id="reviewSource" [(ngModel)]="calificacion.numEstrellas"
+                               #estrellas="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && estrellas.invalid }" required>
+                               <!-- <div class="invalid-feedback">
+                            <div>The review's source is missing</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="comentario" style="color:white"><b>Comentario</b></label>
+                        <textarea name="comentario"class="form-control" id="comentario" [(ngModel)]="calificacion.comentario"
+                                  #comentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && comentario.invalid }"
+                                  required></textarea>
+                        <!-- <div class="invalid-feedback">
+                            <div>The review's description is missing</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Publicar </button>
+            </div>
+        </form>
+    </div>
+</div>

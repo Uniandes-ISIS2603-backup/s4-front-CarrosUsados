@@ -22,6 +22,16 @@ export class ClienteService {
     return this.http.get<Cliente[]>(environment.apiURL + clientes);
   }
 
+  verifyCliente(correo: String, contrasena: String): Cliente {
+    let clientes: Cliente[] = JSON.parse((String(this.getClientes)));
+    for (let cliente of clientes) {
+      if (cliente.correo === correo && cliente.contrasena === contrasena) {
+        return cliente;
+      }
+      else return null;
+    }
+  }
+
    /**
     * Retorna el objeto observable del detalle de ficha tecnica del API
     * @returns Los detalles del autor

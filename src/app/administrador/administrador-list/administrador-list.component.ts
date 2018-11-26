@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import { AdministradorService } from '../administrador.service';
 import { Administrador } from '../administrador'
 import { AdministradorDetail } from '../administrador-detail';
@@ -31,9 +33,14 @@ selectedAdministrador:Administrador;
     * Constructor para el componente
     * @param administradorService El proveedor del servicio administrador
     */
-  constructor(private administradorService: AdministradorService) { }
+  constructor(private administradorService: AdministradorService, private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService) { }
 
   onSelected(administrador_id: number):void {
+    this.showCreate = false;
+    this.showEdit = false;
+    this.showView = true;
     this.administrador_id = administrador_id;
     this.selectedAdministrador = new AdministradorDetail();
     this.getAdministradorDetail();
@@ -45,6 +52,7 @@ selectedAdministrador:Administrador;
     * */
    showHideCreate(): void {
     this.showView = false;
+    this.showEdit = false;
     this.showCreate = !this.showCreate;
   }
 /**
@@ -79,6 +87,38 @@ selectedAdministrador:Administrador;
         });
 }
 
+updateAdministrador(): void {
+  this.showEdit = false;
+  this.showView = true;
+}
+
+  /**
+    * Deletes an author
+    */
+   deleteAdministrador(administradorId): void {
+    this.modalDialogService.openDialog(this.viewRef, {
+        title: 'Borrar un administrador',
+        childComponent: SimpleModalComponent,
+        data: {text: '¿Estás seguro que quieres borrar este administrador?'},
+        actionButtons: [
+            {
+                text: 'Sí',
+                buttonClass: 'btn btn-danger',
+                onAction: () => {
+                    this.administradorService.deleteAdministrador(administradorId).subscribe(() => {
+                        this.toastrService.error("El administrador fue eliminado correctamente", "Administrador eliminado");
+                        this.ngOnInit();
+                    }, err => {
+                        this.toastrService.error(err, "Error");
+                    });
+                    return true;
+                }
+            },
+            {text: 'No', onAction: () => true}
+        ]
+    });
+}
+
   parseDate( date:String) : Date
   {
     return new Date (Date.parse(date.substring(0,date.length-5)));
@@ -89,6 +129,11 @@ selectedAdministrador:Administrador;
    * Este metodo es llamado cuando se crea el componente
    */
   ngOnInit() {
+    this.showCreate = false;
+    this.showView = false;
+    this.showEdit = false;
+    this.selectedAdministrador = undefined;
+    this.administrador_id = undefined;
     this.getAdministradores();
   }
 

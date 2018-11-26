@@ -36,6 +36,7 @@ export class ClienteListComponent implements OnInit {
   onSelected(cliente_id: number):void {
     this.cliente_id = cliente_id;
     this.selectedCliente = new ClienteDetail();
+    console.log(this.selectedCliente.getRole());
     this.getClienteDetail();
 
   }
