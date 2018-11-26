@@ -31,10 +31,7 @@
     "ng2-password-strength-bar": "^1.2.2",
     "ngx-bootstrap": "^3.0.1",
     "ngx-modal-dialog": "^3.0.0",
-<<<<<<< HEAD
-=======
     "ngx-pagination": "^3.2.1",
->>>>>>> d16cf1ae032af5d7d7bf9c508702c5cda73c0c93
     "ngx-permissions": "^6.0.4",
     "ngx-toastr": "^9.1.1",
     "popper.js": "^1.14.5",
