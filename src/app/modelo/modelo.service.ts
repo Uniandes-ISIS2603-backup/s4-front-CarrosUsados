@@ -41,6 +41,14 @@ export class ModeloService {
     createModelo(modelo, id_marca): Observable<boolean> {
         return this.http.post<boolean>(API_URL_M + id_marca + modelos, modelo);
     }
+    
+    updateModelo(modelo, id_marca): Observable<Modelo> {
+        return this.http.put<Modelo>(API_URL_M + id_marca + modelos + '/' + modelo.id, modelo);
+    }
+    
+    deleteModelo(modeloId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + modelos + '/' + modeloId);
+    }
 
     private handleError(error: any) {
         return throwError(error.error.errorMessage);

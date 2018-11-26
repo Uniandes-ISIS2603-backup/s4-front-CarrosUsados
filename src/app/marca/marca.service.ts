@@ -26,8 +26,20 @@ export class MarcaService {
     return this.http.get<Marca[]>(API_URL + marcas);
   }
   
+      getMarca(marcaId): Observable<Marca> {
+        return this.http.get<Marca>(API_URL + marcas + '/' + marcaId);
+    }
+  
      createMarca(marca): Observable<Marca> {
         return this.http.post<Marca>(API_URL + marcas, marca);
+    }
+    
+        updateMarca(marca): Observable<boolean> {
+        return this.http.put<boolean>(API_URL + marcas + '/' + marca.id, marca);
+    }
+    
+        deleteMarca(marcaId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + marcas + '/' + marcaId);
     }
     
         private handleError(error: any) {
