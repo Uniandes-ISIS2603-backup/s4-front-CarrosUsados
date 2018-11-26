@@ -97,32 +97,19 @@ updateCliente(): void {
     * Deletes an author
     */
    deleteCliente(clienteId): void {
-    this.modalDialogService.openDialog(this.viewRef, {
-        title: 'Borrar un cliente',
-        childComponent: SimpleModalComponent,
-        data: {text: '¿Estás seguro que quieres borrar este cliente?'},
-        actionButtons: [
-            {
-                text: 'Sí',
-                buttonClass: 'btn btn-danger',
-                onAction: () => {
+ 
                     this.clienteService.deleteCliente(clienteId).subscribe(() => {
                         this.toastrService.error("El cliente fue eliminado correctamente", "Cliente eliminado");
                         this.ngOnInit();
                     }, err => {
                         this.toastrService.error(err, "Error");
-                    });
-                    return true;
-                }
-            },
-            {text: 'No', onAction: () => true}
-        ]
-    });
+                    }
+    );
 }
 
 
 
-  parseDate( date:String) : Date
+  parseDate(date:String) : Date
   {
     return new Date (Date.parse(date.substring(0,date.length-5)));
   }
