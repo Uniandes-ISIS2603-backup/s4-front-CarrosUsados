@@ -26,9 +26,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthLoginComponent } from './auth/auth-login/auth-login.component';
 import { AuthModule } from './auth/auth.module';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -62,7 +61,9 @@ import { AuthModule } from './auth/auth.module';
     InicioModule,
     RegistroModule,
     AdministradorModule,
-    AuthModule
+    AuthModule,
+    FontAwesomeModule
+    
   ],
   providers: [
     {

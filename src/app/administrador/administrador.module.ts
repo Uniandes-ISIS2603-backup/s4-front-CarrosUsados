@@ -22,7 +22,7 @@ import { AdministradorEditComponent } from './administrador-edit/administrador-e
     FormsModule,
     PasswordStrengthMeterModule,
     NgbModule,
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
   ],
   declarations: [AdministradorListComponent, AdministradorDetailComponent, AdministradorCreateComponent, AdministradorEditComponent],
   exports: [AdministradorListComponent],
