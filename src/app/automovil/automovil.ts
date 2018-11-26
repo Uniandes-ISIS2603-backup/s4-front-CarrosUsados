@@ -1,3 +1,5 @@
+import { Fichatecnica } from '../fichatecnica/fichatecnica'
+
 export class Automovil{
     /**
      * El id del automovil
@@ -37,7 +39,9 @@ export class Automovil{
      */
     precioOriginal:string;
 
-
-
+    /**
+     * La ficha tecnica del automovil
+     */
+    fichaTecnica:Fichatecnica;
 
 }
