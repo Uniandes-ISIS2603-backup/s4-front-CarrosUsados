@@ -62,9 +62,7 @@ import { AuthModule } from './auth/auth.module';
     InicioModule,
     RegistroModule,
     AdministradorModule,
- 
     NgxPermissionsModule.forRoot(),
- 
     AuthModule
  
   ],
