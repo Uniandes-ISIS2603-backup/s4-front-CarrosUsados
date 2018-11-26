@@ -1,7 +1,8 @@
 import { Component, OnInit , Input, ViewChild} from '@angular/core';
 import { PuntoventaService } from '../puntoventa.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { PuntoventaDetail} from '../puntoventa-detail';
+import {Calificacion} from '../../calificacion/calificacion';
 import { PuntoventaCalificacionesComponent } from '../puntoventa-calificaciones/puntoventa-calificaciones.component';
 import { PuntoventaAddCalificacionComponent } from '../puntoventa-add-calificacion/puntoventa-add-calificacion.component';
 
@@ -13,38 +14,49 @@ import { PuntoventaAddCalificacionComponent } from '../puntoventa-add-calificaci
 export class PuntoventaDetailComponent implements OnInit {
 
   constructor(private puntoventaService: PuntoventaService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) {
-
+      
+        //This is added so we can refresh the view when one of the books in
+        //the "Other books" list is clicked
+        this.navigationSubscription = this.router.events.subscribe((e: any) => {
+            if (e instanceof NavigationEnd) {
+                this.ngOnInit();
+            }
+        });
      }
 
 
      @Input() puntoventaDetail: PuntoventaDetail;
      puntoventa_id:number;
 
-     /**
+
+    navigationSubscription;
+  /**
      * The child BookReviewListComponent
      */
-    @ViewChild(PuntoventaCalificacionesComponent) calificacionListComponent: PuntoventaCalificacionesComponent;
+    @ViewChild(PuntoventaCalificacionesComponent) reviewListComponent: PuntoventaCalificacionesComponent;
 
     /**
      * The child BookReviewListComponent
      */
-    @ViewChild(PuntoventaAddCalificacionComponent) reviewAddComponent: PuntoventaAddCalificacionComponent;
+    @ViewChild(PuntoventaAddCalificacionComponent) reviewAddComponent:PuntoventaAddCalificacionComponent;
 
     toggleReviews(): void {
         if (this.reviewAddComponent.isCollapsed == false) {
             this.reviewAddComponent.isCollapsed = true;
         }
-        this.calificacionListComponent.isCollapsed = !this.calificacionListComponent.isCollapsed;
+        this.reviewListComponent.isCollapsed = !this.reviewListComponent.isCollapsed;
     }
 
     toggleCreateReview(): void {
-        if (this.calificacionListComponent.isCollapsed == false) {
-            this.calificacionListComponent.isCollapsed = true;
+        if (this.reviewListComponent.isCollapsed == false) {
+            this.reviewListComponent.isCollapsed = true;
         }
         this.reviewAddComponent.isCollapsed = !this.reviewAddComponent.isCollapsed;
     }
+
 
 
 
@@ -60,8 +72,19 @@ export class PuntoventaDetailComponent implements OnInit {
 
   ngOnInit() {
     this.puntoventa_id= +this.route.snapshot.paramMap.get('id');
-    this.puntoventaDetail= new PuntoventaDetail()
-    this.getPuntoventaDetail()
+    this.puntoventaDetail= new PuntoventaDetail();
+    this.getPuntoventaDetail();
+    this.puntoventaDetail.calificaciones = new Array<Calificacion>();
   }
+
+      /**
+    * This method helps to refresh the view when we need to load another book into it
+    * when one of the other books in the list is clicked
+    */
+   ngOnDestroy() {
+    if (this.navigationSubscription) {
+        this.navigationSubscription.unsubscribe();
+    }
+}
 
 }

@@ -59,10 +59,10 @@
               
               
                     <td  >
-                        <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="fa fa-pencil">Editar</span></button>
+                        <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="glyphicon glyphicon-pencil"></span>Editar</button>
                     </td>
                     <td  >
-                        <button class="btn btn-danger" (click)="deletePunto(puntos.id)"><span class="fa fa-trash">Eliminar</span></button>
+                        <button class="btn btn-danger" (click)="deletePunto(puntos.id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </td>
                 </tr>
             </tbody>
@@ -76,7 +76,7 @@
         </div>
 
         <div *ngIf="showEdit">
-            <app-puntoventa-edit [puntoventa]="selectedPuntoventa" (cancel)="showHideEdit(selectedPuntoventa.id)" (update)="editPunto()" ></app-puntoventa-edit>
+            <app-puntoventa-edit [puntoventa]="selectedPuntoventa" (cancel)="showHideEdit(selectedPuntoventa.id)" (update)="updatePunto()" ></app-puntoventa-edit>
         </div>
 
         <div *ngIf="showCreate">

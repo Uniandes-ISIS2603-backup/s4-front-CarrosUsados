@@ -29,4 +29,5 @@ export class Puntoventa {
      */
     numVendedores: number;
     
+    
 }

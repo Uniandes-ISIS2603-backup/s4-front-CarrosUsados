@@ -18,12 +18,12 @@ export class CalificacionService {
 
    
 
-    /**
-    * The headers sent in every request to the API
-    */
-   headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': '*'
-});
+//     /**
+//     * The headers sent in every request to the API
+//     */
+//    headers = new HttpHeaders({
+//     'Access-Control-Allow-Origin': '*'
+// });
 
   constructor(private http: HttpClient) { }
   getCalificaciones(): Observable<Calificacion[]>{
