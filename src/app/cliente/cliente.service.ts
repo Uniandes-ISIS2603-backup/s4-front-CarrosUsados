@@ -22,16 +22,6 @@ export class ClienteService {
     return this.http.get<Cliente[]>(environment.apiURL + clientes);
   }
 
-  verifyCliente(correo: String, contrasena: String): Cliente {
-    let clientes: Cliente[] = JSON.parse((String(this.getClientes)));
-    for (let cliente of clientes) {
-      if (cliente.correo === correo && cliente.contrasena === contrasena) {
-        return cliente;
-      }
-      else return null;
-    }
-  }
-
    /**
     * Retorna el objeto observable del detalle de ficha tecnica del API
     * @returns Los detalles del autor
@@ -46,12 +36,25 @@ export class ClienteService {
     * @returns Mensaje del POST
     */
    createCliente(cliente): Observable<Cliente> {
-     console.log(cliente.fechaNacimiento);
-     
      cliente.fechaNacimiento = new Date (cliente.fechaNacimiento ); 
-     console.log(cliente);
-     console.log(cliente.fechaNacimiento);
     return this.http.post<Cliente>(environment.apiURL + clientes, cliente);
   }
+   /**
+     * Updates an author
+     * @param author The author's information updated
+     * @returns The confirmation that the author was updated
+     */
+    updateCliente(cliente): Observable<ClienteDetail> {
+      return this.http.put<ClienteDetail>(environment.apiURL + clientes + '/' + cliente.id, cliente);
+    }
+  
+    /**
+    * Deletes an author from the BookStore
+    * @param authorId The id of the author
+    * @returns The confirmation that the author was deleted
+    */
+   deleteCliente(clienteId): Observable<boolean> {
+      return this.http.delete<boolean>(environment.apiURL + clientes + '/' + clienteId);
+    }
 }
 
