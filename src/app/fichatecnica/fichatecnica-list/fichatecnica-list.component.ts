@@ -39,6 +39,7 @@ export class FichatecnicaListComponent implements OnInit {
 
   onSelected(fichaTecnica_id: number): void {
     this.showCreate = false;
+    //this.showEdit = false;
     this.showView = true;
     this.fichaTecnica_id = fichaTecnica_id;
     this.selectedFichaTecnica = new FichatecnicaDetail();
@@ -51,6 +52,7 @@ export class FichatecnicaListComponent implements OnInit {
     */
   showHideCreate(): void {
     this.showView = false;
+    this.showEdit = false;
     this.showCreate = !this.showCreate;
   }
 
@@ -87,9 +89,15 @@ export class FichatecnicaListComponent implements OnInit {
       });
   }
 
+  updateFichaTecnica(): void {
+    this.showEdit = false;
+    this.showView = true;
+}
+
   ngOnInit() {
     this.showCreate = false;
     this.showView = false;
+    this.showEdit = false;
     this.selectedFichaTecnica = undefined;
     this.fichaTecnica_id = undefined;
     this.getFichasTecnicas();

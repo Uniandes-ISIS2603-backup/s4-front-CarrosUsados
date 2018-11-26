@@ -39,6 +39,12 @@
                         <td>{{fichatecnica.rines}}</td>
                         <td>{{fichatecnica.aireAcondicionado}}</td>
                         <td>{{fichatecnica.numAirbags}}</td>
+                        <td >
+                            <button class="btn btn-primary" (click)="showHideEdit(fichatecnica.id)"><span class="fa fa-pencil"></span></button>
+                        </td>
+                        <td >
+                            <button class="btn btn-danger" (click)="deleteFichaTecnica(fichatecnica.id)"><span class="fa fa-trash"></span></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -59,6 +65,9 @@
             </div>
             <div *ngIf="showCreate">
                 <app-fichatecnica-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-fichatecnica-create>
+            </div>
+            <div *ngIf="showEdit">
+                <app-fichatecnica-edit [fichaTecnica]="selectedFichaTecnica" (cancel)="showHideEdit(selectedFichaTecnica.id)" (update)="updateFichaTecnica()" ></app-fichatecnica-edit>
             </div>
         </div>
     </div>

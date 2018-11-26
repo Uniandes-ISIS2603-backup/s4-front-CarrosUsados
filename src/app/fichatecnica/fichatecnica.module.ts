@@ -9,6 +9,7 @@ import { FichatecnicaListComponent } from './fichatecnica-list/fichatecnica-list
 import { FichatecnicaDetailComponent } from './fichatecnica-detail/fichatecnica-detail.component';
 import { FichatecnicaCreateComponent } from './fichatecnica-create/fichatecnica-create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FichatecnicaEditComponent } from './fichatecnica-edit/fichatecnica-edit.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     FormsModule
   ],
-  declarations: [FichatecnicaListComponent, FichatecnicaDetailComponent, FichatecnicaCreateComponent],
+  declarations: [FichatecnicaListComponent, FichatecnicaDetailComponent, FichatecnicaCreateComponent, FichatecnicaEditComponent],
   providers: [FichatecnicaService]
 })
 export class FichatecnicaModule { }

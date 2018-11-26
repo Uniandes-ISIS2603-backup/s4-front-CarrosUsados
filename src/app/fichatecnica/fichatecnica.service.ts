@@ -53,4 +53,13 @@ export class FichatecnicaService {
     return this.http.post<Fichatecnica>(environment.apiURL + fichastecnicas, fichatecnica);
   }
 
+  /**
+    * Actualiza una ficha tecnica
+    * @param fichaTecnica La informacion de la ficha tecnica actualizada
+    * @returns La confirmacion de que la ficha tecnica si fue actualizada
+    */
+   updateFichaTecnica(fichaTecnica): Observable<Fichatecnica> {
+    return this.http.put<Fichatecnica>(environment.apiURL+ fichastecnicas + '/' + fichaTecnica.id, fichaTecnica );
+}
+
 }
