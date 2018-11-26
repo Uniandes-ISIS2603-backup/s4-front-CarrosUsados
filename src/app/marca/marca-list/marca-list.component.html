@@ -37,6 +37,8 @@
                     <th style="color: white; font-family: 'Raleway', sans-serif; width: 10%">Nombre</th>
                     <th style="color: white; font-family: 'Raleway', sans-serif; width: 10%">Pais</th>
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Descripción</th>   
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Editar</th> 
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Eliminar</th> 
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +46,15 @@
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption" routerLink="/marcas/{{marca.id}}">{{marca.id}}</td> 
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-nombre" class="figure-caption" routerLink="/marcas/{{marca.id}}">{{marca.nombre}}</td> 
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-pais" class="figure-caption" routerLink="/marcas/{{marca.id}}">{{marca.pais}}</td>
-                    <td style="font-family: 'Raleway', sans-serif;" id="marca-descripcion" class="figure-caption" routerLink="/marcas/{{marca.id}}">{{marca.descripcion}}</td> 
+                    <td style="font-family: 'Raleway', sans-serif;" id="marca-descripcion" class="figure-caption" routerLink="/marcas/{{marca.id}}">{{marca.descripcion}}</td>
+                    <td id="marca-edit">
+                            <button [ngClass]="{ 'btn-primary': (!showEdit || edit_marca_id != marca.id), 'btn-danger': (showEdit && edit_marca_id == marca.id) }"
+                                type="button" class="btn" (click)="showEditMarca(marca.id)">Edit</button>
+                    </td>
+                    <td id="marca-delete">
+                            <button class="btn btn-danger" (click)="deleteMarca(marca.id)">Eliminar</button>
+                    </td>
+                    
                 </tr>
             </tbody>
         </table>
@@ -57,6 +67,7 @@
 </div>        
  <div>
      <app-marca-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-marca-create>
-
+     <app-marca-edit [marca_id]="edit_marca_id" (cancel)="hideEditMarca()" (update)="ngOnInit()"
+                *ngIf="showEdit"></app-marca-edit>
 </div>
 
