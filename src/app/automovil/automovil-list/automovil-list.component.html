@@ -14,7 +14,7 @@
         </select>
         <br>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <table class="table table-bordered table-hover">
                     <thead class="thead-dark">
                         <tr>
@@ -42,17 +42,17 @@
                             <td>{{automovil.precioOriginal}}</td>
                             
                             <td>
-                                <button class="btn btn-primary" (click)="showHideEdit(automovil.id)"><span class="fa fa-pencil"></span></button>
+                                <button class="btn btn-primary" (click)="showHideEdit(automovil.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                             </td>
                             <td>
-                                <button class="btn btn-danger" (click)="deleteAutomovil(automovil.id)"><span class="fa fa-trash"></span></button>
+                                <button class="btn btn-danger" (click)="deleteAutomovil(automovil.id)"><span class="glyphicon glyphicon-trash"></span></button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div *ngIf="showView">
                     <app-automovil-detail [automovilDetail]="selectedAutomovil"></app-automovil-detail>
                 </div>

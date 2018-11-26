@@ -22,7 +22,7 @@ export class AutomovilListComponent implements OnInit {
    * @param automovilService El proveedor del servicio automovil
    */
   constructor(
-    private automovilService: AutomovilService, 
+    private automovilService: AutomovilService,
     private modeloService: ModeloService,
     private modalDialogService: ModalDialogService,
     private viewRef: ViewContainerRef,
@@ -34,20 +34,29 @@ export class AutomovilListComponent implements OnInit {
    */
   automoviles: Automovil[];
 
+  /**
+   * El id del automovil
+   */
   automovil_id: number;
 
-
-
+  /**
+   * La lista de modelos a seleccionar
+   */
   modelos: Modelo[];
 
-  modelo_id:any;
-
+  /**
+   * El id del modelo seleccionado
+   */
+  modelo_id: any;
 
   /**
   * Muestra o esconde el componente automovil-create-component
   */
   showCreate: boolean;
 
+  /**
+   * Muestra o esconde el componente automovil-edit-component
+   */
   showEdit: boolean;
 
   /**
@@ -55,6 +64,9 @@ export class AutomovilListComponent implements OnInit {
    */
   showView: boolean;
 
+  /**
+   * El automovil seleccionado
+   */
   selectedAutomovil: Automovil;
 
   onSelected(automovil_id: number): void {
@@ -67,7 +79,7 @@ export class AutomovilListComponent implements OnInit {
 
   }
 
-  onModeloSelected(idModelo:any){
+  onModeloSelected(idModelo: any) {
     this.modelo_id = idModelo;
     this.getAutomovilesOfModelo(idModelo);
   }
@@ -116,13 +128,13 @@ export class AutomovilListComponent implements OnInit {
   /**
    * Le pregunta al servicio para actualizar los automoviles
    */
-  getAutomovilesOfModelo(modeloId:any) {
+  getAutomovilesOfModelo(modeloId: any) {
     this.automovilService.getAutomovilesOfModelo(modeloId)
       .subscribe(automoviles => this.automoviles = automoviles);
   }
 
   getAutomovilDetail(): void {
-    this.automovilService.getAutomovilDetail(this.modelo_id,this.automovil_id)
+    this.automovilService.getAutomovilDetail(this.modelo_id, this.automovil_id)
       .subscribe(selectedAutomovil => {
         this.selectedAutomovil = selectedAutomovil;
       });
@@ -135,32 +147,41 @@ export class AutomovilListComponent implements OnInit {
 
 
 
-/**
-      * Elimina un automovil
-      */
-     deleteAutomovil(automovilId): void {
-      this.modalDialogService.openDialog(this.viewRef, {
-        title: 'Eliminar un automovil',
-        childComponent: SimpleModalComponent,
-        data: { text: 'Esta seguro que desea eliminar un automovil?' },
-        actionButtons: [
-          {
-            text: 'Si',
-            buttonClass: 'btn btn-danger',
-            onAction: () => {
-              this.automovilService.deleteAutomovil(this.modelo_id,automovilId).subscribe(() => {
-                this.toastrService.error("El automovil fue eliminado satisfactoriamente", "Automovil eliminado");
-                this.ngOnInit();
-              }, err => {
-                this.toastrService.error(err, "Error");
-              });
-              return true;
-            }
-          },
-          { text: 'No', onAction: () => true }
-        ]
-      });
-    }
+  /**
+        * Elimina un automovil
+        */
+  deleteAutomovil(automovilId): void {
+    this.automovilService.deleteAutomovil(this.modelo_id,automovilId).subscribe(() => {
+      this.toastrService.success("El automovil fue eliminado correctamente.", "Automovil eliminado.");
+      this.ngOnInit();
+    }, err => {
+      this.toastrService.error(err, "Error");
+    });
+    //this.getAutomovilesOfModelo(this.modelo_id);
+    /*
+    this.modalDialogService.openDialog(this.viewRef, {
+      title: 'Eliminar un automovil',
+      childComponent: SimpleModalComponent,
+      data: { text: 'Esta seguro que desea eliminar un automovil?' },
+      actionButtons: [
+        {
+          text: 'Si',
+          buttonClass: 'btn btn-danger',
+          onAction: () => {
+            this.automovilService.deleteAutomovil(this.modelo_id, automovilId).subscribe(() => {
+              this.toastrService.error("El automovil fue eliminado satisfactoriamente", "Automovil eliminado");
+              this.ngOnInit();
+            }, err => {
+              this.toastrService.error(err, "Error");
+            });
+            return true;
+          }
+        },
+        { text: 'No', onAction: () => true }
+      ]
+    });
+    */
+  }
 
 
   /**
@@ -175,7 +196,7 @@ export class AutomovilListComponent implements OnInit {
     this.automovil_id = undefined;
 
     this.getModelos();
-    
+
     this.modelo_id = -1;
     //this.getAutomovilesOfModelo(this.modelo_id);
   }

@@ -108,6 +108,15 @@ export class FichatecnicaListComponent implements OnInit {
       * Elimina una ficha tecnica
       */
   deleteFichaTecnica(fichaTecnicaId): void {
+    this.fichaTecnicaService.deleteFichaTecnica(fichaTecnicaId).subscribe(() => {
+      this.toastrService.success("La ficha tecnica fue eliminada correctamente.", "Ficha tecnica eliminada.");
+      this.ngOnInit();
+    }, err => {
+      this.toastrService.error(err, "Error");
+    });
+
+    
+    /*
     this.modalDialogService.openDialog(this.viewRef, {
       title: 'Eliminar una ficha tecnica',
       childComponent: SimpleModalComponent,
@@ -128,7 +137,7 @@ export class FichatecnicaListComponent implements OnInit {
         },
         { text: 'No', onAction: () => true }
       ]
-    });
+    });*/
   }
 
   ngOnInit() {
