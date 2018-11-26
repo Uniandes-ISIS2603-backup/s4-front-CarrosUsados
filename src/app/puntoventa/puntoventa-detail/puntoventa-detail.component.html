@@ -21,7 +21,7 @@
             <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ubicacion}}</td>
             <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.latitud}}</td>
             <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.longitud}}</td>
-            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.numeroVendedores}}</td>
+            <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.numVendedores}}</td>
                   
                 </tr>
         </tbody> 
@@ -30,4 +30,28 @@
 
       </div>
   </div>
+
+
+  <div >
+        <div class="row">
+            <div class="col-md-3">
+                <p *ngIf="puntoventaDetail.calificaciones.length > 0">
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': calificacionListComponent.isCollapsed,'btn-outline-primary':!calificacionListComponent.isCollapsed}" (click)="toggleReviews()">
+                            Calificaciones del punto de venta
+                </button>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p>
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': reviewAddComponent.isCollapsed,'btn-outline-primary':!reviewAddComponent.isCollapsed}" (click)="toggleCreateReview()">
+                        Calificar el punto de venta.
+            </button>
+        </p>
+    </div>
 </div>
+</div>
+<app-puntoventa-calificaciones [calificacionespunto]="puntoventaDetail.calificaciones"></app-puntoventa-calificaciones>
+<app-puntoventa-add-calificacion [puntoventa]="puntoventaDetail" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
+<br>
+</div>
+ 

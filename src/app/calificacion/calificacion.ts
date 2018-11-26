@@ -1,3 +1,5 @@
+import { Puntoventa } from "../puntoventa/puntoventa";
+
 export class Calificacion {
 
     /**
@@ -5,9 +7,13 @@ export class Calificacion {
      */
     id:number;
     
-    numeroEstrellas:number;
+    numEstrellas:number;
     /**
      * comentario de calificacion
      */
     comentario:string;
+
+
+    /**punto de venta de la calificacion */
+    puntoventa:Puntoventa;
 }

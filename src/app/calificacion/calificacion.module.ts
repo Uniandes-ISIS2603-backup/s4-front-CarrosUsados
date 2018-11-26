@@ -10,6 +10,7 @@ import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CalificacionService } from './calificacion.service';
+ 
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { CalificacionService } from './calificacion.service';
     CommonModule,
     FormsModule
   ],
-  declarations: [  CalificacionListComponent, CalificacionDetailComponent, CalificacionCreateComponent],
+  declarations: [  CalificacionListComponent, CalificacionDetailComponent, CalificacionCreateComponent ],
   exports:[CalificacionListComponent, CalificacionDetailComponent],
   providers:[CalificacionService]
 })

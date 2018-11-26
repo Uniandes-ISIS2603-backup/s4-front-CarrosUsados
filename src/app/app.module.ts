@@ -62,8 +62,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RegistroModule,
     AdministradorModule,
     AuthModule,
-    FontAwesomeModule
-    
+    FontAwesomeModule,
+    NgxPermissionsModule.forRoot(),
+ 
   ],
   providers: [
     {

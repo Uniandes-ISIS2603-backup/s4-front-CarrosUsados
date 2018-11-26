@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-
+import {NgxPermissionsGuard} from 'ngx-permissions';
 import { InicioComponent } from '../inicio/inicio.component';
 import { IngresarComponent } from '../ingresar/ingresar.component';
 import { AutomovilListComponent } from '../automovil/automovil-list/automovil-list.component';
@@ -20,6 +20,7 @@ import { PuntoventaCreateComponent } from '../puntoventa/puntoventa-create/punto
 import { CalificacionCreateComponent } from '../calificacion/calificacion-create/calificacion-create.component';
 import { CalificacionDetail } from '../calificacion/calificacion-detail';
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
+import { PuntoventaEditComponent } from '../puntoventa/puntoventa-edit/puntoventa-edit.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 
 const routes: Routes = [
@@ -60,6 +61,16 @@ const routes: Routes = [
           {
               path:'create',
               component: PuntoventaCreateComponent
+          },
+          {
+            path: ':id/edit',
+            component: PuntoventaEditComponent,
+         
+          },
+          {
+            path: ':id/delete',
+            component: PuntoventaEditComponent,
+          
           }
       ]
   },
