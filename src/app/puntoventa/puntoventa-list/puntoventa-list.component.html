@@ -71,7 +71,7 @@
 </div>
 
 <div class="col-md-6" style="width: 90%; margin-left: 7%; margin-right: 5%; align-content: flex-end">
-        <div *ngIf="showView">
+        <div *ngIf="showView  && !showEdit">
             <app-puntoventa-detail [puntoventaDetail]="selectedPuntoventa"></app-puntoventa-detail>
         </div>
 
