@@ -3,7 +3,7 @@
     <br>
     <h2 class="text-center">Crear una ficha técnica</h2>
     <br>
-    <form name="fichatecnica" (ngSubmit)="f.form.valid && createFichaTecnica()" #f="ngForm" novalidate>
+    <form name="fichatecnica" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
         <div class="form-group">
             <label for="vidrios"><b>Vidrios</b></label>
             <input type="text" name="vidrios" class="form-control" id="vidrios" [(ngModel)]="fichaTecnica.vidrios"
