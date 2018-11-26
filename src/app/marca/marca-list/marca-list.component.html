@@ -49,10 +49,10 @@
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-descripcion" class="figure-caption" routerLink="/marcas/{{marca.id}}">{{marca.descripcion}}</td>
                     <td id="marca-edit">
                             <button [ngClass]="{ 'btn-primary': (!showEdit || edit_marca_id != marca.id), 'btn-danger': (showEdit && edit_marca_id == marca.id) }"
-                                type="button" class="btn" (click)="showEditMarca(marca.id)">Edit</button>
+                                type="button" class="btn" (click)="showEditMarca(marca.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                     </td>
                     <td id="marca-delete">
-                            <button class="btn btn-danger" (click)="deleteMarca(marca.id)">Eliminar</button>
+                            <button class="btn btn-danger" (click)="deleteMarca(marca.id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </td>
                     
                 </tr>

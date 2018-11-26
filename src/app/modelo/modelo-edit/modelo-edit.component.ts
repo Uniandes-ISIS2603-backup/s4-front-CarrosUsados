@@ -1,12 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import { Marca } from 'src/app/marca/marca'
 import { ModeloService } from '../modelo.service';
-import { MarcaService } from '../../marca/marca.service';
+import { MarcaService } from 'src/app/marca/marca.service';
 
 import { Modelo } from '../modelo';
-import { Marca } from '../../marca/marca';
 
 @Component({
   selector: 'app-modelo-edit',
@@ -16,16 +15,19 @@ import { Marca } from '../../marca/marca';
 export class ModeloEditComponent implements OnInit {
 
   constructor(private modeloService: ModeloService,
-        private marcaService: MarcaService,
+  private marcaService:MarcaService,
         private toastrService: ToastrService) { }
         
-modelo: Modelo;
+
 @Input() modelo_id;
  @Output() cancel = new EventEmitter();
  @Output() update = new EventEmitter();
 
- marcas: Marca[];
- 
+modelo: Modelo;
+   marcas: Marca[];
+   
+   
+   
      getModelo(): void {
         this.modeloService.getModelo(this.modelo_id)
             .subscribe(modelo => {
@@ -36,10 +38,10 @@ modelo: Modelo;
     }
     
         editModelo(): void {
-        this.modeloService.updateModelo(this.modelo, this.modelo.id_marca)
+        this.modeloService.updateModelo(this.modelo)
             .subscribe(() => {
                 this.update.emit();
-                this.toastrService.success("The editorial's information was updated", "Editorial edition");
+                this.toastrService.success("La información del Modelo fue actualizada", "Edición de Modelo");
             }, err => {
                 this.toastrService.error(err, "Error");
             });
@@ -48,17 +50,16 @@ modelo: Modelo;
             cancelEdition(): void {
         this.cancel.emit();
     }
-    
       getMarcas() {
-
-    this.marcaService.getMarcas()
-      .subscribe(marcas => this.marcas = marcas);
+      this.marcaService.getMarcas()
+        .subscribe(marcas => this.marcas = marcas);
   }
+   
 
   ngOnInit() {
               this.modelo = new Modelo();
-        this.getMarcas();
         this.getModelo();
+        this.getMarcas();
   }
   
         ngOnChanges() {

@@ -50,27 +50,12 @@ export class MarcaListComponent implements OnInit {
     }
     
         deleteMarca(marcaId): void {
-        this.modalDialogService.openDialog(this.viewRef, {
-            title: 'Eliminar una Marca',
-            childComponent: SimpleModalComponent,
-            data: { text: 'Esta seguro de eliminar esta Marca y todos sus Modelos de Tu Nave?' },
-            actionButtons: [
-                {
-                    text: 'Yes',
-                    buttonClass: 'btn btn-danger',
-                    onAction: () => {
-                        this.marcaService.deleteMarca(marcaId).subscribe(modelos => {
-                            this.toastrService.error("La marca y todos sus modelos fueron eliminados", "Marca deleted");
-                            this.ngOnInit();
-                        }, err => {
-                            //this.toastrService.error(err, "Error");
-                        });
-                        return true;
-                    }
-                },
-                { text: 'No', onAction: () => true }
-            ]
-        });
+    this.marcaService.deleteMarca(marcaId).subscribe(() => {
+      this.toastrService.success("La marca fue eliminado correctamente.", "Marca eliminado.");
+      this.ngOnInit();
+    }, err => {
+      this.toastrService.error(err, "Error");
+    });
     }
 
   ngOnInit() {
