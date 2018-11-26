@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {NgxPermissionsModule} from 'ngx-permissions';
+
+import {NgxPaginationModule} from 'ngx-pagination';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { InicioModule} from './inicio/inicio.module';
 import { RegistroModule } from './registro/registro.module';
@@ -21,6 +26,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { FichatecnicaModule } from './fichatecnica/fichatecnica.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthLoginComponent } from './auth/auth-login/auth-login.component';
+import { AuthModule } from './auth/auth.module';
 
 
 
@@ -32,9 +39,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
+    NgxPermissionsModule,
+    NgxPaginationModule,
+    NgbModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+  }),
+   ModalDialogModule.forRoot(),
     MarcaModule,
     ArticuloModule,
-    ModalDialogModule.forRoot(),
     AutomovilModule,
     FichatecnicaModule,
     PuntoventaModule,
@@ -42,15 +58,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ClienteModule,
     ModeloModule,
     FormsModule,
-    ToastrModule.forRoot({
-      timeOut: 10000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true,
-  }),
     IngresarModule,
     InicioModule,
     RegistroModule,
-    AdministradorModule
+    AdministradorModule,
+    AuthModule
   ],
   providers: [
     {

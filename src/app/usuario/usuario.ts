@@ -26,4 +26,9 @@ export class Usuario extends Persona{
    */
   public fechaNacimiento: Date;
 
+      /**
+   * El rol del usuario, por defecto un string vacío.
+   */
+  public role: String = '';
+
 }

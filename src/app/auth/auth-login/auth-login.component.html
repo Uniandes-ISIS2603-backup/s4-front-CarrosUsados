@@ -1,0 +1,43 @@
+<div >
+  <img class="responsive" src="../assets/images/imagehome.png" alt="head"
+       style="width: 100%;z-index: -1; position: absolute; float: right;">
+</div> 
+
+
+<div class="row" style=" width: 100%; background-color: transparent; z-index: 1; align-content: center">
+  <div class="col-2" style="width: 400px; height: 350px; 
+       background-color: black; opacity: 0.8; text-align: center; margin-top: 7%; align-self: center; 
+       padding: 1em; margin-left: 36%; margin-right: 80%;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+      
+      <h1 style="color: white; font-family: 'Raleway', sans-serif; margin-top: 43px">Ingresar</h1>
+
+      <form name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+          <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -10px;">
+              <label for="nombreUsuario">Nombre de usuario</label>
+              <input type="text" name="nombreUsuario" class="form-control" id="nombreUsuario" [(ngModel)]="user.nombreUsuario" placeholder="js.bravo">
+          </div>
+          <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+            <label for="contrasena"><b>Contraseña</b></label>
+            <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="user.contrasena">
+          </div>
+          <div class="form-group" style="margin-left: 40px; margin-right: 40px; margin-top: -20px">
+            <label for="Rol"><b>Rol</b></label>
+            <select class="custom-select" name="role" id="role" [(ngModel)]="role" required>
+                <option [value]="role" *ngFor="let role of roles">{{role}}</option>
+            </select>
+          </div>
+
+          <div class="justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary" style="width: 120px">Ingresar</button>
+        </div>
+
+      </form>
+      <a routerLink="/registro">¿No tienes cuenta?</a>
+  </div>
+</div>
+
+<div style="background-color: black; margin-top: 11%; opacity: 0.8; width: 100%; height: 150px" >
+  <img src="../assets/images/logowhite.png" alt="logoCarteam" height="30" width="130" style="margin-left:10px; margin-right: 10px; margin-top: 15px; ">
+  <p style="color: white; font-family: 'Raleway', sans-serif; margin-left:10px; margin-top: 10">TuNave Inc.</p>
+</div>
