@@ -6,11 +6,11 @@
         <br>
         <h2 class="text-center" style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Editar un punto de venta</h2>
         <br>
-        <form name="puntoventa" (ngSubmit)="f.form.valid && editPunto()" #f="ngForm" novalidate>
+        <form name="puntoventa" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
           
           <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
                 <label for="puntoventaCiudad"  style="font-family: 'Raleway', sans-serif "><b>Ciudad</b></label>
-                <input type="text" name="puntoventaCiudad" class="form-control" id="puntoventaCiudad" [(ngModel)]="puntoventa.Ciudad"
+                <input type="text" name="puntoventaCiudad" class="form-control" id="puntoventaCiudad" [(ngModel)]="puntoventa.ciudad"
                     #puntoventaCiudad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puntoventaCiudad.invalid }" required>
                 <div class="invalid-feedback">
                     <!-- <div>Se requiere la ciudad del punto de venta.</div> -->
@@ -19,7 +19,7 @@
   
             <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
                 <label for="puntoventaUbicacion"  style="font-family: 'Raleway', sans-serif "><b>Ubicacion</b></label>
-                    <input  type="text" class="form-control" id="puntoventaUbicacion" name="puntoventaUbicacion" [(ngModel)]="puntoventa.Ubicacion"
+                    <input  type="text" class="form-control" id="puntoventaUbicacion" name="puntoventaUbicacion" [(ngModel)]="puntoventa.ubicacion"
                     #puntoventaUbicacion="ngModel" [ngClass]="{'is-invalid': f.submitted &&  puntoventaUbicacion.invalid }"
                         required>
                     <div class="invalid-feedback">
@@ -30,7 +30,7 @@
   
                 <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
                   <label for="puntoventaLatitud"  style="font-family: 'Raleway', sans-serif "><b>Latitud</b></label>
-                  <input type="text" name="puntoventaLatitud" class="form-control" id="puntoventaLatitud" [(ngModel)]="puntoventa.Latitud"
+                  <input type="text" name="puntoventaLatitud" class="form-control" id="puntoventaLatitud" [(ngModel)]="puntoventa.latitud"
                       #puntoventaLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puntoventaLatitud.invalid }" required>
                   <div class="invalid-feedback">
                       <!-- <div>Se requiere la latitud del punto de venta</div> -->
@@ -39,7 +39,7 @@
   
                 <div class="form-group"  style="margin-left: 5%; margin-right: 5%">
                   <label for="puntoventaLongitud"  style="font-family: 'Raleway', sans-serif "><b>Longitud</b></label>
-                  <input type="text" name="puntoventaLongitud" class="form-control" id="puntoventaLongitud" [(ngModel)]="puntoventa.Longitud"
+                  <input type="text" name="puntoventaLongitud" class="form-control" id="puntoventaLongitud" [(ngModel)]="puntoventa.longitud"
                       #puntoventalongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && puntoventaLongitud.invalid }" required>
                   <div class="invalid-feedback">
                       <!-- <div>Se requiere la longitud del punto de venta</div> -->
@@ -64,7 +64,7 @@
 
 </div>
           <div class="row form-inline justify-content-center align-self-center">
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="submit" class="btn btn-primary" (click)="updatePunto()">Editar</button>
             <div class="divider"></div>
             <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
         </div>
