@@ -64,6 +64,7 @@ import { AuthModule } from './auth/auth.module';
     AdministradorModule,
     NgxPermissionsModule.forRoot(),
     AuthModule
+ 
   ],
   providers: [
     {
