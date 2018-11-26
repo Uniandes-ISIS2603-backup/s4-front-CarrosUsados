@@ -35,11 +35,11 @@
 
     <div class="col-md-6">
 
-            <div *ngIf="selectedCliente">
+            <div *ngIf="showView && !showEdit">
                 <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
             </div>
 
-            <div *ngIf="showCreate">
+            <div *ngIf="showCreate ">
                     <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
                 </div>
 

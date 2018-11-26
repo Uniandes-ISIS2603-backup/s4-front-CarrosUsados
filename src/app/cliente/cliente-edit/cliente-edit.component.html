@@ -47,7 +47,7 @@
         title="La contraseña debe tener mínimo: un número, un símbolo, una mayúscula y una minúscula. Su longitud debe ser superior a 8 caracteres"
         required>
 
-      <password-strength-meter [password]=administrador.contrasena [enableFeedback]=false></password-strength-meter>
+      <password-strength-meter [password]=cliente.contrasena [enableFeedback]=false></password-strength-meter>
       <!--
                 <div class="invalid-feedback">
                 <div>Los vidrios de la ficha técnica estan faltando</div>
@@ -72,9 +72,14 @@
     <div class="row">
       <div class="col-12">
         <div class="row form-inline justify-content-center align-self-center">
-          <i style="padding-right: 1em;" class="fa fa-save " (click)="editCliente()"></i>
 
-          <i class="fa fa-ban" (click)="cancelEdition()"></i>
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-primary " (click)="editCliente()"><span class="fa fa-save"></span></button>
+          </div>
+          <div class="col-md-6">
+
+            <button type="button" class="btn btn-danger" (click)="cancelEdition()"><span class="fa fa-ban"></span></button>
+          </div>
         </div>
       </div>
     </div>

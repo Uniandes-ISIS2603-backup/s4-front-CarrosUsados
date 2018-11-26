@@ -39,7 +39,7 @@ selectedAdministrador:Administrador;
 
   onSelected(administrador_id: number):void {
     this.showCreate = false;
-    this.showEdit = false;
+   // this.showEdit = false;
     this.showView = true;
     this.administrador_id = administrador_id;
     this.selectedAdministrador = new AdministradorDetail();

@@ -6,7 +6,7 @@
         <br>
         <label>Seleccione un modelo:</label>
         <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
-            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.id}}</option>
+            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.nombre}}</option>
         </select>
         <br>
         <form name="automovil" (ngSubmit)="f.form.valid && createAutomovil()" #f="ngForm" novalidate>

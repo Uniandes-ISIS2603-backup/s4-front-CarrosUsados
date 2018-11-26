@@ -45,7 +45,7 @@ export class AdministradorEditComponent implements OnInit {
     */
    editAdministrador(): void {
     this.administradorService.updateAdministrador(this.administrador)
-    .subscribe((administrador) => {
+    .subscribe(() => {
       this.toastrService.success("El administrador fue actualizado!", "Actualización del administrador");
 
     });
