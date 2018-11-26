@@ -1,113 +1,121 @@
-<div class="col-3"></div>
-<div class="col-6">
-  <br>
-  <h2 class="text-center">Modificar un administrador</h2>
-  <br>
-  <form name="administrador" (ngSubmit)="f.form.valid && editAdministrador()" #f="ngForm" class="form-signup needs-validation ng-untouched ng-invalid ng-dirty"
-    novalidate>
-    <div class="form-group">
-      <label for="nombre"><b>Nombre</b></label>
-      <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="administrador.nombre" #nombre="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" placeholder="Ej. Sebastián" ng-required="true"
-        required>
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Modificar un administrador</h2>
+    <br>
+    <form name="administrador" (ngSubmit)="f.form.valid && editAdministrador()" #f="ngForm" class="form-signup needs-validation ng-untouched ng-invalid ng-dirty"
+      novalidate>
+      <div class="form-group">
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="administrador.nombre" #nombre="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" placeholder="Ej. Sebastián" ng-required="true"
+          required>
 
-      <div class="invalid-feedback">
-        <div>Los vidrios de la ficha técnica estan faltando</div>
+        <div class="invalid-feedback">
+          <div>Los vidrios de la ficha técnica estan faltando</div>
+        </div>
+
       </div>
 
-    </div>
-
-    <div class="form-group">
-      <label for="apellido"><b>Apellido</b></label>
-      <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="administrador.apellido"
-        #apellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellido.invalid }" placeholder="Ej. Bravo"
-        required>
-      <!--
+      <div class="form-group">
+        <label for="apellido"><b>Apellido</b></label>
+        <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="administrador.apellido"
+          #apellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && apellido.invalid }" placeholder="Ej. Bravo"
+          required>
+        <!--
                 <div class="invalid-feedback">
                 <div>Los vidrios de la ficha técnica estan faltando</div>
             </div>
             -->
 
-    </div>
-
-
-    <div class="form-group">
-      <label for="correo"><b>Correo electrónico</b></label>
-      <input type="email" name="correo" class="form-control" id="correo" [(ngModel)]="administrador.correo" #correo="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && correo.invalid }" placeholder="Ej. js.bravo@uniandes.edu.co" required>
-
-
-    </div>
-
-    <div class="form-group">
-      <label for="contrasena"><b>Contraseña</b></label>
-
-      <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="administrador.contrasena"
-        #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
-        title="La contraseña debe tener mínimo: un número, un símbolo, una mayúscula y una minúscula. Su longitud debe ser superior a 8 caracteres"
-        required>
-
-      <password-strength-meter [password]=administrador.contrasena [enableFeedback]=false></password-strength-meter>
-      <!--
-                <div class="invalid-feedback">
-                <div>Los vidrios de la ficha técnica estan faltando</div>
-            </div>
-            -->
-
-    </div>
-
-    <div class="form-group">
-      <label for="fechaInicio"><b>Fecha de inicio</b></label>
-      <input type="date" name="fechaInicio" class="form-control" id="fechaInicio" [(ngModel)]="administrador.fechaInicio"
-        #fechaInicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaInicio.invalid }" required>
-      <!--
-                <div class="invalid-feedback">
-                <div>Los vidrios de la ficha técnica estan faltando</div>
-            </div>
-            -->
-
-    </div>
-
-    
-  
-
-    <div class="form-group">
-      <label for="cargo"><b>Cargo</b></label>
-      <input type="text" name="cargo" maxlength="15" class="form-control" id="cargo" [(ngModel)]="administrador.cargo"
-        #cargo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cargo.invalid }" required>
-      <!--
-                <div class="invalid-feedback">
-                <div>Los vidrios de la ficha técnica estan faltando</div>
-            </div>
-            -->
-
-    </div>
-
-    <div class="form-group">
-      <label for="telefono"><b>Teléfono</b></label>
-      <input type="number" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="administrador.telefono"
-        #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }" required>
-
-      <div class="invalid-feedback">
-        <div>Los vidrios de la ficha técnica estan faltando</div>
       </div>
 
 
-    </div>
+      <div class="form-group">
+        <label for="correo"><b>Correo electrónico</b></label>
+        <input type="email" name="correo" class="form-control" id="correo" [(ngModel)]="administrador.correo" #correo="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && correo.invalid }" placeholder="Ej. js.bravo@uniandes.edu.co"
+          required>
 
-    <div class="row">
-      <div class="col-12">
-        <div class="row form-inline justify-content-center align-self-center">
-          <i style="padding-right: 1em;" class="fa fa-save " (click)="editAdministrador()"></i>
 
-          <i class="fa fa-ban" (click)="cancelEdition()"></i>
+      </div>
+
+      <div class="form-group">
+        <label for="contrasena"><b>Contraseña</b></label>
+
+        <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="administrador.contrasena"
+          #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
+          title="La contraseña debe tener mínimo: un número, un símbolo, una mayúscula y una minúscula. Su longitud debe ser superior a 8 caracteres"
+          required>
+
+        <password-strength-meter [password]=administrador.contrasena [enableFeedback]=false></password-strength-meter>
+        <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+      </div>
+
+      <div class="form-group">
+        <label for="fechaInicio"><b>Fecha de inicio</b></label>
+        <input type="date" name="fechaInicio" class="form-control" id="fechaInicio" [(ngModel)]="administrador.fechaInicio"
+          #fechaInicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaInicio.invalid }" required>
+        <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+      </div>
+
+
+
+
+      <div class="form-group">
+        <label for="cargo"><b>Cargo</b></label>
+        <input type="text" name="cargo" maxlength="15" class="form-control" id="cargo" [(ngModel)]="administrador.cargo"
+          #cargo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cargo.invalid }" required>
+        <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+      </div>
+
+      <div class="form-group">
+        <label for="telefono"><b>Teléfono</b></label>
+        <input type="number" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="administrador.telefono"
+          #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }" required>
+
+        <div class="invalid-feedback">
+          <div>Los vidrios de la ficha técnica estan faltando</div>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="row form-inline justify-content-center align-self-center">
+
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-primary " (click)="editAdministrador()"><span class="fa fa-save"></span></button>
+            </div>
+            <div class="col-md-6">
+
+              <button type="button" class="btn btn-danger" (click)="cancelEdition()"><span class="fa fa-ban"></span></button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <br>
-    <br>
+      <br>
+      <br>
 
 
-  </form>
+    </form>
+  </div>
+  <div class="col-3"></div>
 </div>
-<div class="col-3"></div>

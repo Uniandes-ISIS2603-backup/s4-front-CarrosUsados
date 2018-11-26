@@ -40,7 +40,7 @@ export class ClienteListComponent implements OnInit {
 
   onSelected(cliente_id: number):void {
     this.showCreate = false;
-    this.showEdit = false;
+    //this.showEdit = false;
     this.showView = true;
     this.cliente_id = cliente_id;
     this.selectedCliente = new ClienteDetail();

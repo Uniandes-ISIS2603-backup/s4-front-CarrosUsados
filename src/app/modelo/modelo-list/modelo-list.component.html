@@ -45,10 +45,10 @@
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption" routerLink="/marcas/{{modelo.id}}">{{modelo.centimetros_cubicos}}</td>
                     <td id="modelo-edit">
                             <button [ngClass]="{ 'btn-primary': (!showEdit || edit_modelo_id != modelo.id), 'btn-danger': (showEdit && edit_modelo_id == modelo.id) }"
-                                type="button" class="btn" (click)="showEditModelo(modelo.id)">Edit</button>
+                                type="button" class="btn" (click)="showEditModelo(modelo.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                     </td>
                     <td id="modelo-delete">
-                            <button class="btn btn-danger" (click)="deleteModelo(modelo.id)">Eliminar</button>
+                            <button class="btn btn-danger" (click)="deleteModelo(modelo.id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </td>
                 </tr>
             </tbody>

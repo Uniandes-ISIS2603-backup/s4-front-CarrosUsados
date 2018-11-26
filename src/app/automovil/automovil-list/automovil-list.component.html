@@ -10,7 +10,7 @@
 
         <label>Seleccione un modelo:</label>
         <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
-            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.id}}</option>
+            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.nombre}}</option>
         </select>
         <br>
         <div class="row">
@@ -53,7 +53,7 @@
             </div>
 
             <div class="col-md-4">
-                <div *ngIf="showView">
+                <div *ngIf="showView  && !showEdit">
                     <app-automovil-detail [automovilDetail]="selectedAutomovil"></app-automovil-detail>
                 </div>
                 <div *ngIf="showCreate">

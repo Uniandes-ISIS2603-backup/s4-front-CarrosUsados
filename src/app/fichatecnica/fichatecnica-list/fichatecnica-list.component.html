@@ -60,7 +60,7 @@
         -->
 
         <div class="col-md-6">
-            <div *ngIf="showView">
+            <div *ngIf="showView  && !showEdit">
                 <app-fichatecnica-detail [fichaTecnicaDetail]="selectedFichaTecnica"></app-fichatecnica-detail>
             </div>
             <div *ngIf="showCreate">
