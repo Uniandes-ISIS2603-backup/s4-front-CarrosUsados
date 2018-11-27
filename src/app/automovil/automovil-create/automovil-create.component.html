@@ -1,9 +1,14 @@
+<head>
+<script type = "text/javascript">
+function changeSize(){document.getElementById('formbox').style.height = '800px'}
+</script>
+</head>
+
 <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <br>
-        <h2 class="text-center">Crear un automóvil</h2>
-        <br>
+    <div id="formbox" class="rcorners1 col-4" style=" height: 700px; margin-top: 1%; margin-right: 25px; margin-left: 25px; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+        
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear Automovil</h1>
+    
         <label>Seleccione un modelo:</label>
         <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
             <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.nombre}}</option>
@@ -175,5 +180,6 @@
 
         </form>
     </div>
-    <div class="col-3"></div>
+
+
 </div>

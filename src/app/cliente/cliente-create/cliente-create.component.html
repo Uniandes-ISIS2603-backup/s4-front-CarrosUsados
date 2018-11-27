@@ -84,8 +84,20 @@
 
         <div class="form-group">
             <label for="telefono"><b>Teléfono</b></label>
-            <input type="text" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="cliente.telefono"
+            <input type="number" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="cliente.telefono"
                 #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }"  required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="Direccion"><b>Dirección</b></label>
+            <input type="text" name="direccion"  class="form-control" id="direccion" [(ngModel)]="cliente.direccion"
+                #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && direccion.invalid }"  required>
             <!--
                 <div class="invalid-feedback">
                 <div>Los vidrios de la ficha técnica estan faltando</div>

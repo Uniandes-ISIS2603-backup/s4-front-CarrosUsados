@@ -1,0 +1,17 @@
+.rcorners1 {
+    border-radius: 25px;
+    background: white;
+    padding: 20px;   
+}
+
+.tdf {
+    text-align: center;
+    background-image: linear-gradient(to top, #000000, #434343);
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+.ttf {
+    text-align: center; 
+    background-color: #dddddd;
+    font-family: 'Raleway', sans-serif;
+}
