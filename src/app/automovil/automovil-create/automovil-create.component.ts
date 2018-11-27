@@ -6,6 +6,7 @@ import { Automovil } from '../automovil';
 import { Fichatecnica } from '../../fichatecnica/fichatecnica';
 import { Modelo } from 'src/app/modelo/modelo';
 import { ModeloService } from 'src/app/modelo/modelo.service';
+import { Puntoventa } from 'src/app/puntoventa/puntoventa';
 
 @Component({
   selector: 'app-automovil-create',
@@ -42,7 +43,15 @@ export class AutomovilCreateComponent implements OnInit {
   */
   @Output() create = new EventEmitter();
 
+  /**
+   * Oculta o muestra los campos para crear una ficha tecnica
+   */
   showFichaTecnica: boolean;
+
+  /**
+   * Oculta o muestra la opcion para asociar un punto de venta a un automovil
+   */
+  showPuntoVenta:boolean;
 
   showCreateFichaTecnica() {
     this.showFichaTecnica = !this.showFichaTecnica;
@@ -53,6 +62,17 @@ export class AutomovilCreateComponent implements OnInit {
     }
     
   }
+
+  showCreatePuntoVenta() {
+    this.showPuntoVenta = !this.showPuntoVenta;
+    if(this.automovil.puntoVenta == undefined){
+      this.automovil.puntoVenta = new Puntoventa();
+    }else{
+      this.automovil.puntoVenta = undefined;
+    }
+    
+  }
+  
   /**
  * Crea una ficha técnica
  */
