@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxPermissionsModule} from 'ngx-permissions';
 import { FichatecnicaService } from './fichatecnica.service';
 import { FichatecnicaListComponent } from './fichatecnica-list/fichatecnica-list.component';
 import { FichatecnicaDetailComponent } from './fichatecnica-detail/fichatecnica-detail.component';
@@ -18,7 +19,8 @@ import { FichatecnicaEditComponent } from './fichatecnica-edit/fichatecnica-edit
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule.forRoot()
   ],
   declarations: [FichatecnicaListComponent, FichatecnicaDetailComponent, FichatecnicaCreateComponent, FichatecnicaEditComponent],
   providers: [FichatecnicaService]
