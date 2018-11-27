@@ -1,11 +1,8 @@
 <div class="row">
-  <div class="col-3"></div>
-  <div class="col-6">
-      <br>
-      <h2 class="text-center">Editar un automóvil</h2>
-      <br>
-      
-      <form name="automovil" (ngSubmit)="f.form.valid && createAutomovil()" #f="ngForm" novalidate>
+    <div class="rcorners1 col-4" style=" height: 600px; margin-top: 1%; margin-right: 15px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+        
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Editar Automovil</h1>
+    <form name="automovil" (ngSubmit)="f.form.valid && createAutomovil()" #f="ngForm" novalidate>
           
           <div class="form-group">
               <label for="marcaAutomovil"><b>Marca</b></label>
@@ -90,5 +87,6 @@
           </div>
       </form>
   </div>
-  <div class="col-3"></div>
+
+
 </div>

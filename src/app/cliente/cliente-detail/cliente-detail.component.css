@@ -6,12 +6,12 @@
 
 .tdf {
     text-align: center;
-    background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100);
+    background-image: linear-gradient(to top, #000000, #434343);
     color: white;
     font-family: 'Raleway', sans-serif;
 }
 .ttf {
     text-align: center; 
-    background-color: #f2eada;
+    background-color: #dddddd;
     font-family: 'Raleway', sans-serif;
 }

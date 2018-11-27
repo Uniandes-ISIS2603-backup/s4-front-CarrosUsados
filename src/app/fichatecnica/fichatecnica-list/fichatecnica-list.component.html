@@ -1,27 +1,41 @@
-<br>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="../src/bootstrap-table-filter.js"></script>
+</head>
+
+<div style="background-color: black;">
+    <img class="responsive" src="../assets/images/flist3.jpg" alt="head"
+         style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
+</div>
+
+<div style="align-content: center; width: 100%">
+    <h1 style="text-align: center;font-family:'Raleway', sans-serif; color: white">Fichas Tecnicas</h1> 
+</div>
+
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
 
     <div class="row">
 
-        <div class="col-md-6">
-            <br>
-            <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear una ficha técnica</button>
-            </div>
-            <br>
-            <br>
-            <table class="table table-bordered table-hover">
-                <thead class="thead-dark">
+        <div class="col-md-12">
+            <table class="table table-hover" style="width: 90%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+                <thead class="thead-dark" style="background-image: linear-gradient(to top, #000000, #434343);">
                     <tr>
-                        <th>ID</th>
-                        <th>Vidrios</th>
-                        <th>camaraReversa</th>
-                        <th>Sensores</th>
-                        <th>Rines</th>
-                        <th>Aire Acondicionado</th>
-                        <th>Num Airbags</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Vidrios</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">camaraReversa</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Sensores</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Rines</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Aire Acondicionado</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Num Airbags</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,13 +46,13 @@
                                     <dd class="figure-caption" routerLink="/fichastecnicas/{{fichatecnica.id}}">{{fichatecnica.id}}</dd>
                                 </td> -->
 
-                        <td>{{fichatecnica.id}}</td>
-                        <td>{{fichatecnica.vidrios}}</td>
-                        <td>{{fichatecnica.camaraReversa}}</td>
-                        <td>{{fichatecnica.sensores}}</td>
-                        <td>{{fichatecnica.rines}}</td>
-                        <td>{{fichatecnica.aireAcondicionado}}</td>
-                        <td>{{fichatecnica.numAirbags}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.id}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.vidrios}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.camaraReversa}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.sensores}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.rines}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.aireAcondicionado}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.numAirbags}}</td>
                         <td >
                             <button class="btn btn-primary" (click)="showHideEdit(fichatecnica.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                         </td>
@@ -48,6 +62,10 @@
                     </tr>
                 </tbody>
             </table>
+                        <div class="row justify-content-center align-self-center" style="margin-left: 45px">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear una ficha técnica</button>
+            </div>
         </div>
         <!--
 
@@ -58,7 +76,7 @@
                     </div>
         </div>
         -->
-
+        <br>
         <div class="col-md-6">
             <div *ngIf="showView  && !showEdit">
                 <app-fichatecnica-detail [fichaTecnicaDetail]="selectedFichaTecnica"></app-fichatecnica-detail>
