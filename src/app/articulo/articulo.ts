@@ -1,4 +1,5 @@
 import {AutomovilDetail} from '../automovil/automovil-detail'
+import {Factura} from '../factura/factura'
 
 export class Articulo{
     /**
@@ -21,6 +22,10 @@ export class Articulo{
      * El precio del articulo
      */
     precio:number;
+    /**
+     * La factura del articulo
+     */
+    factura:Factura;
     /**
      * La descripcion del articulo
      */
