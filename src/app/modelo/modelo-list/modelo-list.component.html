@@ -32,8 +32,8 @@
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Numero de Puertas</th>
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Transmision</th>
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Centimetros Cubicos</th>
-                    <th style="color: white; font-family: 'Raleway', sans-serif;">Editar</th> 
-                    <th style="color: white; font-family: 'Raleway', sans-serif;">Eliminar</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th> 
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -43,11 +43,11 @@
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption" routerLink="/marcas/{{modelo.id}}">{{modelo.num_puertas}}</td>
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption" routerLink="/marcas/{{modelo.id}}">{{modelo.transmision}}</td>
                     <td style="font-family: 'Raleway', sans-serif;" id="marca-id" class="figure-caption" routerLink="/marcas/{{modelo.id}}">{{modelo.centimetros_cubicos}}</td>
-                    <td id="modelo-edit">
+                    <td id="modelo-edit" *ngxPermissionsOnly="['ADMIN']">
                             <button [ngClass]="{ 'btn-primary': (!showEdit || edit_modelo_id != modelo.id), 'btn-danger': (showEdit && edit_modelo_id == modelo.id) }"
                                 type="button" class="btn" (click)="showEditModelo(modelo.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                     </td>
-                    <td id="modelo-delete">
+                    <td id="modelo-delete" *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-danger" (click)="deleteModelo(modelo.id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </td>
                 </tr>
