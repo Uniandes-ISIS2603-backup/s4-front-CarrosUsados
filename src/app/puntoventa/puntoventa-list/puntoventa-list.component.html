@@ -23,7 +23,8 @@
 </div>
 <div class="row">
     <br>
-    <div class="justify-content-center align-self-center">
+    
+    <div class="justify-content-center align-self-center"  *ngxPermissionsOnly="['ADMIN']">
         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
         (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
     </div>
@@ -60,10 +61,11 @@
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-numeroVendedores" class="figure-caption">{{puntos.numVendedores}}</td> -->
               
               
-                    <td  >
+                    <td *ngxPermissionsOnly="['ADMIN']">
                         <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                     </td>
-                    <td  >
+                    
+                    <td *ngxPermissionsOnly="['ADMIN']">
                         <button class="btn btn-danger" (click)="deletePunto(puntos.id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </td>
                 </tr>
