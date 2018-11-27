@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
 import { CommonModule } from '@angular/common';
 import { MarcaListComponent } from './marca-list/marca-list.component';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +18,9 @@ import { MarcaEditComponent } from './marca-edit/marca-edit.component';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+     NgbModule,
+    NgxPermissionsModule.forRoot()
   ],
   declarations: [MarcaListComponent, MarcaCreateComponent, MarcaCreateComponent, FilterPipe, MarcaEditComponent],
   exports: [MarcaListComponent, FilterPipe],

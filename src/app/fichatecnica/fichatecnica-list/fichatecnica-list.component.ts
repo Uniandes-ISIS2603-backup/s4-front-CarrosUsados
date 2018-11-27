@@ -112,6 +112,9 @@ export class FichatecnicaListComponent implements OnInit {
       this.toastrService.success("La ficha tecnica fue eliminada correctamente.", "Ficha tecnica eliminada.");
       this.ngOnInit();
     }, err => {
+      if (String(err).includes("500"))
+      this.toastrService.error("No se puede borrar la ficha técnica de un automóvil existente", "Error");
+      else
       this.toastrService.error(err, "Error");
     });
 

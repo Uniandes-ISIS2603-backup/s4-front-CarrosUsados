@@ -71,7 +71,7 @@ export class AutomovilListComponent implements OnInit {
 
   onSelected(automovil_id: number): void {
     this.showCreate = false;
-    //this.showEdit = true;
+    //this.showEdit = false;
     this.showView = true;
     this.automovil_id = automovil_id;
     this.selectedAutomovil = new AutomovilDetail();
@@ -97,6 +97,9 @@ export class AutomovilListComponent implements OnInit {
       * Shows or hides the create component
       */
   showHideEdit(automovil_id: number): void {
+
+    this.showEdit = !this.showEdit;
+    /*
     if (!this.showEdit || (this.showEdit && automovil_id != this.selectedAutomovil.id)) {
       this.showView = false;
       this.showCreate = false;
@@ -108,7 +111,7 @@ export class AutomovilListComponent implements OnInit {
     else {
       this.showEdit = false;
       this.showView = true;
-    }
+    }*/
   }
 
   getModelos() {
