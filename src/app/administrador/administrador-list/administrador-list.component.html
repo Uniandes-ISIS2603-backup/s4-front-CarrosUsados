@@ -1,22 +1,44 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="../src/bootstrap-table-filter.js"></script>
+</head>
+
+<div style="background-color: black; z-index: 0">
+    <img class="responsive" src="../assets/images/genericBack52.jpg" alt="head"
+         style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
+</div>
+
+<div style="align-content: center; width: 100%">
+    <h1 style="text-align: center;font-family:'Raleway', sans-serif; color: white">Administrador</h1> 
+</div>
+
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <table class="table table-bordered table-hover">
-                <thead class="thead-dark">
+            <table class="table table-striped" style="width: 90%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+                <thead class = "thead-dark" style="background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); " >
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Nombre de usuario</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Nombre</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Apellido</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;">Nombre de usuario</th>
+                        <th style="color: white; font-family: 'Raleway', sans-serif;"></th> 
+                        <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let administrador of administradores" style="cursor: pointer;" (click)="onSelected(administrador.id)">
-                        <td>{{administrador.id}}</td>
-                        <td>{{administrador.nombreUsuario}}</td>
-                        <td>{{administrador.nombre}}</td>
-                        <td>{{administrador.apellido}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{administrador.id}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{administrador.nombreUsuario}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{administrador.nombre}}</td>
+                        <td style="font-family: 'Raleway', sans-serif;">{{administrador.apellido}}</td>
                         <td *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-primary" (click)="showHideEdit(administrador.id)"><span class="fa fa-pencil"></span></button>
                         </td>
@@ -27,7 +49,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="row justify-content-center align-self-center">
+            <div class="row justify-content-center align-self-center" style="margin-left: 35px">
                     <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                         (click)="showHideCreate()">Crear un administrador</button>
                 </div>
