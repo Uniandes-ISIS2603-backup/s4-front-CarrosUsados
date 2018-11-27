@@ -16,13 +16,13 @@
                             </tr>
 
                         </thead>
-                        <tbody>
+                        <tbody style="background: white">
                             <tr>
-                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ciudad}}</td>
-                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.ubicacion}}</td>
-                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.latitud}}</td>
-                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.longitud}}</td>
-                                <td style="font-family: 'Raleway', sans-serif;color: white">{{puntoventaDetail.numVendedores}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;">{{puntoventaDetail.ciudad}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;">{{puntoventaDetail.ubicacion}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;">{{puntoventaDetail.latitud}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;">{{puntoventaDetail.longitud}}</td>
+                                <td style="font-family: 'Raleway', sans-serif;">{{puntoventaDetail.numVendedores}}</td>
 
                             </tr>
                         </tbody>
@@ -53,7 +53,8 @@
             </div>
         </div>
     </div>
-    <app-puntoventa-calificaciones [calificacionespunto]="puntoventaDetail.calificaciones"></app-puntoventa-calificaciones>
+    
+</div>
+<app-puntoventa-calificaciones [calificacionespunto]="puntoventaDetail.calificaciones"></app-puntoventa-calificaciones>
     <app-puntoventa-add-calificacion [puntoventa]="puntoventaDetail" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
     <br>
-</div>

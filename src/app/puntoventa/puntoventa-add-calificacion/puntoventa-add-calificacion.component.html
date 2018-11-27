@@ -1,8 +1,10 @@
 
-   <div class="row">
-   <div class="rcorners1 col-4" style="margin-left: 8%; width: 35%; height: 450px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+ <div id="collapseAddReview" [ngbCollapse]="isCollapsed"></div>
+ <div class="row">
+   <div class="rcorners1 col-4" style="margin-left: 8%; width: 55%; height: 250px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
    
-        <h3 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Agregar una calificación</h3>
+        <h3 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 2vw; text-align: center; margin-top: 5px">Calificar el punto de venta</h3>
+
         <form name="post" (ngSubmit)="calificacionForm.form.valid && postReview(calificacionForm)" #calificacionForm="ngForm" novalidate>
               <div class="row">
                 <!-- <div class="col"> -->
@@ -18,7 +20,7 @@
                
                     <div class="form-group">
                         <label for="estrellas" style="font-family: 'Raleway', sans-serif; margin-left: 5%; margin-right: 5%"><b>Número de estrellas</b></label>
-                        <input type="number" min="0" max="5"name="estrellas" class="form-control" id="reviewSource" [(ngModel)]="calificacion.numEstrellas"
+                        <input type="number" min="0" max="5"name="estrellas" class="form-control" style="position: relative !important; left:20px; width:85%" id="reviewSource" [(ngModel)]="calificacion.numEstrellas"
                                #estrellas="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && estrellas.invalid }" required>
                                <!-- <div class="invalid-feedback">
                             <div>The review's source is missing</div>
@@ -28,7 +30,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="comentario" style=" font-family: 'Raleway', sans-serif; margin-left: 5%; margin-right: 5%"><b>Comentario</b></label>
-                        <textarea name="comentario"class="form-control" id="comentario" [(ngModel)]="calificacion.comentario"
+                        <textarea name="comentario"class="form-control" style="position: relative !important; left:20px; width:85%" id="comentario" [(ngModel)]="calificacion.comentario"
                                   #comentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && comentario.invalid }"
                                   required></textarea>
                         <!-- <div class="invalid-feedback">
@@ -38,7 +40,7 @@
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Publicar </button>
+                <button type="submit" style="position: relative !important; left:20px;" class="btn btn-primary">Publicar </button>
             </div>
         </form>
     </div>

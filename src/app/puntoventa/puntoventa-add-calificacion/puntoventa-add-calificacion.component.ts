@@ -30,7 +30,7 @@ export class PuntoventaAddCalificacionComponent implements OnInit,OnChanges {
     */
    @Output() updateReviews = new EventEmitter();
 
-   postCalificacion(calificacionForm: NgForm): Calificacion {
+   postReview(calificacionForm: NgForm): Calificacion {
     this.calificacion.puntoventa = this.puntoventa;
     this.puntoventaService.createCalificacion(this.puntoventa.id,this.calificacion)
         .subscribe(() => {
