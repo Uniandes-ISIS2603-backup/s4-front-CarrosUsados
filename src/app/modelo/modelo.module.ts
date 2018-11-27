@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
 import { CommonModule } from '@angular/common';
 import { ModeloListComponent } from './modelo-list/modelo-list.component';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +19,9 @@ import { ModeloEditComponent } from './modelo-edit/modelo-edit.component';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+     NgbModule,
+    NgxPermissionsModule.forRoot()
   ],
   declarations: [ModeloListComponent, ModeloCreateComponent, ModeloDetailComponent, FilterPipe, ModeloEditComponent],
   exports: [ModeloListComponent, FilterPipe],
