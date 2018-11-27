@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AutomovilService } from '../automovil/automovil.service';
+import { ModeloService } from '../modelo/modelo.service';
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule
   ],
   declarations: [InicioComponent],
-  exports: [InicioComponent]
+  exports: [InicioComponent],
+  providers: [AutomovilService, ModeloService]
 })
 export class InicioModule { }

@@ -7,6 +7,7 @@
     <script src="../src/bootstrap-table-filter.js"></script>
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+        <script src="path/to/accounting.js"></script>
 </head>
 
 <div class="responsive" style="z-index: 2; position: absolute;align-content: flex-start; width: 100%; text-align: left;margin-right: 30px">
@@ -19,22 +20,14 @@
 </div> 
 
 <div class="row justify-content-end responsive" style="width:100%; background-color: black; ">
-    <div class="col-6 rcorners1" style="width: 470px; height: 400px; position: absolute; 
-         background-image:linear-gradient(to top, #000000, #434343); box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; margin-top: 4%;">
+    <div class="col-6 rcorners1" style="width: 470px; height: 350px; position: absolute; z-index: 3 ;
+         background-image:linear-gradient(to top, #000000, #434343); box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; margin-top: 8%;">
 
 
-        <h1 style="color: white; font-family: 'Raleway', sans-serif; margin-top: 20px">Empieza aquí</h1>
+        <h1 style="color: white; font-family: 'Raleway', sans-serif; margin-top: 5px">Empieza aquí</h1>
 
         <form>
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;">
-                <label for="exampleSelect1" ></label>
-                <select class="form-control" id="exampleSelect1">
-                    <option>Todos los tipos de vehiculos</option>
-                    <option>Carros</option>
-                    <option>Camionetas</option>
-                </select>
-            </div>
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: 10px">
                 <label for="exampleSelect1" ></label>
                 <select class="form-control" id="exampleSelect1">
                     <option>Todos las marcas</option>
@@ -50,19 +43,11 @@
                 </select>
             </div>
 
+            
             <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
-                <label for="exampleSelect1" ></label>
-                <select class="form-control" id="exampleSelect1">
-                    <option>Todos los modelos</option>
-                    <option>A1</option>
-                    <option>A3</option>
-                    <option>A4</option>
-                    <option>A5</option>
-                    <option>A6</option>
-                    <option>Cabrio</option>
-                    <option>Q2</option>
-                    <option>Q3</option>
-                    <option>TT</option>
+                <label for="exampleInputEmail1" ></label>
+                <select class="form-control" id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)' [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let modelo of modelos" [value]="modelo.id" >{{modelo.nombre}}</option>
                 </select>
             </div>
 
@@ -139,81 +124,27 @@
                     <option>2019</option>
                 </select>
             </div>
-            <button type="button" class="btn" style="width: 120px; background-color: #FF0000 ; color: white; font-family:'Raleway', sans-serif;">Buscar</button>
+            <button type="button" class="btn btn-primary" style="width: 120px; color: white; font-family:'Raleway', sans-serif;">Buscar</button>
         </form>
     </div>
 </div>
 
 <div style="position: absolute;align-content: center; width: 100%; text-align: right; margin-top: 45%">
-    <h1 style="font-family:'Raleway', sans-serif; text-align: center; color: black">Publicaciones Destacadas</h1> 
+    <h1 style="font-family:'Raleway', sans-serif; text-align: center; color: black">Publicaciones</h1> 
 </div>
+
 
 <section class="gallery-block cards-gallery" style="z-index: 2; margin-top: 47%">
 	    <div class="container">
 	        <div class="row">
-	            <div class="col-md-6 col-lg-4">
+	            <div class="col-md-6 col-lg-4" *ngFor="let automovil of automoviles" style="cursor:pointer;" (click)="onSelected(automovil.id)">
 	                <div class="card border-0 transform-on-hover">
                             <a class="lightbox" href="../articulos/list/">
-                                    <img src="../../assets/images/genericcar2.jpg" alt="Card Image" class="card-img-top">
+                                    <img src="../../assets/images/ford2011.jpg" alt="Card Image" class="card-img-top">
 	                	</a>
-	                    <div class="card-body">
-	                        <h6><a href="#">$ 60.000.000</a></h6>
-	                        <p class="text-muted card-text">Mazda 3 - 2017</p>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-md-6 col-lg-4">
-	                <div class="card border-0 transform-on-hover">
-						<a class="lightbox" href="../img/image2.jpg">
-		                	<img src="../../assets/images/genericcar2.jpg" alt="Card Image" class="card-img-top">
-		                </a>
-	                    <div class="card-body">
-	                        <h6><a href="#">Lorem Ipsum</a></h6>
-	                        <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-md-6 col-lg-4">
-	                <div class="card border-0 transform-on-hover">
-	                	<a class="lightbox" href="../img/image3.jpg">
-	                		<img src="../../assets/images/genericcar2.jpg" alt="Card Image" class="card-img-top">
-	                	</a>
-	                    <div class="card-body">
-	                        <h6><a href="#">Lorem Ipsum</a></h6>
-	                        <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-md-6 col-lg-4">
-	                <div class="card border-0 transform-on-hover">
-	                	<a class="lightbox" href="../img/image4.jpg">
-	                		<img src="../../assets/images/genericcar2.jpg" alt="Card Image" class="card-img-top">
-	                	</a>
-	                    <div class="card-body">
-	                        <h6><a href="#">Lorem Ipsum</a></h6>
-	                        <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-md-6 col-lg-4">
-	                <div class="card border-0 transform-on-hover">
-	                	<a class="lightbox" href="../img/image5.jpg">
-	                		<img src="../../assets/images/genericcar2.jpg" alt="Card Image" class="card-img-top">
-	                	</a>
-	                    <div class="card-body">
-	                        <h6><a href="#">Lorem Ipsum</a></h6>
-	                        <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-md-6 col-lg-4">
-	                <div class="card border-0 transform-on-hover">
-	                	<a class="lightbox" href="../img/image6.jpg">
-	                		<img src="../../assets/images/genericcar2.jpg" alt="Card Image" class="card-img-top">
-	                	</a>
-	                    <div class="card-body">
-	                        <h6><a href="#">Lorem Ipsum</a></h6>
-	                        <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>
+	                    <div class="card-body" >
+	                        <h6><span>{{automovil.precioOriginal | currency}}</span></h6>
+	                        <p class="text-muted card-text">{{automovil.marca}} - {{automovil.anio}}</p>
 	                    </div>
 	                </div>
 	            </div>
@@ -225,10 +156,25 @@
         baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
     </script>
 
+<div class="container-fluid" style=" width: 100%; height: auto; background-color: black;" >
+    <div class="section " style="text-align: center; height: 200px">
+        <img  src="../../assets/images/book.png" style="height: 70px; width: 70px; margin-top: 40px">
+        <p style=" font-family: 'Raleway', sans-serif; color: white; font-size: 1.5vw ">El mejor catálogo de autos usados</p>
+    </div>
 
+    <div class="section " style="text-align: center; height: 200px; border: 1px solid; border-color: white; border-bottom: none; border-top: none">
+        <img  src="../../assets/images/car.png" style="height: 70px; width: 70px; margin-top: 40px">
+        <p style=" font-family: 'Raleway', sans-serif; color: white; font-size: 1.5vw ">Automoviles certificados</p>
+    </div>
+
+    <div class="section " style="text-align: center; height: 200px">
+        <img  src="../../assets/images/time.png" style="height: 70px; width: 70px; margin-top: 40px">
+        <p style=" font-family: 'Raleway', sans-serif; color: white; font-size: 1.5vw ">Comprar el auto de tus sueños nunca fue tan rapido</p>
+    </div>
+</div>
 
     
-<div style=" width: 100%; height: 150px; background-image:linear-gradient(to top, #000000, #434343);;" >
+<div style=" width: 100%; height: 100px; background-image:linear-gradient(to top, #000000, #434343);;" >
         <img src="../assets/images/logowhite.png" alt="logoCarteam" height="30" width="130" style="margin-left:10px; margin-right: 10px; margin-top: 15px; ">
     <p style="color: white; font-family: 'Raleway', sans-serif; margin-left:10px; margin-top: 3px">TuNave Inc.</p>
     <p style="color: white; font-family: 'Raleway', sans-serif; margin-left:10px; margin-top: -3px">Universidad de los Andes</p>
