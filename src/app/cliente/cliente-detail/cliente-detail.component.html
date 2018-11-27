@@ -1,29 +1,36 @@
+<div class="row">
+    <div class="rcorners1 col-4" style=" height: 400px; margin-top: 1%; width: 500px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+        
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Cliente: {{clienteDetail.id}}</h1>
 <div class="panel-body">
     <div class="border margin">
         <p class="h3 p-3">Cliente: {{clienteDetail.id}}<p> 
         <div class="row">
             <div class="col">
                 <dl>     
-                    <dt>Nombre</dt>
-                    <dd>{{clienteDetail.nombre}}</dd>
-                    <dt>Apellido</dt>
-                    <dd>{{clienteDetail.apellido}}</dd>
-                    <dt>Nombre de usuario</dt>
-                    <dd>{{clienteDetail.nombreUsuario}}</dd>
-                    <dt>Correo electrónico</dt>
-                    <dd>{{clienteDetail.correo}}</dd>
-                    <dt>Contraseña</dt>
-                    <dd>{{clienteDetail.contrasena}}</dd>
-                    <dt>Fecha de nacimiento</dt>
-                    <dd>{{parseDate(clienteDetail.fechaNacimiento) | date: medium}}</dd>
-                    <dt>Dirección</dt>
-                    <dd>{{clienteDetail.direccion}}</dd>
-                    <dt>Teléfono</dt>
-                    <dd>{{clienteDetail.telefono}}</dd>
+                    <dt class="tdf">Nombre</dt>
+                    <dd  class="ttf">{{clienteDetail.nombre}}</dd>
+                    <dt class="tdf">Apellido</dt>
+                    <dd  class="ttf">{{clienteDetail.apellido}}</dd>
+                    <dt class="tdf">Nombre de usuario</dt>
+                    <dd  class="ttf">{{clienteDetail.nombreUsuario}}</dd>
+                    <dt class="tdf">Correo electrónico</dt>
+                    <dd  class="ttf">{{clienteDetail.correo}}</dd>
+                    <dt class="tdf">Contraseña</dt>
+                    <dd  class="ttf">{{clienteDetail.contrasena}}</dd>
+                    <dt class="tdf">Fecha de nacimiento</dt>
+                    <dd  class="ttf">{{parseDate(clienteDetail.fechaNacimiento) | date: medium}}</dd>
+                    <dt class="tdf">Dirección</dt>
+                    <dd  class="ttf">{{clienteDetail.direccion}}</dd>
+                    <dt class="tdf">Teléfono</dt>
+                    <dd  class="ttf">{{clienteDetail.telefono}}</dd>
                 </dl>
             </div>
   
         </div>
     </div>
   </div>
-  
+              </div>
+
+
+</div>
