@@ -149,13 +149,17 @@
             <br>
             <div>
                 <button [ngClass]="{ 'btn-success': !showPuntoVenta, 'btn-danger': showPuntoVenta }" class="btn"
-                    (click)="showCreatePuntoVenta()()">
+                    (click)="showCreatePuntoVenta()">
                     Añadir punto de venta
                 </button>
             </div>
             <br>
             <div *ngIf="showPuntoVenta">
-
+                    <label>Seleccione un punto de venta:</label>
+                    <select id="mySelect2" [(ngModel)]="puntoVenta_id" [ngModelOptions]="{standalone: true}" (ngModelChange)='onPuntosVentaSelected($event)'>
+                        <option *ngFor="let punto of puntosVenta" [value]="punto.id">{{punto.ciudad}}-{{punto.ubicacion}}</option>
+                    </select>
+                    <br>
 
             </div>
 

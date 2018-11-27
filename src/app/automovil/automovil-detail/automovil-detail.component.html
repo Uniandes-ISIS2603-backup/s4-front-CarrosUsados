@@ -38,6 +38,22 @@
                             
                         </dl>
                     </div>
+
+                    <div *ngIf = "automovilDetail.puntoVenta != undefined">
+                            <h4 class = "text-success"> Punto de venta: </h4>
+                            <dl>     
+                                <dt>Ciudad</dt>
+                                <dd>{{automovilDetail.puntoVenta.ciudad}}</dd>
+                                <dt>Ubicacion</dt>
+                                <dd>{{automovilDetail.puntoVenta.ubicacion}}</dd>
+                                <dt>Latitud</dt>
+                                <dd>{{automovilDetail.puntoVenta.latitud}}</dd>
+                                <dt>Longitud</dt>
+                                <dd>{{automovilDetail.puntoVenta.longitud}}</dd>
+                                <dt>Numero de vendedores </dt>
+                                <dd>{{automovilDetail.puntoVenta.numVendedores}}</dd>
+                            </dl>
+                        </div>
                     
                 </dl>
             </div>
