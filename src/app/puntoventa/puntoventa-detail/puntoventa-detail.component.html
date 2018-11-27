@@ -36,7 +36,7 @@
     <div>
         <div class="row">
             <div class="col-md-3">
-                <p *ngIf="puntoventaDetail.calificaciones != undefined">
+                <p *ngIf="puntoventaDetail.calificaciones != undefined && puntoventaDetail.calificaciones.length > 0">
                     <button type="button" class="btn" [ngClass]="{ 'btn-primary': reviewListComponent.isCollapsed,'btn-outline-primary':!reviewListComponent.isCollapsed}"
                         (click)="toggleReviews()">
                         Calificaciones del punto de venta

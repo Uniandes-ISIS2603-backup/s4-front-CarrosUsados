@@ -68,6 +68,17 @@ export class PuntoventaDetailComponent implements OnInit {
       }
 
 
+
+    /**
+     * The function called when a review is posted, so that the child component can refresh the list
+     */
+    updateReviews(): void {
+        this.getPuntoventaDetail();
+        this.reviewListComponent.updateReviews(this.puntoventaDetail.calificaciones);
+        this.reviewListComponent.isCollapsed = false;
+        this.reviewAddComponent.isCollapsed = true;
+    }
+
       
 
   ngOnInit() {

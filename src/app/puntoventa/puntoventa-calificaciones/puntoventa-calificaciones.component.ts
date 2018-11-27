@@ -13,7 +13,7 @@ export class PuntoventaCalificacionesComponent implements OnInit {
   /**lista de calificaciones */
   @Input() calificacionespunto : Calificacion[];
     
-  public isCollapsed = true;
+  public isCollapsed = false;
   
   /**
    * Se llama cuando se postea una claificacion para actualizar la lisrra

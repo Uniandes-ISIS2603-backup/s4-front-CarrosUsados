@@ -5,7 +5,7 @@
    
         <h3 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 2vw; text-align: center; margin-top: 5px">Calificar el punto de venta</h3>
 
-        <form name="post" (ngSubmit)="calificacionForm.form.valid && postReview(calificacionForm)" #calificacionForm="ngForm" novalidate>
+        <form name="post" (ngSubmit)="calificacionForm.form.valid " #calificacionForm="ngForm" novalidate>
               <div class="row">
                 <!-- <div class="col"> -->
                     <!-- <div class="form-group">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" style="position: relative !important; left:20px;" class="btn btn-primary">Publicar </button>
+                <button type="submit" style="position: relative !important; left:20px;" class="btn btn-primary" (click)=" postReview(calificacionForm)" >Publicar </button>
             </div>
         </form>
     </div>
