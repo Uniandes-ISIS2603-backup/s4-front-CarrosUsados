@@ -1,8 +1,7 @@
-<div class="col-3"></div>
-<div class="col-6">
-    <br>
-    <h2 class="text-center">Crear un administrador</h2>
-    <br>
+<div class="row">
+    <div class="rcorners1 col-4" style=" height: 860px; margin-top: 1%; margin-right: 15px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+        
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear Administrador</h1>
     <form name="administrador" (ngSubmit)="f.form.valid && createAdministrador()" #f="ngForm" class="form-signup needs-validation ng-untouched ng-invalid ng-dirty" novalidate>
         <div class="form-group">
             <label for="nombre"><b>Nombre</b></label>
@@ -10,7 +9,6 @@
                 #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" placeholder="Ej. Sebastián" ng-required="true" required>
             
                 <div class="invalid-feedback">
-                <div>Los vidrios de la ficha técnica estan faltando</div>
             </div>
             
         </div>
@@ -112,7 +110,6 @@
                 #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }"  required>
             
                 <div class="invalid-feedback">
-                <div>Los vidrios de la ficha técnica estan faltando</div>
             </div>
             
 
@@ -132,5 +129,7 @@
 
 
     </form>
+    </div>
+
+
 </div>
-<div class="col-3"></div>
