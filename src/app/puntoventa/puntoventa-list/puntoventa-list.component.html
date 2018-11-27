@@ -7,8 +7,8 @@
     <script src="../src/bootstrap-table-filter.js"></script>
 </head>
 
-<div style="background-color: black; z-index: 0">
-    <img class="responsive" src="../assets/images/genericBack52.jpg" alt="head"
+<div style="background-color: black;">
+    <img class="responsive" src="../assets/images/flist3.jpg" alt="head"
          style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
 </div>
 
@@ -22,23 +22,14 @@
     <h1 style="text-align: center;font-family:'Raleway', sans-serif;color: white">Puntos de venta</h1> 
 </div>
 <div class="row">
-    <br>
-    <div class="justify-content-center align-self-center">
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-        (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
-    </div>
-    
-    <br>
-  
-        <br>
     </div>
     <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-12">
     
-        <table class="table table-bordered table-hover" style="width: 90%; margin-left: 5%; margin-top: 1%; 
-        margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        background-color: white">
-            <thead class = "thead-dark"  style="background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); ">
+        <table class="table table-striped" style="width: 90%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+            <thead class = "thead-dark"  style="background-image: linear-gradient(to top, #000000, #434343);  ">
                 <tr>
                     <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Ciudad</th>
@@ -46,6 +37,8 @@
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Latitud</th>   
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Longitud</th> 
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Número de vendedores</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -59,7 +52,7 @@
               
               
                     <td  >
-                        <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="glyphicon glyphicon-pencil"></span>Editar</button>
+                        <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                     </td>
                     <td  >
                         <button class="btn btn-danger" (click)="deletePunto(puntos.id)"><span class="glyphicon glyphicon-trash"></span></button>
@@ -67,6 +60,10 @@
                 </tr>
             </tbody>
         </table>
+            <div class="justify-content-center align-self-center" style="margin-left: 45px">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
+    </div>
     </div>
 </div>
 
