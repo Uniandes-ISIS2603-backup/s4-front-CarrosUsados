@@ -72,10 +72,12 @@ export class PuntoventaDetailComponent implements OnInit {
 
   ngOnInit() {
     this.puntoventa_id= +this.route.snapshot.paramMap.get('id');
+    if (this.puntoventa_id)
+    {
     this.puntoventaDetail= new PuntoventaDetail();
     this.getPuntoventaDetail();
     this.puntoventaDetail.calificaciones = new Array<Calificacion>();
-  }
+  }}
 
       /**
     * This method helps to refresh the view when we need to load another book into it

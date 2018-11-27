@@ -15,6 +15,7 @@ import { CompileShallowModuleMetadata } from '@angular/compiler';
 })
 export class PuntoventaListComponent implements OnInit {
 
+  count:number;
   /**todos los puntos de venta existentes */
   puntosVenta:Puntoventa[];
 
@@ -46,9 +47,9 @@ export class PuntoventaListComponent implements OnInit {
   onSelected(puntoventa_id: number): void {
     this.showCreate = false;
     this.showView = true;
-    this.showEdit= false;
+    // this.showEdit= false;
     this.puntoventa_id = puntoventa_id;
-    console.log(this.puntoventa_id);
+    // console.log(this.puntoventa_id);
     this.selectedPuntoventa = new PuntoventaDetail();
     this.getPuntoventaDetail();
 
@@ -57,6 +58,7 @@ export class PuntoventaListComponent implements OnInit {
    /*muestra o esconde create*/  
   showHideCreate(): void {
     this.showView = false;
+    this.showEdit= false;
     this.showCreate = !this.showCreate;
   }
 
@@ -70,12 +72,13 @@ export class PuntoventaListComponent implements OnInit {
       this.showCreate = false;
       this.showEdit = true;
       this.puntoventa_id = puntoventa_id;
-      this.selectedPuntoventa= new PuntoventaDetail();
+      this.selectedPuntoventa= new Puntoventa();
       // this.selectedPuntoventa.calificaciones= new Array();
       this.getPuntoventaDetail();
     }
     else {
       this.showEdit = false;
+      this.showView= true;
     
     }}
 
@@ -95,11 +98,11 @@ export class PuntoventaListComponent implements OnInit {
   getPuntoventaDetail(): void {
     console.log(this.puntoventa_id);
     this.puntoVentaService.getPuntoventaDetail(this.puntoventa_id)
-      .subscribe(selectedPuntoventa => {
-        this.selectedPuntoventa = selectedPuntoventa;
-      });
+      .subscribe(ans => {this.selectedPuntoventa = ans
+      console.log(ans);
+      console.log(this.count++);
+    });
   }
-
   /**elimina un punto de venta */
   deletePunto(puntoId): void {
      
@@ -121,7 +124,7 @@ export class PuntoventaListComponent implements OnInit {
     this.showView = false;
     this.showEdit= false;
     this.selectedPuntoventa = undefined;
-    // this.puntoventa_id = undefined;
+    this.puntoventa_id = undefined;
     this.getPuntosventa();
      
   }
