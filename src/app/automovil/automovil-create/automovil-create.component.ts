@@ -6,6 +6,8 @@ import { Automovil } from '../automovil';
 import { Fichatecnica } from '../../fichatecnica/fichatecnica';
 import { Modelo } from 'src/app/modelo/modelo';
 import { ModeloService } from 'src/app/modelo/modelo.service';
+import { Puntoventa } from 'src/app/puntoventa/puntoventa';
+import { PuntoventaService } from 'src/app/puntoventa/puntoventa.service';
 
 @Component({
   selector: 'app-automovil-create',
@@ -17,6 +19,7 @@ export class AutomovilCreateComponent implements OnInit {
   constructor(
     private automovilService: AutomovilService,
     private modeloService: ModeloService,
+    private puntoVentaService: PuntoventaService,
     private toastrService: ToastrService
   ) { }
 
@@ -30,6 +33,10 @@ export class AutomovilCreateComponent implements OnInit {
 
   modelo_id: any;
 
+  puntosVenta: Puntoventa[];
+
+  puntoVenta_id:any;
+
   /**
   * The output which tells the parent component
   * that the user no longer wants to create an Automovil
@@ -42,7 +49,15 @@ export class AutomovilCreateComponent implements OnInit {
   */
   @Output() create = new EventEmitter();
 
+  /**
+   * Oculta o muestra los campos para crear una ficha tecnica
+   */
   showFichaTecnica: boolean;
+
+  /**
+   * Oculta o muestra la opcion para asociar un punto de venta a un automovil
+   */
+  showPuntoVenta:boolean;
 
   showCreateFichaTecnica() {
     this.showFichaTecnica = !this.showFichaTecnica;
@@ -53,6 +68,17 @@ export class AutomovilCreateComponent implements OnInit {
     }
     
   }
+
+  showCreatePuntoVenta() {
+    this.showPuntoVenta = !this.showPuntoVenta;
+    if(this.automovil.puntoVenta == undefined){
+      this.automovil.puntoVenta = new Puntoventa();
+    }else{
+      this.automovil.puntoVenta = undefined;
+    }
+    
+  }
+  
   /**
  * Crea una ficha técnica
  */
@@ -60,6 +86,8 @@ export class AutomovilCreateComponent implements OnInit {
 
 
     console.log(this.automovil);
+    console.log('ID del punto de venta:'+this.automovil.puntoVenta.id);
+    console.log('ID de la variable punto de venta:'+this.puntoVenta_id);
     this.automovil.fechaAgregacion = new Date();
     this.automovilService.createAutomovil(this.modelo_id, this.automovil)
       .subscribe((automovil) => {
@@ -81,6 +109,18 @@ export class AutomovilCreateComponent implements OnInit {
     this.modelo_id = idModelo;
   }
 
+  getPuntosVenta(){
+    this.puntoVentaService.getPuntos()
+        .subscribe(puntosVenta => this.puntosVenta = puntosVenta);
+
+  }
+
+  onPuntosVentaSelected(idPuntoVenta:any){
+    console.log("Estoy en puntos venta selected!!!!")
+    this.puntoVenta_id =  idPuntoVenta;
+    this.automovil.puntoVenta.id = idPuntoVenta;
+  }
+
   /**
   * Emits the signal to tell the parent component that the
   * user no longer wants to create an Automovil
@@ -91,8 +131,11 @@ export class AutomovilCreateComponent implements OnInit {
 
   ngOnInit() {
     this.showFichaTecnica = false;
+    this.showPuntoVenta = false;
     this.getModelos();
+    this.getPuntosVenta();
     this.modelo_id = -1;
+    this.puntoVenta_id = -1;
     this.automovil = new Automovil();
     //this.automovil.fichaTecnica = new Fichatecnica();
     this.automovil.fechaAgregacion = new Date();
