@@ -1,8 +1,7 @@
-<div class="col-3"></div>
-<div class="col-6">
-    <br>
-    <h2 class="text-center">Crear un cliente</h2>
-    <br>
+<div class="row">
+    <div class="rcorners1 col-4" style=" height: 740px; margin-top: 1%; margin-right: 15px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+        
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear Cliente</h1>
     <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
         <div class="form-group">
             <label for="nombre"><b>Nombre</b></label>
@@ -85,8 +84,20 @@
 
         <div class="form-group">
             <label for="telefono"><b>Teléfono</b></label>
-            <input type="text" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="cliente.telefono"
+            <input type="number" name="telefono" maxlength="12" class="form-control" id="telefono" [(ngModel)]="cliente.telefono"
                 #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telefono.invalid }"  required>
+            <!--
+                <div class="invalid-feedback">
+                <div>Los vidrios de la ficha técnica estan faltando</div>
+            </div>
+            -->
+
+        </div>
+
+        <div class="form-group">
+            <label for="Direccion"><b>Dirección</b></label>
+            <input type="text" name="direccion"  class="form-control" id="direccion" [(ngModel)]="cliente.direccion"
+                #telefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && direccion.invalid }"  required>
             <!--
                 <div class="invalid-feedback">
                 <div>Los vidrios de la ficha técnica estan faltando</div>
@@ -108,5 +119,7 @@
 
 
     </form>
+    </div>
+
+
 </div>
-<div class="col-3"></div>

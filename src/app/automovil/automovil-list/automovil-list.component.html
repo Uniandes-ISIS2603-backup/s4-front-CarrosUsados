@@ -51,7 +51,7 @@
             </div>
 
             <div class="col-md-4">
-                <div *ngIf="showView">
+                <div *ngIf="showView && !showEdit">
                     <app-automovil-detail [automovilDetail]="selectedAutomovil"></app-automovil-detail>
                 </div>
                 <div *ngIf="showCreate">
