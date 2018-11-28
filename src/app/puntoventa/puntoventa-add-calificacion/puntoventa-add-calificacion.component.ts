@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Puntoventa } from '../puntoventa';
 import { Calificacion } from 'src/app/calificacion/calificacion';
 import { NgForm } from '@angular/forms';
+import { PuntoventaDetail } from '../puntoventa-detail';
 
 @Component({
   selector: 'app-puntoventa-add-calificacion',
@@ -21,6 +22,7 @@ export class PuntoventaAddCalificacionComponent implements OnInit,OnChanges {
   * La calificacion a publicar
   */
   calificacion: Calificacion;
+  @Input() punto_id:number;
   
   public isCollapsed = true;
 
@@ -30,9 +32,9 @@ export class PuntoventaAddCalificacionComponent implements OnInit,OnChanges {
     */
    @Output() updateReviews = new EventEmitter();
 
-   postCalificacion(calificacionForm: NgForm): Calificacion {
+   postReview(calificacionForm: NgForm): Calificacion {
     this.calificacion.puntoventa = this.puntoventa;
-    this.puntoventaService.createCalificacion(this.puntoventa.id,this.calificacion)
+    this.puntoventaService.createCalificacion(this.punto_id,this.calificacion)
         .subscribe(() => {
             calificacionForm.resetForm();
             this.updateReviews.emit();
@@ -40,6 +42,7 @@ export class PuntoventaAddCalificacionComponent implements OnInit,OnChanges {
         }, err => {
             this.toastrService.error(err, 'Error');
         });
+        console.log(this.puntoventa)
     return this.calificacion;
 }
 

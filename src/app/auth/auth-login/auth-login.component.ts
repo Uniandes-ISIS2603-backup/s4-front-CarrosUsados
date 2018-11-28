@@ -53,6 +53,7 @@ let administradores = data;
         this.user = administrador;
         this.user.role = 'Administrador';
         this.authService.login(this.user.role);
+        localStorage.setItem("usuario",this.user.nombre + " " + this.user.apellido);
         this.toastrService.success('Se ha iniciado sesión')
         return;
       }
@@ -73,6 +74,7 @@ let administradores = data;
             this.user = cliente;
             this.user.role = 'Cliente';
             this.authService.login(this.user.role);
+            localStorage.setItem("usuario",this.user.nombre + " " + this.user.apellido)
             this.toastrService.success('Se ha iniciado sesión')
             return;
           }

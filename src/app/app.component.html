@@ -15,37 +15,41 @@
     <li class="nav-item">
         <a id="ingresarTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/ingresar">Ingresar</a>    
     </li> 
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']" >
         <a id="automovilesTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/automoviles/list">Automoviles</a>    
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
         <a id="fichastecnicasTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/fichastecnicas/list">Fichas Tecnicas</a>    
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
         <a id="puntosventaTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/puntos/list">Puntos de venta</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
             <a id="calificacionesTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/calificaciones/list">Calificaciones</a>
         </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
         <a id="articulosTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/articulos/list">Articulo</a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
         <a id="clientesTag"  style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/clientes/list">Clientes</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
         <a id="administradoresTag"  style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/administradores/list">Administrador</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
         <a id="marcasTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/marcas/list">Marcas</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
         <a id="modelosTag" style="color: white; font-family: 'Raleway', sans-serif;" class="nav-link" routerLink="/modelos/list">Modelos</a>
     </li>
+    <li class="nav-item" *ngxPermissionsOnly="['ADMIN' || 'CLIENT']">
+            <p *ngIf="!(usuario === undefined || usuario === '')" style="color: white; font-family: 'Raleway', sans-serif;" >Bienvenido/a {{usuario}}</p>
+        </li>
+   
 </ul>
 <div class="list">
     <router-outlet></router-outlet>

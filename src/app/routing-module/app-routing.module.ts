@@ -22,6 +22,8 @@ import { CalificacionDetail } from '../calificacion/calificacion-detail';
 import { CalificacionListComponent } from '../calificacion/calificacion-list/calificacion-list.component';
 import { PuntoventaEditComponent } from '../puntoventa/puntoventa-edit/puntoventa-edit.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
+import { AdministradorCreateComponent } from '../administrador/administrador-create/administrador-create.component';
+import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 
 const routes: Routes = [
     
@@ -60,16 +62,34 @@ const routes: Routes = [
           },
           {
               path:'create',
-              component: PuntoventaCreateComponent
+              component: PuntoventaCreateComponent,
+              canActivate: [NgxPermissionsGuard],
+              data: {
+                  permissions: {
+                      only: ['ADMIN']
+                  }
+              }
           },
           {
             path: ':id/edit',
             component: PuntoventaEditComponent,
+            canActivate: [NgxPermissionsGuard],
+            data: {
+                permissions: {
+                    only: ['ADMIN']
+                }
+            }
          
           },
           {
             path: ':id/delete',
             component: PuntoventaEditComponent,
+            canActivate: [NgxPermissionsGuard],
+            data: {
+                permissions: {
+                    only: ['ADMIN']
+                }
+            }
           
           }
       ]
@@ -104,6 +124,10 @@ const routes: Routes = [
     path: 'clientes',
     children: [
         {
+            path: 'registrar',
+            component: ClienteCreateComponent
+        },
+        {
             path: 'list',
             component: ClienteListComponent
         },
@@ -111,11 +135,16 @@ const routes: Routes = [
             path: ':id',
             component: ClienteDetailComponent
         }
+       
     ]
 },
 {
     path: 'administradores',
     children: [
+        {
+            path: 'registrar',
+            component: AdministradorCreateComponent
+        },
             {        
             path: 'list',
             component: AdministradorListComponent
@@ -125,6 +154,7 @@ const routes: Routes = [
             path: ':id',
             component: AdministradorDetailComponent
         }
+        
     ]
 },
 {

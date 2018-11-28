@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input,OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,7 +19,7 @@ export class ArticuloDetailComponent implements OnInit {
         private route: ActivatedRoute,
         private toastrService: ToastrService) { }
        
-  articulo: Articulo;
+  @Input() articulo: Articulo;
   
   articulo_id: number;
  
