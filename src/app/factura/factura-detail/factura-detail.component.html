@@ -1,9 +1,31 @@
-<div class="container-fluid">
-    <hr>
-    <h1 id="articulo-name">{{articulo.id}}</h1>
-    <hr>
-    <h4>Automovil </h4>
-    <p>{{automovil.id}}</p>
-    <hr>
-    <br>
+<div class="row">
+    <div class="rcorners1 col-4" style=" height: 350px; margin-top: 1%; margin-left: 13%; width: 350px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+        
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Ficha Tecnica: {{fichaTecnicaDetail.id}}</h1>
+
+<div class="panel-body">
+  <div class="border margin">
+      <div class="row">
+          <div class="col">
+              <dl>     
+                  <dt class="tdf">Factura</dt>
+                  <dd class="ttf">{{factura.descripcion}}</dd>
+                  <dt class="tdf">Total</dt>
+                  <dd class="ttf">{{factura.total}}</dd>
+                  <dt class="tdf">Subtotal</dt>
+                  <dd class="ttf">{{factura.subtotal}}</dd>
+                  <dt class="tdf">Comprobante de Pago</dt>
+                  <dd class="ttf">{{factura.comprobantePago}}</dd>
+                  <dt class="tdf">Automovil Id</dt>
+                  <dd class="ttf">{{factura.automovil.id}}</dd>
+                  
+              </dl>
+          </div>
+
+      </div>
+  </div>
+</div>
+                    </div>
+
+
 </div>
