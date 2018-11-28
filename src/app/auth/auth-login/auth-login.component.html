@@ -30,7 +30,12 @@
         </div>
 
       </form>
-      <a routerLink="/registro">¿No tienes cuenta?</a>
+      <div *ngIf="role === 'Administrador'">
+          <a routerLink="/administradores/registrar">¿No tienes cuenta? Regístrate como {{role.toLowerCase()}} </a>
+      </div>
+      <div *ngIf="role === 'Cliente' || (role==='' || role === undefined)  ">
+          <a routerLink="/clientes/registrar">¿No tienes cuenta? Regístrate como cliente </a>
+      </div>
   </div>
 </div>
 
