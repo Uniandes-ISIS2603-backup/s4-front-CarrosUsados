@@ -74,10 +74,10 @@ export class ArticuloListComponent implements OnInit {
   }
   
   showHideCreate(): void {
-      this.showView = false;
-    this.showEdit = false;
-    this.showCreate = !this.showCreate;
-        
+        if (this.showEdit) {
+            this.showEdit = false;
+        }
+        this.showCreate = !this.showCreate!
     }
    /**
       * Shows or hides the create component
@@ -105,7 +105,7 @@ export class ArticuloListComponent implements OnInit {
   /**
     * Borra un articulo
     */
-    deleteAuthor(articuloId): void {
+    deleteArticulo(articuloId): void {
         this.modalDialogService.openDialog(this.viewRef, {
             title: 'Borra un articulo',
             childComponent: SimpleModalComponent,
