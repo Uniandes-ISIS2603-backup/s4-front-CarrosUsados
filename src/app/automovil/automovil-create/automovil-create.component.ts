@@ -86,8 +86,10 @@ export class AutomovilCreateComponent implements OnInit {
 
 
     console.log(this.automovil);
+    /*
     console.log('ID del punto de venta:'+this.automovil.puntoVenta.id);
     console.log('ID de la variable punto de venta:'+this.puntoVenta_id);
+    */
     this.automovil.fechaAgregacion = new Date();
     this.automovilService.createAutomovil(this.modelo_id, this.automovil)
       .subscribe((automovil) => {
