@@ -102,26 +102,28 @@
         <table class="table table-bordered table-hover">
             <thead class = "thead-dark">
                 <tr>
-                    <th>ID</th>
-                    <th>Precio</th>
-                    <th>Descripcion</th>
-                    <th>Disponibilidad</th>
-                    <th>Imagen</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Precio</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Descripción</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">disponibilidad</th>   
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Imagen</th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let articulo of articulos">
-                    <td>{{articulo.id}}</td>
-                    <td>{{articulo.precio}}</td>
-                    <td>{{articulo.descripcion}}</td>
-                    <td>{{articulo.disponibilidad}}</td>  
-                    <td>{{articulo.imagen}}</td>
+                <tr *ngFor = "let articulo of articulos" style="cursor: pointer;" (click)="onSelected(articulo.id)">
+                    <td style="font-family: 'Raleway', sans-serif;" id="articulo-id" class="figure-caption" routerLink="/articulos/{{articulo.id}}">{{articulo.id}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="articulo-precio" class="figure-caption" routerLink="/articulos/{{articulo.id}}">{{articulo.precio}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="articulo-descripcion" class="figure-caption" routerLink="/articulos/{{articulo.id}}">{{articulo.descripcion}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="articulo-disponibilidad" class="figure-caption" routerLink="/articulos/{{articulo.id}}">{{articulo.disponibilidad}}</td>  
+                    <td style="font-family: 'Raleway', sans-serif;" id="articulo-imagen" class="figure-caption" routerLink="/articulos/{{articulo.id}}">{{articulo.imagen}}</td>
                     
-                    <td>
-                        <button class="btn btn-primary" (click)="showHideEdit(automovil.id)"><span class="glyphicon glyphicon-pencil"></span></button>
+                    <td> <!-- *ngxPermissionsOnly="['ADMIN']" -->
+                        <button class="btn btn-primary" (click)="showHideEdit(articulo.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                     </td>
-                    <td>
-                        <button class="btn btn-danger" (click)="deleteAutomovil(automovil.id)"><span class="glyphicon glyphicon-trash"></span></button>
+                    <td> <!-- *ngxPermissionsOnly="['ADMIN']" -->
+                        <button class="btn btn-danger" (click)="deleteArticulo(articulo.id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </td>
                 </tr>
             </tbody>
@@ -130,13 +132,13 @@
             <div class="col-md-4">
                 <div *ngIf="showCreate">
                     <app-articulo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-articulo-create>
-                </div><!--
+                </div>
                 <div *ngIf="showEdit">
                 <app-articulo-edit [articulo]="selectArticulo" (cancel)="showHideEdit(selectArticulo.id)" (update)="updateArticulo()" ></app-articulo-edit>
                 </div>
-                <div *ngIf="showView && !showEdit">
-                    <app-articulo-detail [articulo]="selectArticulo"></app-articulo-detail>
-                </div>                -->
+                <div *ngIf="showView  && !showEdit">
+                <app-articulo-detail [articulo]="selectArticulo"></app-articulo-detail>
+            </div>
             </div>
 </div>
 
