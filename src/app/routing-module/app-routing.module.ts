@@ -62,16 +62,34 @@ const routes: Routes = [
           },
           {
               path:'create',
-              component: PuntoventaCreateComponent
+              component: PuntoventaCreateComponent,
+              canActivate: [NgxPermissionsGuard],
+              data: {
+                  permissions: {
+                      only: ['ADMIN']
+                  }
+              }
           },
           {
             path: ':id/edit',
             component: PuntoventaEditComponent,
+            canActivate: [NgxPermissionsGuard],
+            data: {
+                permissions: {
+                    only: ['ADMIN']
+                }
+            }
          
           },
           {
             path: ':id/delete',
             component: PuntoventaEditComponent,
+            canActivate: [NgxPermissionsGuard],
+            data: {
+                permissions: {
+                    only: ['ADMIN']
+                }
+            }
           
           }
       ]

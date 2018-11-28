@@ -15,6 +15,10 @@ import { CompileShallowModuleMetadata } from '@angular/compiler';
 })
 export class PuntoventaListComponent implements OnInit {
 
+     /**
+    * The page (controls pagination)
+    */
+   page: number;
   count:number;
   /**todos los puntos de venta existentes */
   puntosVenta:Puntoventa[];
