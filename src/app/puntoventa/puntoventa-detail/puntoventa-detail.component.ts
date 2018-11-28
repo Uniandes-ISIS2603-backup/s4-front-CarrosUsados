@@ -5,6 +5,7 @@ import { PuntoventaDetail} from '../puntoventa-detail';
 import {Calificacion} from '../../calificacion/calificacion';
 import { PuntoventaCalificacionesComponent } from '../puntoventa-calificaciones/puntoventa-calificaciones.component';
 import { PuntoventaAddCalificacionComponent } from '../puntoventa-add-calificacion/puntoventa-add-calificacion.component';
+import { Puntoventa } from '../puntoventa';
 
 @Component({
   selector: 'app-puntoventa-detail',
@@ -17,7 +18,7 @@ export class PuntoventaDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
     ) {
-      
+
         //This is added so we can refresh the view when one of the books in
         //the "Other books" list is clicked
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
@@ -29,34 +30,30 @@ export class PuntoventaDetailComponent implements OnInit {
 
 
      @Input() puntoventaDetail: PuntoventaDetail;
+
+ /**
+    * The punto id retrieved from the address
+    */
      puntoventa_id:number;
 
+    /**
+    * The book whose details are shown
+    */
+    punto: Puntoventa;
 
+
+    /**
+    * The suscription which helps to know when a new book
+    * needs to be loaded
+    */
     navigationSubscription;
-  /**
-     * The child BookReviewListComponent
-     */
-    @ViewChild(PuntoventaCalificacionesComponent) reviewListComponent: PuntoventaCalificacionesComponent;
 
     /**
      * The child BookReviewListComponent
      */
-    @ViewChild(PuntoventaAddCalificacionComponent) reviewAddComponent:PuntoventaAddCalificacionComponent;
+    @ViewChild(PuntoventaCalificacionesComponent) reviewListComponent:PuntoventaCalificacionesComponent;
 
-    toggleReviews(): void {
-        if (this.reviewAddComponent.isCollapsed == false) {
-            this.reviewAddComponent.isCollapsed = true;
-        }
-        this.reviewListComponent.isCollapsed = !this.reviewListComponent.isCollapsed;
-    }
-
-    toggleCreateReview(): void {
-        if (this.reviewListComponent.isCollapsed == false) {
-            this.reviewListComponent.isCollapsed = true;
-        }
-        this.reviewAddComponent.isCollapsed = !this.reviewAddComponent.isCollapsed;
-    }
-
+ 
 
 
 
@@ -76,10 +73,10 @@ export class PuntoventaDetailComponent implements OnInit {
         this.getPuntoventaDetail();
         this.reviewListComponent.updateReviews(this.puntoventaDetail.calificaciones);
         this.reviewListComponent.isCollapsed = false;
-        this.reviewAddComponent.isCollapsed = true;
+        // this.reviewAddComponent.isCollapsed = true;
     }
 
-      
+
 
   ngOnInit() {
     this.puntoventa_id= +this.route.snapshot.paramMap.get('id');

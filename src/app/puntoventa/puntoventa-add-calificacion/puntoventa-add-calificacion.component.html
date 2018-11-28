@@ -20,7 +20,7 @@
                
                     <div class="form-group">
                         <label for="estrellas" style="font-family: 'Raleway', sans-serif; margin-left: 5%; margin-right: 5%"><b>Número de estrellas</b></label>
-                        <input type="number" min="0" max="5"name="estrellas" class="form-control" style="position: relative !important; left:20px; width:85%" id="reviewSource" [(ngModel)]="calificacion.numEstrellas"
+                        <input type="number" min="0" max="5"name="estrellas" class="form-control" style="position: relative !important; left:20px; width:85%" id="reviewSource" [(ngModel)]="calificacion.num_estrellas"
                                #estrellas="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && estrellas.invalid }" required>
                                <!-- <div class="invalid-feedback">
                             <div>The review's source is missing</div>

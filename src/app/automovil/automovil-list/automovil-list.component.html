@@ -1,43 +1,57 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="../src/bootstrap-table-filter.js"></script>
+</head>
+
+<div style="background-color: black;">
+    <img class="responsive" src="../assets/images/flist3.jpg" alt="head"
+         style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
+</div>
+
+<div style="align-content: center; width: 100%">
+    <h1 style="text-align: center;font-family:'Raleway', sans-serif; color: white">Automoviles</h1> 
+</div>
+
 <div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
     <div class="row">
-        <br>
-        <div class="justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear un automóvil</button>
-        </div>
-        <br>
 
-        <label>Seleccione un modelo:</label>
-        <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
+        <label style="color: white; margin-left: 39px; font-family:'Raleway', sans-serif;">Seleccione un modelo:</label>
+        <select class="form-control" style="margin-left: 3.5%; width: 52%; margin-right: 45% " id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
             <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.nombre}}</option>
         </select>
         <br>
         <div class="row">
             <div class="col-md-8">
-                <table class="table table-bordered table-hover">
-                    <thead class="thead-dark">
+                <table class="table table-hover" style="width: 80%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+                    <thead class="thead-dark" style="background-image: linear-gradient(to top, #000000, #434343);">
                         <tr>
-                            <th>ID</th>
-                            <th>Marca</th>
-                            <th>Año</th>
-                            <th>Color</th>
-                            <th>Numero chasis</th>
-                            <th>Placa</th>
-                            <th>Fecha Agregación</th>
-                            <th>Precio Original</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">Marca</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">Año</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">Color</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">Numero chasis</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">Placa</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">Fecha Agregación</th>
+                            <th style="color: white; font-family: 'Raleway', sans-serif;">Precio Original</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let automovil of automoviles" style="cursor:pointer;" (click)="onSelected(automovil.id)">
-                            <td>{{automovil.id}}</td>
-                            <td>{{automovil.marca}}</td>
-                            <td>{{automovil.anio}}</td>
-                            <td>{{automovil.color}}</td>
-                            <td>{{automovil.numChasis}}</td>
-                            <td>{{automovil.placa}}</td>
-                            <td>{{automovil.fechaAgregacion}}</td>
-                            <td>{{automovil.precioOriginal}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.id}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.marca}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.anio}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.color}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.numChasis}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.placa}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.fechaAgregacion}}</td>
+                            <td style="font-family: 'Raleway', sans-serif;">{{automovil.precioOriginal}}</td>
                             
                             <td>
                                 <button class="btn btn-primary" (click)="showHideEdit(automovil.id)"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -48,7 +62,13 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="justify-content-center align-self-center" style="margin-left: 35px">
+            <button [ngClass]="{ 'btn-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear un automóvil</button>
+        </div>
             </div>
+            
+                    
 
             <div class="col-md-4">
                 <div *ngIf="showView && !showEdit">

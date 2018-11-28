@@ -1,12 +1,13 @@
-<div class="panel-body">
+<div class="panel-body" style="margin-left: -55px; margin-right: -5px">
     <div class="border margin">
         <p class="h3 p-3" style="color:white ;font-family:'Raleway', sans-serif;">Punto de venta:
             {{puntoventaDetail.id}}<p>
 
                 <div class="col">
-
-                    <table class="table table-hovered table-bordered">
-                        <thead class="thead-dark" style="background-image: linear-gradient(to right top, #ff4e00, #ff6b00, #ff8500, #ff9b00, #ffb100); ">
+               <table class="table table-striped" style="width: 100%; margin-top: 1%; 
+               box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+                        <thead class="thead-dark" style="background-image: linear-gradient(to top, #000000, #434343);  ">
                             <tr>
                                 <th style="font-family: 'Raleway', sans-serif;color: white">Ciudad</th>
                                 <th style="font-family: 'Raleway', sans-serif;color: white">Ubicación</th>
@@ -29,11 +30,16 @@
                     </table>
 
 
+                    <hr>
+                    <app-puntoventa-calificaciones [punto_id]="puntoventaDetail.id"></app-puntoventa-calificaciones>
+                    <hr>
+                    <app-puntoventa-add-calificacion [punto_id]="puntoventaDetail.id" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
+                    <br>
                 </div>
     </div>
 
 
-    <div>
+    <!-- <div>
         <div class="row">
             <div class="col-md-3">
                 <p *ngIf="puntoventaDetail.calificaciones != undefined && puntoventaDetail.calificaciones.length > 0">
@@ -52,9 +58,9 @@
                 </p>
             </div>
         </div>
+        <app-puntoventa-calificaciones [calificacionespunto]="puntoventaDetail.calificaciones"></app-puntoventa-calificaciones>
+            <app-puntoventa-add-calificacion [puntoventa]="puntoventaDetail" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
+            <br> -->
     </div>
+
     
-</div>
-<app-puntoventa-calificaciones [calificacionespunto]="puntoventaDetail.calificaciones"></app-puntoventa-calificaciones>
-    <app-puntoventa-add-calificacion [puntoventa]="puntoventaDetail" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
-    <br>

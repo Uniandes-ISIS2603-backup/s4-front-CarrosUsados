@@ -7,10 +7,10 @@
         <script src="../src/bootstrap-table-filter.js"></script>
     </head>
     
-    <div style="background-color: black; z-index: 0">
-        <img class="responsive" src="../assets/images/genericBack52.jpg" alt="head"
-             style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
-    </div>
+<div style="background-color: black;">
+    <img class="responsive" src="../assets/images/flist3.jpg" alt="head"
+         style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
+</div>
     
     <div style="width: 100%; height: 100%; background-color: black"></div>
       
@@ -23,37 +23,36 @@
 </div>
 
 <div class="row">
-        <br>
-        <div class="justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear una calificacion</button>
-        </div>
-        <br>
-       
-        <br>
     </div>
    
     <div class="row">
     <div class="col-md-7">
  
-      <table class="table table-bordered table-hover">
-          <thead class = "thead-dark">
+      <table class="table table-striped" style="width: 90%; margin-left: 5%; margin-top: 1%; 
+               margin-right: 5%;  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+               background-color: white">
+          <thead class = "thead-dark" style="background-image: linear-gradient(to top, #000000, #434343); ">
               <tr>
-                  <th>ID</th>
-                  <th>Número Estrellas</th>
-                  <th>Comentario</th>
+                  <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
+                  <th style="color: white; font-family: 'Raleway', sans-serif;">Número Estrellas</th>
+                  <th style="color: white; font-family: 'Raleway', sans-serif;">Comentario</th>
                 
               </tr>
           </thead>
           <tbody>
               <tr *ngFor = "let calificacion of calificaciones" style="cursor: pointer;" (click)="onSelected(calificacion.id)">
-                  <td>{{calificacion.id}}</td>
-                  <td>{{calificacion.numEstrellas}}</td>
-                  <td>{{calificacion.comentario}}</td>
+                  <td style="font-family: 'Raleway', sans-serif;">{{calificacion.id}}</td>
+                  <td style="font-family: 'Raleway', sans-serif;">{{calificacion.numEstrellas}}</td>
+                  <td style="font-family: 'Raleway', sans-serif;">{{calificacion.comentario}}</td>
                  
               </tr>
           </tbody>
       </table>
+        
+                <div class="justify-content-center align-self-center" style="margin-left: 35px">
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear una calificacion</button>
+        </div>
 
   </div>
   </div>

@@ -5,7 +5,32 @@
         </button>
     </p> -->
 
-<div id="collapseReview" [ngbCollapse]="!isCollapsed">
+    <div class="container-fluid">
+        <h2 *ngIf="calificacionespunto.length == 0">No hay calificaciones de este punto de venta</h2>
+        <div *ngIf="calificacionespunto.length > 0">
+            <h3 style="color:white; font-family: 'Raleway',sans-serif;">Calificaciones del punto de venta</h3>
+            <table class="table table-striped">
+                <tbody>
+                    <tr *ngFor="let calificacion of calificacionespunto ">
+                        <td id="review-num">{{calificacion.num_estrellas}}</td>
+                        <td id="review-comentario">{{calificacion.comentario}}</td>
+                        
+                        <td >
+                            <button class="btn btn-danger" (click)="deleteCalificacion(calificacion.id)"><span class="glyphicon glyphicon-trash"></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <div class="row">
+                <div class="col-12 text-center">
+                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    
+
+<!-- <div id="collapseReview" [ngbCollapse]="!isCollapsed">
     <table class="table table-striped">
         <tbody>
             <tr *ngFor="let calificacion of calificacionespunto">
@@ -13,4 +38,4 @@
             </tr>
         </tbody>
     </table>
-</div>
+</div> -->
