@@ -17,7 +17,7 @@ export class ArticuloEditComponent implements OnInit, OnChanges {
     * @param toastrService The toastr to show messages to the user
     */
    constructor(
-    private automovilService: ArticuloService,
+    private articuloService: ArticuloService,
     private toastrService: ToastrService
   ) { }
 
@@ -37,9 +37,9 @@ export class ArticuloEditComponent implements OnInit, OnChanges {
    /**
    * Actualiza la informacion del articulo
    */
-  editAutomovil(): void {
+  editArticulo(): void {
 
-    this.automovilService.updateArticulo(this.articulo)
+    this.articuloService.updateArticulo(this.articulo)
       .subscribe(() => {
         this.toastrService.success("La información del articulo ha sido actualizada", "Edición del articulo");
       });
