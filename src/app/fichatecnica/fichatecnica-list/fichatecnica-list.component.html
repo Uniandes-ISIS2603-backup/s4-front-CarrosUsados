@@ -53,10 +53,10 @@
                         <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.rines}}</td>
                         <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.aireAcondicionado}}</td>
                         <td style="font-family: 'Raleway', sans-serif;">{{fichatecnica.numAirbags}}</td>
-                        <td >
+                        <td *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-primary" (click)="showHideEdit(fichatecnica.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                         </td>
-                        <td >
+                        <td *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-danger" (click)="deleteFichaTecnica(fichatecnica.id)"><span class="glyphicon glyphicon-trash"></span></button>
                         </td>
                     </tr>

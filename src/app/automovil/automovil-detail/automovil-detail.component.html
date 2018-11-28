@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="rcorners1 col-4" style=" height: 650px; margin-top: 1%; width: 350px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+    <div class="rcorners1 col-4" style=" height: 930px; margin-top: 1%; width: 350px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
         
         <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Automóvil: {{automovilDetail.id}}</h1>
 
@@ -25,7 +25,7 @@
                     <dd class="ttf">{{automovilDetail.precioOriginal}}</dd>
 
                     <div *ngIf = "automovilDetail.fichaTecnica != undefined">
-                        <h4 class = "text-success" style="color: black"> Ficha Tecnica: </h4>
+                        <h4 style="color: black"> Ficha Tecnica: </h4>
                         <dl>     
                             <dt class="tdf">Vidrios</dt>
                             <dd class="ttf">{{automovilDetail.fichaTecnica.vidrios}}</dd>
@@ -42,6 +42,22 @@
                             
                         </dl>
                     </div>
+
+                    <div *ngIf = "automovilDetail.puntoVenta != undefined">
+                            <h4 style="color: black"> Punto de venta: </h4>
+                            <dl>     
+                                <dt class="tdf">Ciudad</dt>
+                                <dd class="ttf">{{automovilDetail.puntoVenta.ciudad}}</dd>
+                                <dt class="tdf">Ubicacion</dt>
+                                <dd class="ttf">{{automovilDetail.puntoVenta.ubicacion}}</dd>
+                                <dt class="tdf">Latitud</dt>
+                                <dd class="ttf">{{automovilDetail.puntoVenta.latitud}}</dd>
+                                <dt class="tdf">Longitud</dt>
+                                <dd class="ttf">{{automovilDetail.puntoVenta.longitud}}</dd>
+                                <dt class="tdf">Numero de vendedores </dt>
+                                <dd class="ttf">{{automovilDetail.puntoVenta.numVendedores}}</dd>
+                            </dl>
+                        </div>
                     
                 </dl>
             </div>

@@ -1,21 +1,22 @@
 <head>
-<script type = "text/javascript">
-function changeSize(){document.getElementById('formbox').style.height = '800px'}
-</script>
+    <script type="text/javascript">
+        function changeSize() { document.getElementById('formbox').style.height = '800px' }
+    </script>
 </head>
 
 <div class="row">
     <div id="formbox" class="rcorners1 col-4" style=" height: 700px; margin-top: 1%; margin-right: 25px; margin-left: 25px; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
-        
-        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear Automovil</h1>
-    
+
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear
+            Automovil</h1>
+
         <label>Seleccione un modelo:</label>
         <select id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
             <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.nombre}}</option>
         </select>
         <br>
         <form name="automovil" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
-            
+
             <div class="form-group">
                 <label for="marcaAutomovil"><b>Marca</b></label>
                 <input type="text" name="marcaAutomovil" class="form-control" id="marcaAutomovil" [(ngModel)]="automovil.marca"
@@ -88,12 +89,13 @@ function changeSize(){document.getElementById('formbox').style.height = '800px'}
                 -->
             </div>
             <div>
-                <button [ngClass]="{ 'btn-success': !showFichaTecnica, 'btn-danger': showFichaTecnica }" class = "btn" (click) = "showCreateFichaTecnica()" >
+                <button [ngClass]="{ 'btn-success': !showFichaTecnica, 'btn-danger': showFichaTecnica }" class="btn"
+                    (click)="showCreateFichaTecnica()">
                     Añadir ficha tecnica
                 </button>
             </div>
             <br>
-            <div *ngIf = "showFichaTecnica">
+            <div *ngIf="showFichaTecnica">
                 <div class="form-group">
                     <label for="vidrios"><b>Vidrios</b></label>
                     <input type="text" name="vidrios" class="form-control" id="vidrios" [(ngModel)]="automovil.fichaTecnica.vidrios"
@@ -103,26 +105,26 @@ function changeSize(){document.getElementById('formbox').style.height = '800px'}
                         <div>Los vidrios de la ficha técnica estan faltando</div>
                     </div>
                     -->
-        
+
                 </div>
                 <div class="form-group">
-        
+
                     <label for="camaraReversa" style="padding-right: 15px"><b>Cámara de reversa:</b></label>
                     <input id="checkCamara" type="checkbox" name="camaraReversa" id="camaraReversa" [(ngModel)]="automovil.fichaTecnica.camaraReversa"
                         #camaraReversa="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sensores.invalid }" required>
-        
+
                 </div>
                 <div class="form-group">
-        
+
                     <label for="sensores" style="padding-right: 15px"><b>Sensores:</b></label>
                     <input id="checkSensores" type="checkbox" name="sensores" id="sensores" [(ngModel)]="automovil.fichaTecnica.sensores"
                         #sensores="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sensores.invalid }" required>
-        
+
                 </div>
                 <div class="form-group">
                     <label for="rines"><b>Rines</b></label>
-                    <input type="text" name="rines" class="form-control" id="rines" [(ngModel)]="automovil.fichaTecnica.rines" #rines="ngModel"
-                        [ngClass]="{ 'is-invalid': f.submitted && rines.invalid }" required>
+                    <input type="text" name="rines" class="form-control" id="rines" [(ngModel)]="automovil.fichaTecnica.rines"
+                        #rines="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rines.invalid }" required>
                     <!--
                         <div class="invalid-feedback">
                         <div>Los rines estan faltando</div>
@@ -130,27 +132,44 @@ function changeSize(){document.getElementById('formbox').style.height = '800px'}
                     -->
                 </div>
                 <div class="form-group">
-        
+
                     <label for="aireAcondicionado" style="padding-right: 15px"><b>Aire acondicionado:</b></label>
-                    <input id="checkAire" type="checkbox" name="aireAcondicionado"  [(ngModel)]="automovil.fichaTecnica.aireAcondicionado"
-                        #aireAcondicionado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && aireAcondicionado.invalid }" required>
-        
+                    <input id="checkAire" type="checkbox" name="aireAcondicionado" [(ngModel)]="automovil.fichaTecnica.aireAcondicionado"
+                        #aireAcondicionado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && aireAcondicionado.invalid }"
+                        required>
+
                 </div>
                 <div class="form-group">
                     <label for="numAirbags"><b>Numero de airbags</b></label>
                     <input type="text" name="numAirbags" class="form-control" id="numAirbags" [(ngModel)]="automovil.fichaTecnica.numAirbags"
                         #numAirbags="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numAirbags.invalid }" required>
-        
+
                     <!--
                         <div class="invalid-feedback">
                         <div>El numero de airbags está faltando</div>
                     </div>
                     -->
-        
+
                 </div>
             </div>
-
             <br>
+            <div>
+                <button [ngClass]="{ 'btn-success': !showPuntoVenta, 'btn-danger': showPuntoVenta }" class="btn"
+                    (click)="showCreatePuntoVenta()">
+                    Añadir punto de venta
+                </button>
+            </div>
+            <br>
+            <div *ngIf="showPuntoVenta">
+                <label>Seleccione un punto de venta:</label>
+                <select id="mySelect2" [(ngModel)]="puntoVenta_id" [ngModelOptions]="{standalone: true}"
+                    (ngModelChange)='onPuntosVentaSelected($event)'>
+                    <option *ngFor="let punto of puntosVenta" [value]="punto.id">{{punto.ciudad}}-{{punto.ubicacion}}</option>
+                </select>
+                <br>
+
+            </div>
+
             <div class="row form-inline justify-content-center align-self-center">
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-primary " (click)="createAutomovil()">Create</button>
@@ -160,7 +179,7 @@ function changeSize(){document.getElementById('formbox').style.height = '800px'}
                     <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
                 </div>
             </div>
-            
+
         </form>
     </div>
 

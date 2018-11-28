@@ -53,10 +53,10 @@
                             <td style="font-family: 'Raleway', sans-serif;">{{automovil.fechaAgregacion}}</td>
                             <td style="font-family: 'Raleway', sans-serif;">{{automovil.precioOriginal}}</td>
                             
-                            <td>
+                            <td *ngxPermissionsOnly="['ADMIN']">
                                 <button class="btn btn-primary" (click)="showHideEdit(automovil.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                             </td>
-                            <td>
+                            <td *ngxPermissionsOnly="['ADMIN']">
                                 <button class="btn btn-danger" (click)="deleteAutomovil(automovil.id)"><span class="glyphicon glyphicon-trash"></span></button>
                             </td>
                         </tr>

@@ -1,0 +1,26 @@
+<div class="panel-body">
+    <div class="border margin">
+        <p class="h3 p-3 text-primary">Automóvil: {{articulo_id}}<p> 
+        <div class="row">
+            <div class="col">
+                <dl>     
+                    
+                    <dt>Descripcion</dt>
+                    <dd>{{articulo.descripcion}}</dd>
+                    <dt>Precio</dt>
+                    <dd>{{articulo.precio}}</dd>
+                    <dt>Disponibilidad</dt>
+                    <dd>{{articulo.disponibilidad}}</dd>
+                    <dt>Imagen</dt>
+                    <dd>{{articulo.imagen}}</dd>
+                    <dt>Automovil</dt>
+                    <dd>{{articulo.automovil != null? articulo.automovil.id:false }}</dd>
+                    <dt>Factura</dt>
+                    <dd>{{articulo.factura != null? articulo.factura.id:false}}</dd>
+                    
+                </dl>
+            </div>
+  
+        </div>
+    </div>
+  </div>
