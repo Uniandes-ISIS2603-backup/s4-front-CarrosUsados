@@ -58,8 +58,23 @@ export class PuntoventaService {
 
 
   createCalificacion(puntoId, calificacion): Observable<Calificacion> {
+    console.log(puntoId)
+    console.log(calificacion.puntoId)
     return this.http.post<Calificacion>(API_URL + puntos + '/' + puntoId + calificaciones, calificacion);
   }
+
+   /**
+    * Obtiene calificaciones del punto dao unid
+    * @param puntoId id del punto
+    * @returns The list of the reviews
+    */
+   getReviews(puntoId): Observable<Calificacion[]> {
+    return this.http.get<Calificacion[]>(API_URL + puntos + '/' + puntoId + calificaciones);
+}
+
+deleteReview(puntoId,calificacionId): Observable<Boolean>{
+  return this.http.delete<Boolean>(API_URL+puntos+"/"+puntoId+"/"+calificacionId);
+}
 
 
 }

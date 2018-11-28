@@ -22,6 +22,16 @@
     <h1 style="text-align: center;font-family:'Raleway', sans-serif;color: white">Puntos de venta</h1> 
 </div>
 <div class="row">
+    <br>
+    
+    <!-- <div class="justify-content-center align-self-center"  *ngxPermissionsOnly="['ADMIN']">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
+    </div>
+     -->
+    <br>
+  
+        <br>
     </div>
     <div class="row">
     <div class="col-md-12">
@@ -34,11 +44,11 @@
                     <th style="color: white; font-family: 'Raleway', sans-serif;">ID</th>
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Ciudad</th>
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Ubicacion</th>
-                    <th style="color: white; font-family: 'Raleway', sans-serif;">Latitud</th>   
+                    <!-- <th style="color: white; font-family: 'Raleway', sans-serif;">Latitud</th>   
                     <th style="color: white; font-family: 'Raleway', sans-serif;">Longitud</th> 
-                    <th style="color: white; font-family: 'Raleway', sans-serif;">Número de vendedores</th>
-                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
-                    <th style="color: white; font-family: 'Raleway', sans-serif;"></th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;">Número de vendedores</th> -->
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"> </th>
+                    <th style="color: white; font-family: 'Raleway', sans-serif;"> </th>
                 </tr>
             </thead>
             <tbody>
@@ -46,21 +56,22 @@
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-id" class="figure-caption">{{puntos.id}}</td>
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-ciudad" class="figure-caption">{{puntos.ciudad}}</td>
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-ubicacion" class="figure-caption">{{puntos.ubicacion}}</td>
-                    <td  style="font-family: 'Raleway', sans-serif;" id="punto-latitud" class="figure-caption">{{puntos.latitud}}</td>
+                    <!-- <td  style="font-family: 'Raleway', sans-serif;" id="punto-latitud" class="figure-caption">{{puntos.latitud}}</td>
                     <td style="font-family: 'Raleway', sans-serif;" id="punto-longitud" class="figure-caption">{{puntos.longitud}}</td>
-                    <td style="font-family: 'Raleway', sans-serif;" id="punto-numeroVendedores" class="figure-caption">{{puntos.numVendedores}}</td>
+                    <td style="font-family: 'Raleway', sans-serif;" id="punto-numeroVendedores" class="figure-caption">{{puntos.numVendedores}}</td> -->
               
               
-                    <td  >
+                    <td *ngxPermissionsOnly="['ADMIN']">
                         <button class="btn btn-primary" (click)="showHideEdit(puntos.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                     </td>
-                    <td  >
+                    
+                    <td *ngxPermissionsOnly="['ADMIN']">
                         <button class="btn btn-danger" (click)="deletePunto(puntos.id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </td>
                 </tr>
             </tbody>
         </table>
-            <div class="justify-content-center align-self-center" style="margin-left: 45px">
+            <div class="justify-content-center align-self-center" style="margin-left: 45px"  *ngxPermissionsOnly="['ADMIN']">
         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
         (click)="showHideCreate()" style="margin-top: 5px; font-family: 'Raleway', sans-serif" >Crear un punto de venta</button>
     </div>
