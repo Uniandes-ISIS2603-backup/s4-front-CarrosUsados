@@ -5,6 +5,7 @@ import { Articulo } from '../articulo'
 import { ArticuloService } from '../articulo.service';
 import {AutomovilService} from '../../automovil/automovil.service';
 import {AutomovilDetail} from '../../automovil/automovil-detail';
+import {Automovil} from '../../automovil/automovil';
 
 @Component({
   selector: 'app-articulo-create',
@@ -15,6 +16,7 @@ import {AutomovilDetail} from '../../automovil/automovil-detail';
 export class ArticuloCreateComponent implements OnInit {
 
   articulo:Articulo;
+  auto:Automovil
   automovil:AutomovilDetail;
   
   @Output() cancel = new EventEmitter();
@@ -32,9 +34,10 @@ export class ArticuloCreateComponent implements OnInit {
        
         console.log(this.articulo);
       this.automovilService.getAutomovilDetail(this.articulo.idMod, this.articulo.idAuto)
-      .subscribe((automovil) => {
-          this.automovil = automovil;
+      .subscribe(Automovil => {
+        this.automovil = Automovil;
       });
+      
       this.articulo.automovil=this.automovil;
     this.articuloService.createArticulo(this.articulo)
       .subscribe((articulo) => {

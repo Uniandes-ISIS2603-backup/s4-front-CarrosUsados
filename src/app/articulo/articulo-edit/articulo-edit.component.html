@@ -5,9 +5,21 @@
     <form name="articulo" (ngSubmit)="f.form.valid && createArticulo()" #f="ngForm" novalidate>
           
           <div class="form-group">
-              <label for="automovilId"><b>Automovil</b></label>
+              <label for="automovilId"><b>AutomovilID</b></label>
               <input type="text" name="automovilId" class="form-control" id="automovilId" [(ngModel)]="articulo.idAuto"
                   #automovilId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && automovilId.invalid }"
+                  required>
+              <!--
+                          <div class="invalid-feedback">
+                  <div>No se ha llenado el campo de la id del automovil del articulo</div>
+              </div>
+                  -->
+
+          </div>
+          <div class="form-group">
+              <label for="modeloId"><b>ModeloID</b></label>
+              <input type="text" name="modeloId" class="form-control" id="modeloId" [(ngModel)]="articulo.idMod"
+                  #modeloId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && modeloId.invalid }"
                   required>
               <!--
                           <div class="invalid-feedback">
@@ -36,6 +48,18 @@
               <!--
                       <div class="invalid-feedback">
                   <div>No se ha llenado el campo del precio del articulo</div>
+              </div>
+                  -->
+
+          </div>
+          <div class="form-group">
+              <label for="imagen"><b>Imagen</b></label>
+              <input type="text" name="imagen" class="form-control" id="imagen" [(ngModel)]="articulo.imagen"
+                  #imagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imagen.invalid }"
+                  required>
+              <!--
+                      <div class="invalid-feedback">
+                  <div>No se ha llenado el campo de la imagen del articulo</div>
               </div>
                   -->
 
