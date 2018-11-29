@@ -71,7 +71,8 @@ export class PuntoventaDetailComponent implements OnInit {
      */
     updateReviews(): void {
         this.getPuntoventaDetail();
-        this.reviewListComponent.updateReviews(this.puntoventaDetail.calificaciones);
+        this.reviewListComponent.calificacionespunto.filter(calificacion => calificacion.puntoventa.id !=this.puntoventa_id)
+        this.reviewListComponent.updateReviews(this.puntoventaDetail.calificaciones.filter(calificacion => calificacion.puntoventa.id ==this.puntoventa_id));
         this.reviewListComponent.isCollapsed = false;
         // this.reviewAddComponent.isCollapsed = true;
     }
@@ -86,6 +87,9 @@ export class PuntoventaDetailComponent implements OnInit {
     this.getPuntoventaDetail();
     this.puntoventaDetail.calificaciones = new Array<Calificacion>();
   }}
+
+
+  
 
       /**
     * This method helps to refresh the view when we need to load another book into it

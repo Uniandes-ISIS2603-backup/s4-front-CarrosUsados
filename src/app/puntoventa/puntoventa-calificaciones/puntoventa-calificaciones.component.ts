@@ -33,7 +33,7 @@ export class PuntoventaCalificacionesComponent implements OnInit {
       this.calificacionespunto = calificaciones;
   }
 
- 
+   public searchString= new Date();
    /**
    * The page (controls pagination)
    */
@@ -44,6 +44,18 @@ export class PuntoventaCalificacionesComponent implements OnInit {
    */
    getReviews(): void {
        console.log(this.punto_id)
+       var arrayLength = this.calificacionespunto.length;
+        for (var i = 0; i < arrayLength; i++) {
+            var ob=this.calificacionespunto[i];
+            var punto= ob.puntoventa_id
+
+            if(punto!=this.punto_id)
+            {
+                this.calificacionespunto.splice(i);
+
+            }
+    //Do something
+}
        this.puntoventaService.getReviews(this.punto_id)
            .subscribe(reviews => this.calificacionespunto = reviews);
    }
@@ -66,10 +78,16 @@ export class PuntoventaCalificacionesComponent implements OnInit {
     this.puntoventaService.deleteReview(this.punto_id,calificacionId).subscribe(() => {
         this.toastrService.error("La calificación fue eliminada correctamente.", "Calificación eliminada.");
         this.ngOnInit();
-        this.calificacionespunto.splice(this.calificacionespunto.indexOf(calificacionId));
     }, err => {
         this.toastrService.error(err, "Error");
     });
+}
+
+
+parseDate( date:String) : Date
+{
+  return new Date (Date.parse(date.substring(0,date.length-5)));
+
 }
    // return true;
 

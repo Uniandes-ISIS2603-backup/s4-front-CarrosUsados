@@ -29,11 +29,21 @@
                         </tbody>
                     </table>
 
+                    <!-- <div class="row" >
+                        <div class="col-md-12">
+                          <div class="text-center">
+                            <h3>
+                              <div #gmap style="width:100%;height:400px" ></div>
+                            </h3>
+                          </div>
+                        </div>
+                      </div> -->
+
 
                     <hr>
                     <app-puntoventa-calificaciones [punto_id]="puntoventaDetail.id"></app-puntoventa-calificaciones>
                     <hr>
-                    <app-puntoventa-add-calificacion [punto_id]="puntoventaDetail.id" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
+                    <app-puntoventa-add-calificacion [punto_id]="puntoventaDetail.id" [puntoventa]="puntoventaDetail" (updateReviews)="updateReviews()"></app-puntoventa-add-calificacion>
                     <br>
                 </div>
     </div>
