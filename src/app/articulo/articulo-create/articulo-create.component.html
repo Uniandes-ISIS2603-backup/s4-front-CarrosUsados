@@ -1,68 +1,84 @@
-<div style="margin-left: 7%; margin-right: 40%; width: 35%; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-    
-    <h2 class = "text-center">Crear un articulo</h2>
+<div class="row">
+    <div class="rcorners1 col-4" style=" height: 600px; margin-top: 1%; margin-right: 15px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+        
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Crear Articulo</h1>
     <form name="articulo" (ngSubmit)="f.form.valid && createArticulo()" #f="ngForm" novalidate>
-          <div class="form-group" style="margin-left: 5%; margin-right: 5%">
-    <div><label for="idAutoArticulo"><b></b></label></div>
-    <div>
-        <label for="idAutoArticulo"><b>Id Automovil</b></label>
-        <input type="text" name="idAutoArticulo" class="form-control" id="idAutoArticulo" [(ngModel)]="articulo.idAuto"
-                #idAutoArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idAutoArticulo.invalid }" required>
-        
-         <div class="invalid-feedback">
-            <div>La id del automovil no fue puesta</div>
-        </div>
-        
-   </div>
-    <div>
-        <label for="idAutoMod"><b>Id Modelo del Automovil</b></label>
-        <input type="text" name="idAutoMod" class="form-control" id="idAutoMod" [(ngModel)]="articulo.idMod"
-                #idAutoArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idAutoArticulo.invalid }" required>
-        
-         <div class="invalid-feedback">
-            <div>La id del automovil no fue puesta</div>
-        </div>
-        
-   </div>
-   <div>
-        <label for="descripcionArticulo"><b>Descripcion</b></label>
-        <input type="text" name="descripcionArticulo" class="form-control" id="descripcionArticulo" [(ngModel)]="articulo.descripcion"
-         #descripcionArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && descripcionArticulo.invalid }" required >
-        
-         <div class="invalid-feedback">
-            <div>La descripcion no fue puesta</div>
-        </div>
-        
-   </div>
-   <div>
-        <label for="precioArticulo"><b>Precio</b></label>
-        <input type="text" name="precioArticulo" class="form-control" id="precioArticulo" [(ngModel)]="articulo.precio"
-         #precioArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && precioArticulo.invalid }" required >
-        
-         <div class="invalid-feedback">
-            <div>El precio no fue puesto</div>
-        </div>
-        
-   </div>
-   <div>
-        <label for="imagenArticulo"><b>Direccion Imagen</b></label>
-        <input type="text" name="imagenArticulo" class="form-control" id="imagenArticulo" [(ngModel)]="articulo.imagen"
-         #imagenArticulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imagenArticulo.invalid }" required >
-        
-         <div class="invalid-feedback">
-            <div>La direccion de la imagen no fue puesta</div>
-        </div>
-        
-   </div>
-          <div class="row form-inline justify-content-center align-self-center" style="align-content: center; margin-left: 40%; margin-right: 30%; width: 40%">
-          <button type="submit" class="btn btn-primary" style="width: 100%; font-family: 'Raleway', sans-serif ">Crear</button>
-                <div class="divider"></div>
-                <button type="button" style="margin-top: 5px; width: 100%; font-family: 'Raleway', sans-serif" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+          
+          <div class="form-group">
+              <label for="automovilId"><b>AutomovilID</b></label>
+              <input type="text" name="automovilId" class="form-control" id="automovilId" [(ngModel)]="articulo.idAuto"
+                  #automovilId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && automovilId.invalid }"
+                  required>
+              <!--
+                          <div class="invalid-feedback">
+                  <div>No se ha llenado el campo de la id del automovil del articulo</div>
+              </div>
+                  -->
+
           </div>
-        </div>>
-    </form>
+          <div class="form-group">
+              <label for="modeloId"><b>ModeloID</b></label>
+              <input type="text" name="modeloId" class="form-control" id="modeloId" [(ngModel)]="articulo.idMod"
+                  #modeloId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && modeloId.invalid }"
+                  required>
+              <!--
+                          <div class="invalid-feedback">
+                  <div>No se ha llenado el campo de la id del automovil del articulo</div>
+              </div>
+                  -->
+
+          </div>
+          <div class="form-group">
+              <label for="descripcion"><b>Descripcion</b></label>
+              <input type="text" name="descripcion" class="form-control" id="description" [(ngModel)]="articulo.descripcion"
+                  #descripcion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && descripcion.invalid }"
+                  required>
+              <!--
+                      <div class="invalid-feedback">
+                  <div>No se ha llenado el campo de la descripcion del articulo</div>
+              </div>
+                  -->
+
+          </div>
+          <div class="form-group">
+              <label for="precio"><b>Precio</b></label>
+              <input type="text" name="precio" class="form-control" id="precio" [(ngModel)]="articulo.precio"
+                  #precio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && precio.invalid }"
+                  required>
+              <!--
+                      <div class="invalid-feedback">
+                  <div>No se ha llenado el campo del precio del articulo</div>
+              </div>
+                  -->
+
+          </div>
+          <div class="form-group">
+              <label for="imagen"><b>Imagen</b></label>
+              <input type="text" name="imagen" class="form-control" id="imagen" [(ngModel)]="articulo.imagen"
+                  #imagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imagen.invalid }"
+                  required>
+              <!--
+                      <div class="invalid-feedback">
+                  <div>No se ha llenado el campo de la imagen del articulo</div>
+              </div>
+                  -->
+
+          </div>
+          
+          <div class="row form-inline justify-content-center align-self-center">
+              <div class="col-md-6">
+                  <button type="submit" class="btn btn-primary " (click)="createArticulo()">Crear</button>
+              </div>
+              <div class="col-md-6">
+
+                  <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+              </div>
+          </div>
+      </form>
+  </div>
+
+
 </div>
-<div class ="col-3"></div>
 
 
 
