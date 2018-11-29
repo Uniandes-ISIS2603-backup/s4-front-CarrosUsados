@@ -23,6 +23,7 @@
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
+    "@types/googlemaps": "^3.30.16",
     "angular-password-strength-meter": "0.0.4",
     "angular-popper": "^2.0.0",
     "audit": "0.0.6",

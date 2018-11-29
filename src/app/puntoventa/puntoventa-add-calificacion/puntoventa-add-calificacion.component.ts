@@ -16,7 +16,7 @@ export class PuntoventaAddCalificacionComponent implements OnInit,OnChanges {
   constructor(private puntoventaService: PuntoventaService, private toastrService: ToastrService) { }
 
 
-  @Input() puntoventa: Puntoventa;
+   @Input() puntoventa: PuntoventaDetail;
 
   /**
   * La calificacion a publicar
@@ -33,7 +33,9 @@ export class PuntoventaAddCalificacionComponent implements OnInit,OnChanges {
    @Output() updateReviews = new EventEmitter();
 
    postReview(calificacionForm: NgForm): Calificacion {
+    
     this.calificacion.puntoventa = this.puntoventa;
+    this.calificacion.publishedDate= new Date();
     this.puntoventaService.createCalificacion(this.punto_id,this.calificacion)
         .subscribe(() => {
             calificacionForm.resetForm();
@@ -43,6 +45,7 @@ export class PuntoventaAddCalificacionComponent implements OnInit,OnChanges {
             this.toastrService.error(err, 'Error');
         });
         console.log(this.puntoventa)
+        console.log(this.calificacion.publishedDate);
     return this.calificacion;
 }
 
