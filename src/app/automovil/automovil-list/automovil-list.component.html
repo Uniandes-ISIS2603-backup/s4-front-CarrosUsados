@@ -8,12 +8,11 @@
 </head>
 
 <div style="background-color: black;">
-    <img class="responsive" src="../assets/images/flist3.jpg" alt="head"
-         style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
+    <img class="responsive" src="../assets/images/flist3.jpg" alt="head" style="width: 100%;z-index: -1; position: absolute; float: right; margin-top: -50px">
 </div>
 
 <div style="align-content: center; width: 100%">
-    <h1 style="text-align: center;font-family:'Raleway', sans-serif; color: white">Automoviles</h1> 
+    <h1 style="text-align: center;font-family:'Raleway', sans-serif; color: white">Automoviles</h1>
 </div>
 
 <div id="alertPanel" style="text-align: center"></div>
@@ -21,7 +20,8 @@
     <div class="row">
 
         <label style="color: white; margin-left: 39px; font-family:'Raleway', sans-serif;">Seleccione un modelo:</label>
-        <select class="form-control" style="margin-left: 3.5%; width: 52%; margin-right: 45% " id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
+        <select class="form-control" style="margin-left: 3.5%; width: 52%; margin-right: 45% " id="mySelect"
+            [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)'>
             <option *ngFor="let modelo of modelos" [value]="modelo.id">{{modelo.nombre}}</option>
         </select>
         <br>
@@ -52,35 +52,46 @@
                             <td style="font-family: 'Raleway', sans-serif;">{{automovil.placa}}</td>
                             <td style="font-family: 'Raleway', sans-serif;">{{automovil.fechaAgregacion}}</td>
                             <td style="font-family: 'Raleway', sans-serif;">{{automovil.precioOriginal}}</td>
-                            
+
                             <td *ngxPermissionsOnly="['ADMIN']">
                                 <button class="btn btn-primary" (click)="showHideEdit(automovil.id)"><span class="glyphicon glyphicon-pencil"></span></button>
+                            </td>
+                            <td *ngxPermissionsOnly="['ADMIN', 'CLIENT']">
+                                <button class="btn btn-success" (click)="showHideAgregarCalificacion()"><span class="glyphicon glyphicon-plus-sign"></span></button>
                             </td>
                             <td *ngxPermissionsOnly="['ADMIN']">
                                 <button class="btn btn-danger" (click)="deleteAutomovil(automovil.id)"><span class="glyphicon glyphicon-trash"></span></button>
                             </td>
+
+
                         </tr>
                     </tbody>
                 </table>
                 <div class="justify-content-center align-self-center" style="margin-left: 35px">
-            <button [ngClass]="{ 'btn-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear un automóvil</button>
-        </div>
+                    <button [ngClass]="{ 'btn-success': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                        (click)="showHideCreate()">Crear un automóvil</button>
+                </div>
             </div>
-            
-                    
+
+
 
             <div class="col-md-4">
-                <div *ngIf="showView && !showEdit">
+                <div *ngIf="showView && !showEdit && !showAgregarCalificacion">
                     <app-automovil-detail [automovilDetail]="selectedAutomovil"></app-automovil-detail>
                 </div>
                 <div *ngIf="showCreate">
                     <app-automovil-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-automovil-create>
                 </div>
                 <div *ngIf="showEdit">
-                    <app-automovil-edit [automovil]="selectedAutomovil" [modelo_id] = "modelo_id" (cancel)="showHideEdit(selectedAutomovil.id)" (update)="updateAutomovil()" ></app-automovil-edit>
+                    <app-automovil-edit [automovil]="selectedAutomovil" [modelo_id]="modelo_id" (cancel)="showHideEdit(selectedAutomovil.id)"
+                        (update)="updateAutomovil()"></app-automovil-edit>
                 </div>
-            </div>
+                <div *ngIf="showAgregarCalificacion">
+                    <app-automovil-agregarcalificacion [automovil]="selectedAutomovil" [modelo_id]="modelo_id" (cancel)="showHideAgregarCalificacion()"
+                        (create)="updateAgregarCalificacion()"></app-automovil-agregarcalificacion>
+                </div>
+
+            </div> 
 
 
 

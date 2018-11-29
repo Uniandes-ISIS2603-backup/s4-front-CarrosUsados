@@ -63,6 +63,10 @@ export class AutomovilListComponent implements OnInit {
    * Muestra o esconde el detalle de un automovil
    */
   showView: boolean;
+    /**
+     * Muestra o esconde el panel de agregar calificacion a automovil
+     */
+  showAgregarCalificacion: boolean;
 
   /**
    * El automovil seleccionado
@@ -114,6 +118,10 @@ export class AutomovilListComponent implements OnInit {
     }*/
   }
 
+  showHideAgregarCalificacion(): void{
+    this.showAgregarCalificacion = !this.showAgregarCalificacion;
+  }
+
   getModelos() {
 
     this.modeloService.getModelos()
@@ -148,7 +156,11 @@ export class AutomovilListComponent implements OnInit {
     this.showView = true;
   }
 
-
+  updateAgregarCalificacion(): void{
+    this.showEdit = false;
+    this.showAgregarCalificacion = false;
+    this.showView = true;
+  }
 
   /**
         * Elimina un automovil
@@ -160,30 +172,6 @@ export class AutomovilListComponent implements OnInit {
     }, err => {
       this.toastrService.error(err, "Error");
     });
-    //this.getAutomovilesOfModelo(this.modelo_id);
-    /*
-    this.modalDialogService.openDialog(this.viewRef, {
-      title: 'Eliminar un automovil',
-      childComponent: SimpleModalComponent,
-      data: { text: 'Esta seguro que desea eliminar un automovil?' },
-      actionButtons: [
-        {
-          text: 'Si',
-          buttonClass: 'btn btn-danger',
-          onAction: () => {
-            this.automovilService.deleteAutomovil(this.modelo_id, automovilId).subscribe(() => {
-              this.toastrService.error("El automovil fue eliminado satisfactoriamente", "Automovil eliminado");
-              this.ngOnInit();
-            }, err => {
-              this.toastrService.error(err, "Error");
-            });
-            return true;
-          }
-        },
-        { text: 'No', onAction: () => true }
-      ]
-    });
-    */
   }
 
 
@@ -195,6 +183,7 @@ export class AutomovilListComponent implements OnInit {
     this.showCreate = false;
     this.showView = false;
     this.showEdit = false;
+    this.showAgregarCalificacion = false;
     this.selectedAutomovil = undefined;
     this.automovil_id = undefined;
 
