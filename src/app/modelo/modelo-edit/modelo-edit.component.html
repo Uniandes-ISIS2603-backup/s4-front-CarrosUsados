@@ -2,7 +2,7 @@
     <div class="rcorners1 col-4" style="margin-left: 8%; width: 35%; height: 550px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
    
         
-       <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Editar Marca</h1>        
+       <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Editar Modelo</h1>        
             <form name="modelo" (ngSubmit)="f.form.valid && editModelo()" #f="ngForm" novalidate>
                   <div class="form-group" style="margin-left: 5%; margin-right: 5%">
                     <label for="modeloId_marca">Seleccionar Marca</label>
@@ -42,7 +42,7 @@
                 </div>  
 
                 <div class="row form-inline justify-content-center align-self-center" style="align-content: center; margin-left: 40%; margin-right: 30%; width: 40%">
-                    <button type="submit" class="btn" style="width: 50%; font-family: 'Raleway', sans-serif; background-image: linear-gradient(to right top, #00b25f, #00b25f, #00b25f, #00b25f, #00b25f); color: white ">Edit</button>
+                    <button type="submit" class="btn" style="width: 50%; font-family: 'Raleway', sans-serif; background-image: linear-gradient(to right top, #00b25f, #00b25f, #00b25f, #00b25f, #00b25f); color: white " (click)="editModelo()">Edit</button>
                     <div class="divider"></div>
                     <button type="button" class="btn btn-danger" style="margin-top: 5px; width: 50%; font-family: 'Raleway', sans-serif" (click)="cancelEdition()">Cancel</button>
                 </div>

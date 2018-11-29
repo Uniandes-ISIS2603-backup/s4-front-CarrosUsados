@@ -73,7 +73,11 @@ export class PuntoventaService {
 }
 
 deleteReview(puntoId,calificacionId): Observable<Boolean>{
-  return this.http.delete<Boolean>(API_URL+puntos+"/"+puntoId+"/"+calificacionId);
+  return this.http.delete<Boolean>(API_URL+puntos+"/"+puntoId+calificaciones+"/"+calificacionId);
+}
+
+getPunto(puntoId): Observable<Puntoventa> {
+  return this.http.get<Puntoventa>(API_URL + puntos + '/' + puntoId);
 }
 
 

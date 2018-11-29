@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../routing-module/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AutomovilService } from '../automovil/automovil.service';
 import { ModeloService } from '../modelo/modelo.service';
+import { MarcaService } from '../marca/marca.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { ModeloService } from '../modelo/modelo.service';
   ],
   declarations: [InicioComponent],
   exports: [InicioComponent],
-  providers: [AutomovilService, ModeloService]
+  providers: [AutomovilService, ModeloService, MarcaService]
 })
 export class InicioModule { }

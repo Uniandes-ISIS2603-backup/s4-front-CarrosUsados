@@ -20,6 +20,18 @@ export class ArticuloService {
   getArticulo(articuloId): Observable<Articulo> {
         return this.http.get<Articulo>(environment.apiURL + articulos + '/' + articuloId);
     }
+    
+    getArticuloPorAutomovil(automovilId): Articulo {
+        var articulo=null;
+        this.http.get<Articulo[]>(environment.apiURL + articulos)
+        .subscribe(articulos => {
+            articulo = articulos.filter(function(item) {
+            return item.idAuto === automovilId;
+            })[0];
+    });
+    return articulo;
+        
+    }
   
    /**
     * Crea un articulo
