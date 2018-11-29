@@ -1,0 +1,50 @@
+<div class="row">
+    <div id="formbox" class="rcorners1 col-4" style=" border-radius: 15px; height: 300px; width:420px; margin-top: 1%; margin-right: 25px; margin-left: 25px; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
+
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Agregar
+            Calificacion</h1>
+
+        <form style="padding: 10px;" name="calificacion" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+
+            <div class="form-group">
+                <label for="numeroEstrellas"><b>Numero de estrellas</b></label>
+                <input type="text" name="numeroEstrellas" class="form-control" id="numeroEstrellas" [(ngModel)]="calificacion.num_estrellas"
+                    #numeroEstrellas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numeroEstrellas.invalid }"
+                    required>
+                <!--
+                            <div class="invalid-feedback">
+                    <div>No se ha llenado el campo de la marca del automovil</div>
+                </div>
+                    -->
+
+            </div>
+            <div class="form-group">
+                <label for="comentario"><b>Comentario</b></label>
+                <input type="text" name="comentario" class="form-control" id="comentario" [(ngModel)]="calificacion.comentario"
+                    #comentario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comentario.invalid }" required>
+                <!--
+                        <div class="invalid-feedback">
+                    <div>No se ha llenado el campo del año del automovil</div>
+                </div>
+                    -->
+
+            </div>
+            <br>
+            <div class="row form-inline justify-content-center align-self-center">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-primary " (click)="createCalificacion()">Crear</button>
+                </div>
+                <div class="col-md-6">
+
+                    <button type="button" class="btn btn-danger" (click)="cancelAgregar()">Cancelar</button>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+        </form>
+    </div>
+
+
+</div>

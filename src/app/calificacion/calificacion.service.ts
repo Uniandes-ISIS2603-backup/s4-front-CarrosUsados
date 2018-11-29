@@ -33,6 +33,11 @@ export class CalificacionService {
   getCalificacionDetail(calificacionId){
     return this.http.get<Calificacion>(API_URL +calificaciones+"/"+calificacionId);
   }
+  
+  createCalificacionAutomovil(modeloId,automovilId, calificacion): Observable<Calificacion>{
+    console.log("ID automovil: "+automovilId);
+    return this.http.post<Calificacion>(API_URL + "/modelos" + "/" + modeloId + "/automoviles" + "/" + automovilId + calificaciones, calificacion);
+  }
 
   createCalificacion(calificacion): Observable<Calificacion>
   {

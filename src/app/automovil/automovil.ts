@@ -1,5 +1,6 @@
 import { Fichatecnica } from '../fichatecnica/fichatecnica'
 import { Puntoventa } from '../puntoventa/puntoventa'
+import { Modelo } from '../modelo/modelo';
 
 export class Automovil{
     /**
@@ -48,5 +49,9 @@ export class Automovil{
      * El punto venta del automovil
      */
     puntoVenta:Puntoventa;
+    /**
+     * El modelo asociado del automovil
+     */
+    modeloAsociado: Modelo;
 
 }

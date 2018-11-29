@@ -1,72 +1,89 @@
 <div class="row">
-    <div class="rcorners1 col-4" style=" height: 930px; margin-top: 1%; width: 350px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
-        
-        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Automóvil: {{automovilDetail.id}}</h1>
+    <div class="rcorners1 col-4" style=" height: 1500px; margin-top: 1%; width: 350px ; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
 
-<div class="panel-body">
-    <div class="border margin"> 
-        <div class="row">
-            <div class="col">
-                <dl>     
-                    
-                    <dt class="tdf">Marca</dt>
-                    <dd class="ttf">{{automovilDetail.marca}}</dd>
-                    <dt class="tdf">Año</dt>
-                    <dd class="ttf">{{automovilDetail.anio}}</dd>
-                    <dt class="tdf">Color</dt>
-                    <dd class="ttf">{{automovilDetail.color}}</dd>
-                    <dt class="tdf">Numero de chasís</dt>
-                    <dd class="ttf">{{automovilDetail.numChasis}}</dd>
-                    <dt class="tdf">Placa</dt>
-                    <dd class="ttf">{{automovilDetail.placa}}</dd>
-                    <dt class="tdf">Fecha</dt>
-                    <dd class="ttf">{{automovilDetail.fechaAgregacion}}</dd>
-                    <dt class="tdf">Precio original</dt>
-                    <dd class="ttf">{{automovilDetail.precioOriginal}}</dd>
+        <h1 style="padding: 5px; font-family: 'Raleway', sans-serif; font-size: 3vw; text-align: center; margin-top: 5px">Automóvil:
+            {{automovilDetail.id}}</h1>
 
-                    <div *ngIf = "automovilDetail.fichaTecnica != undefined">
-                        <h4 style="color: black"> Ficha Tecnica: </h4>
-                        <dl>     
-                            <dt class="tdf">Vidrios</dt>
-                            <dd class="ttf">{{automovilDetail.fichaTecnica.vidrios}}</dd>
-                            <dt class="tdf">Camara Reversa</dt>
-                            <dd class="ttf">{{automovilDetail.fichaTecnica.camaraReversa}}</dd>
-                            <dt class="tdf">Sensores</dt>
-                            <dd class="ttf">{{automovilDetail.fichaTecnica.sensores}}</dd>
-                            <dt class="tdf">Rines</dt>
-                            <dd class="ttf">{{automovilDetail.fichaTecnica.rines}}</dd>
-                            <dt class="tdf">Aire Acondicionado</dt>
-                            <dd class="ttf">{{automovilDetail.fichaTecnica.aireAcondicionado}}</dd>
-                            <dt class="tdf">Numero de airbags</dt>
-                            <dd class="ttf">{{automovilDetail.fichaTecnica.numAirbags}}</dd>
-                            
+        <div class="panel-body">
+            <div class="border margin">
+                <div class="row">
+                    <div class="col">
+                        <dl>
+
+                            <dt class="tdf">Marca</dt>
+                            <dd class="ttf">{{automovilDetail.marca}}</dd>
+                            <dt class="tdf">Año</dt>
+                            <dd class="ttf">{{automovilDetail.anio}}</dd>
+                            <dt class="tdf">Color</dt>
+                            <dd class="ttf">{{automovilDetail.color}}</dd>
+                            <dt class="tdf">Numero de chasís</dt>
+                            <dd class="ttf">{{automovilDetail.numChasis}}</dd>
+                            <dt class="tdf">Placa</dt>
+                            <dd class="ttf">{{automovilDetail.placa}}</dd>
+                            <dt class="tdf">Fecha</dt>
+                            <dd class="ttf">{{automovilDetail.fechaAgregacion}}</dd>
+                            <dt class="tdf">Precio original</dt>
+                            <dd class="ttf">{{automovilDetail.precioOriginal}}</dd>
+
+                            <div *ngIf="automovilDetail.fichaTecnica != undefined">
+                                <h4 style="color: black"> Ficha Tecnica: </h4>
+                                <dl>
+                                    <dt class="tdf">Vidrios</dt>
+                                    <dd class="ttf">{{automovilDetail.fichaTecnica.vidrios}}</dd>
+                                    <dt class="tdf">Camara Reversa</dt>
+                                    <dd class="ttf">{{automovilDetail.fichaTecnica.camaraReversa}}</dd>
+                                    <dt class="tdf">Sensores</dt>
+                                    <dd class="ttf">{{automovilDetail.fichaTecnica.sensores}}</dd>
+                                    <dt class="tdf">Rines</dt>
+                                    <dd class="ttf">{{automovilDetail.fichaTecnica.rines}}</dd>
+                                    <dt class="tdf">Aire Acondicionado</dt>
+                                    <dd class="ttf">{{automovilDetail.fichaTecnica.aireAcondicionado}}</dd>
+                                    <dt class="tdf">Numero de airbags</dt>
+                                    <dd class="ttf">{{automovilDetail.fichaTecnica.numAirbags}}</dd>
+
+                                </dl>
+                            </div>
+
+                            <div *ngIf="automovilDetail.puntoVenta != undefined">
+                                <h4 style="color: black"> Punto de venta: </h4>
+                                <dl>
+                                    <dt class="tdf">Ciudad</dt>
+                                    <dd class="ttf">{{automovilDetail.puntoVenta.ciudad}}</dd>
+                                    <dt class="tdf">Ubicacion</dt>
+                                    <dd class="ttf">{{automovilDetail.puntoVenta.ubicacion}}</dd>
+                                    <dt class="tdf">Latitud</dt>
+                                    <dd class="ttf">{{automovilDetail.puntoVenta.latitud}}</dd>
+                                    <dt class="tdf">Longitud</dt>
+                                    <dd class="ttf">{{automovilDetail.puntoVenta.longitud}}</dd>
+                                    <dt class="tdf">Numero de vendedores </dt>
+                                    <dd class="ttf">{{automovilDetail.puntoVenta.numVendedores}}</dd>
+                                </dl>
+                            </div>
+
+                            <div *ngIf="automovilDetail.calificaciones[0] != null">
+                                <h4 style="color: black"> Calificaciones: </h4>
+                                <div *ngFor="let cal of automovilDetail.calificaciones">
+                                    <ul class="list-group">
+
+                                        <li class="list-group-item list-group-item-info"> <b>Calificacion #</b> {{cal.id}}</li>
+                                        <li class="list-group-item list-group-item-warning"> <b>Numero de estrellas:</b>
+                                            {{cal.num_estrellas}}</li>
+                                        <li class="list-group-item list-group-item-warning"> <b>Comentario:</b>
+                                            {{cal.comentario}}</li>
+ 
+                                    </ul>
+                                </div>
+
+                            </div>
+
                         </dl>
                     </div>
 
-                    <div *ngIf = "automovilDetail.puntoVenta != undefined">
-                            <h4 style="color: black"> Punto de venta: </h4>
-                            <dl>     
-                                <dt class="tdf">Ciudad</dt>
-                                <dd class="ttf">{{automovilDetail.puntoVenta.ciudad}}</dd>
-                                <dt class="tdf">Ubicacion</dt>
-                                <dd class="ttf">{{automovilDetail.puntoVenta.ubicacion}}</dd>
-                                <dt class="tdf">Latitud</dt>
-                                <dd class="ttf">{{automovilDetail.puntoVenta.latitud}}</dd>
-                                <dt class="tdf">Longitud</dt>
-                                <dd class="ttf">{{automovilDetail.puntoVenta.longitud}}</dd>
-                                <dt class="tdf">Numero de vendedores </dt>
-                                <dd class="ttf">{{automovilDetail.puntoVenta.numVendedores}}</dd>
-                            </dl>
-                        </div>
-                    
-                </dl>
+                </div>
             </div>
-  
         </div>
+
     </div>
-  </div>
-        
-                    </div>
 
 
 </div>

@@ -7,6 +7,9 @@ import { AutomovilService } from '../automovil.service';
 
 import { AutomovilDetail } from '../automovil-detail';
 import { Automovil } from '../automovil';
+import { Calificacion } from '../../calificacion/calificacion'
+import { Modelo } from '../../modelo/modelo'
+import { CalificacionService } from 'src/app/calificacion/calificacion.service';
 
 @Component({
   selector: 'app-automovil-detail',

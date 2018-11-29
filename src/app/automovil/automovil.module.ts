@@ -11,6 +11,7 @@ import { AutomovilDetailComponent } from './automovil-detail/automovil-detail.co
 import { AutomovilCreateComponent } from './automovil-create/automovil-create.component';
 import { ModeloService } from '../modelo/modelo.service';
 import { AutomovilEditComponent } from './automovil-edit/automovil-edit.component';
+import { AutomovilAgregarcalificacionComponent } from './automovil-agregarcalificacion/automovil-agregarcalificacion.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { AutomovilEditComponent } from './automovil-edit/automovil-edit.componen
     FormsModule,
     NgxPermissionsModule.forRoot()
   ],
-  declarations: [AutomovilListComponent, AutomovilDetailComponent, AutomovilCreateComponent, AutomovilEditComponent],
+  declarations: [AutomovilListComponent, AutomovilDetailComponent, AutomovilCreateComponent, AutomovilEditComponent, AutomovilAgregarcalificacionComponent],
   providers: [AutomovilService, ModeloService]
 })
 export class AutomovilModule { }
