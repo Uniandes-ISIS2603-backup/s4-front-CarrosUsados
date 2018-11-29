@@ -35,10 +35,10 @@
                         <td style="font-family: 'Raleway', sans-serif;" id="precio-id" class="figure-caption" routerLink="/articulo/{{articulo.id}}">{{articulo.precio}}</td>
                         <td style="font-family: 'Raleway', sans-serif;" id="disponibilidad-id" class="figure-caption" routerLink="/articulo/{{articulo.id}}">{{articulo.disponibilidad}}</td>
                         <td style="font-family: 'Raleway', sans-serif;" id="imagen-id" class="figure-caption" routerLink="/articulo/{{articulo.id}}">{{articulo.imagen}}</td>
-                        <td>
+                        <td *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-primary" (click)="showHideEdit(articulo.id)"><span class="glyphicon glyphicon-pencil"></span></button>
                         </td>
-                        <td>
+                        <td *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-danger" (click)="deleteArticulo(articulo.id)"><span class="glyphicon glyphicon-trash"></span></button>
                         </td>
                     </tr>
