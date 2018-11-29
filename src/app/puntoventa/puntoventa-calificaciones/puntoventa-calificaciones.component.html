@@ -9,13 +9,26 @@
         <h2 *ngIf="calificacionespunto.length == 0">No hay calificaciones de este punto de venta</h2>
         <div *ngIf="calificacionespunto.length > 0">
             <h3 style="color:white; font-family: 'Raleway',sans-serif;">Calificaciones del punto de venta</h3>
+        
+            <p style="width: 40%; margin-left: 5%; color: white">Buscar calificaciones por fecha:</p>  
+            <input style="width: 90%; margin-left: 5%;" type="date" class="form-control" name="searchString" placeholder="Mejor calificación" (ngModel)="searchString">
+          
             <table class="table table-striped">
+                <thead class="table head">
+                    <th>Calificación</th>
+                    <th>Comentario</th>
+                    <th>Fecha de publicación</th>
+                    <th></th>
+                    <th></th>
+                </thead>
+            
                 <tbody>
-                    <tr *ngFor="let calificacion of calificacionespunto ">
+                    <tr *ngFor="let calificacion of calificacionespunto | filter: publishedDate: searchString;">
                         <td id="review-num">{{calificacion.num_estrellas}}</td>
                         <td id="review-comentario">{{calificacion.comentario}}</td>
+                        <td id="review-date">{{calificacion.publishedDate}}</td>
                         
-                        <td >
+                        <td *ngxPermissionsOnly="['ADMIN']">
                             <button class="btn btn-danger" (click)="deleteCalificacion(calificacion.id)"><span class="glyphicon glyphicon-trash"></span></button>
                         </td>
                     </tr>

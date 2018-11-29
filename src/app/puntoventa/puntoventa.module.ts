@@ -13,6 +13,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PuntoventaCalificacionesComponent } from './puntoventa-calificaciones/puntoventa-calificaciones.component';
 import { PuntoventaAddCalificacionComponent } from './puntoventa-add-calificacion/puntoventa-add-calificacion.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   imports: [
@@ -24,8 +25,8 @@ import { PuntoventaAddCalificacionComponent } from './puntoventa-add-calificacio
     NgxPermissionsModule,
     NgbModule
   ],
-  declarations: [PuntoventaListComponent, PuntoventaDetailComponent, PuntoventaCreateComponent, PuntoventaEditComponent, PuntoventaCalificacionesComponent, PuntoventaAddCalificacionComponent],
-  exports:[PuntoventaListComponent, PuntoventaDetailComponent],
+  declarations: [PuntoventaListComponent, PuntoventaDetailComponent, PuntoventaCreateComponent,FilterPipe, PuntoventaEditComponent, PuntoventaCalificacionesComponent, PuntoventaAddCalificacionComponent],
+  exports:[PuntoventaListComponent, PuntoventaDetailComponent,FilterPipe],
   providers:[PuntoventaService]
 })
 export class PuntoventaModule { }
