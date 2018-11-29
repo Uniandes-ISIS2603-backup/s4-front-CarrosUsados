@@ -5,7 +5,7 @@ import { Injectable, Pipe, PipeTransform } from '@angular/core';
 })
 @Injectable()
 export class FilterPipe implements PipeTransform {
-  transform(items: any[], field: string, value: string): any[] {
+  transform(items: any[], field: number, value: number): any[] {
     if (!items) {
       return [];
     }
@@ -13,8 +13,6 @@ export class FilterPipe implements PipeTransform {
       return items;
     }
 
-    return items.filter(singleItem =>
-      singleItem[field].toLowerCase().includes(value.toLowerCase())
-    );
-  }
+    return items.filter( item => item[field] ==value)
+    }
 }
