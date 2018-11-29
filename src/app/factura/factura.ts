@@ -1,3 +1,5 @@
+import {AutomovilDetail} from '../automovil/automovil-detail'
+
 export class Factura{
     /**
      * El id de la factura
@@ -19,5 +21,9 @@ export class Factura{
      * El comprobante de pago de la factura
      */
     comprobantePago:boolean;
+    /**
+     * El automovil de la factura
+     */
+    automovil:AutomovilDetail;
     
 }

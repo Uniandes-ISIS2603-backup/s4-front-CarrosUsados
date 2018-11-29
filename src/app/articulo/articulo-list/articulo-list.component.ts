@@ -106,27 +106,12 @@ export class ArticuloListComponent implements OnInit {
     * Borra un articulo
     */
     deleteArticulo(articuloId): void {
-        this.modalDialogService.openDialog(this.viewRef, {
-            title: 'Borra un articulo',
-            childComponent: SimpleModalComponent,
-            data: {text: '¿De verdad quieres borrar este articulo de TuNave?'},
-            actionButtons: [
-                {
-                    text: 'Afirmativo',
-                    buttonClass: 'btn btn-danger',
-                    onAction: () => {
-                        this.articuloService.deleteArticulo(articuloId).subscribe(() => {
-                            this.toastrService.error("El articulo fue eliminado", "Articulo eliminado");
-                            this.ngOnInit();
-                        }, err => {
-                            this.toastrService.error(err, "Error");
-                        });
-                        return true;
-                    }
-                },
-                {text: 'Nah', onAction: () => true}
-            ]
-        });
+    this.articuloService.deleteArticulo(articuloId).subscribe(() => {
+      this.toastrService.success("El articulo fue eliminado correctamente.", "Articulo eliminado.");
+      this.ngOnInit();
+    }, err => {
+      this.toastrService.error(err, "Error");
+    });
     }
    
 
