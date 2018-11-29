@@ -111,7 +111,7 @@ export class PuntoventaListComponent implements OnInit {
   deletePunto(puntoId): void {
      
                     this.puntoVentaService.deletePunto(puntoId).subscribe(() => {
-                        this.toastrService.error("El punto de venta fue eliminado correctamente.", "Punto eliminado.");
+                        this.toastrService.success("El punto de venta fue eliminado correctamente.", "Punto eliminado.");
                         this.ngOnInit();
                     }, err => {
                         this.toastrService.error(err, "Error");

@@ -11,8 +11,12 @@
             <h3 style="color:white; font-family: 'Raleway',sans-serif;">Calificaciones del punto de venta</h3>
         
             <p style="width: 40%; margin-left: 5%; color: white">Buscar calificaciones por fecha:</p>  
-            <input style="width: 90%; margin-left: 5%;" type="date" class="form-control" name="searchString" placeholder="Mejor calificación" (ngModel)="searchString">
+            <input style="width: 90%; margin-left: 5%;" type="date" class="form-control" name="searchString" placeholder="Calificación publicada" (ngModel)="searchString">
           
+            <p style="width: 40%; margin-left: 5%; color: white">Buscar mejores calificaciones:</p>  
+            <input style="width: 90%; margin-left: 5%;" type="number" class="form-control" name="searchnumb" placeholder="Calificación publicada" (ngModel)="searchnumb">
+          
+
             <table class="table table-striped">
                 <thead class="table head">
                     <th>Calificación</th>
@@ -23,7 +27,7 @@
                 </thead>
             
                 <tbody>
-                    <tr *ngFor="let calificacion of calificacionespunto | filter: publishedDate: searchString;">
+                    <tr *ngFor="let calificacion of calificacionespunto | filter : num_estrellas : searchnumb;let i = index">
                         <td id="review-num">{{calificacion.num_estrellas}}</td>
                         <td id="review-comentario">{{calificacion.comentario}}</td>
                         <td id="review-date">{{calificacion.publishedDate}}</td>

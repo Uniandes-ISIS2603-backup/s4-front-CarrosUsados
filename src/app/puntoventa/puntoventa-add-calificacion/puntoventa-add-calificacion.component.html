@@ -1,5 +1,5 @@
 
- <div id="collapseAddReview" [ngbCollapse]="isCollapsed"></div>
+ <!-- <div id="collapseAddReview" [ngbCollapse]="isCollapsed"></div> -->
  <div class="row">
    <div class="rcorners1 col-4" style="margin-left: 8%; width: 55%; height: 250px; margin-top: 1%; box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); background-color: white">
    
@@ -11,7 +11,7 @@
         </select>
         <br> -->
         <form name="post" (ngSubmit)="calificacionForm.form.valid " #calificacionForm="ngForm" novalidate>
-              <div class="row">
+              <!-- <div class="row"> -->
                 <!-- <div class="col"> -->
                     <!-- <div class="form-group">
                         <label for="Title"><b>Title</b></label>
@@ -38,16 +38,17 @@
                         <textarea name="comentario"class="form-control" style="position: relative !important; left:20px; width:85%" id="comentario" [(ngModel)]="calificacion.comentario"
                                   #comentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && comentario.invalid }"
                                   required></textarea>
+
                         <!-- <div class="invalid-feedback">
                             <div>The review's description is missing</div>
                         </div> -->
                     </div>
                 </div>
-                <div style="cursor: pointer;" (click)="onSelected(puntos.id)" </div>
+
+            </form>
   
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" style="position: relative !important; left:20px;" class="btn btn-primary" (click)=" postReview(calificacionForm)" >Publicar </button>
             </div>
-        </form>
     </div>
 </div>

@@ -33,7 +33,9 @@ export class PuntoventaCalificacionesComponent implements OnInit {
       this.calificacionespunto = calificaciones;
   }
 
-   public searchString= new Date();
+   public searchString: Date;
+
+   public searchnumb:number;
    /**
    * The page (controls pagination)
    */
@@ -76,7 +78,7 @@ export class PuntoventaCalificacionesComponent implements OnInit {
   deleteCalificacion(calificacionId): void {
      
     this.puntoventaService.deleteReview(this.punto_id,calificacionId).subscribe(() => {
-        this.toastrService.error("La calificación fue eliminada correctamente.", "Calificación eliminada.");
+        this.toastrService.success("La calificación fue eliminada correctamente.", "Calificación eliminada.");
         this.ngOnInit();
     }, err => {
         this.toastrService.error(err, "Error");
