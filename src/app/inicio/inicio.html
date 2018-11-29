@@ -20,15 +20,16 @@
 </div> 
 
 <div class="row justify-content-end responsive" style="width:100%; background-color: black; ">
-    <div class="col-6 rcorners1" style="width: 470px; height: 350px; position: absolute; z-index: 3 ;
-         background-image:linear-gradient(to top, #000000, #434343); box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; margin-top: 8%;">
+    <div class="col-6 rcorners1" style="width: 570px; height: 270px; position: absolute; z-index: 3 ;
+         background-image:linear-gradient(to top, #000000, #434343); box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; margin-top: 8%; margin-right: 10%">
 
 
         <h1 style="color: white; font-family: 'Raleway', sans-serif; margin-top: 5px">Empieza aquí</h1>
 
         <form>
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: 10px">
-                <label for="exampleSelect1" ></label>
+
+                      <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: 10px">
+                <label for="exampleSelect1"  style="color: white;font-family:'Raleway', sans-serif; " >Escoje una Marca: </label>
                 <select class="form-control" id="exampleSelect1">
                     <option>Todos las marcas</option>
                     <option>Audi</option>
@@ -40,90 +41,17 @@
                     <option>Mazda</option>
                     <option>Citroen</option>
                     <option>Mercedez-Benz</option>
+                    <option>Ford</option>
                 </select>
             </div>
-
-            
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
-                <label for="exampleInputEmail1" ></label>
-                <select class="form-control" id="mySelect" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)' [ngModelOptions]="{standalone: true}">
+            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: 20px">
+                <label for="exampleInputEmail1" style="color: white;font-family:'Raleway', sans-serif; ">Escoje un Modelo:</label>
+                <select class="form-control" id="mySelect" placeholder="Modelo" [(ngModel)]="modelo_id" (ngModelChange)='onModeloSelected($event)' [ngModelOptions]="{standalone: true}">
                 <option *ngFor="let modelo of modelos" [value]="modelo.id" >{{modelo.nombre}}</option>
                 </select>
             </div>
 
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
-                <label for="exampleInputEmail1"></label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Precio desde" >
-            </div>
-
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
-                <label for="exampleInputEmail1"></label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Precio hasta" >
-            </div>
-
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
-                <label for="exampleSelect1" ></label>
-                <select class="form-control" id="exampleSelect1">
-                    <option>Año desde</option>
-                    <option>1995</option>
-                    <option>1996</option>
-                    <option>1997</option>
-                    <option>1998</option>
-                    <option>1999</option>
-                    <option>2000</option>
-                    <option>2001</option>
-                    <option>2002</option>
-                    <option>2003</option>
-                    <option>2004</option>
-                    <option>2005</option>
-                    <option>2006</option>
-                    <option>2007</option>
-                    <option>2008</option>
-                    <option>2009</option>
-                    <option>2010</option>
-                    <option>2011</option>
-                    <option>2012</option>
-                    <option>2013</option>
-                    <option>2014</option>
-                    <option>2015</option>
-                    <option>2016</option>
-                    <option>2017</option>
-                    <option>2018</option>
-                    <option>2019</option>
-                </select>
-            </div>
-
-            <div class="form-group" style="margin-left: 40px; margin-right: 40px;margin-top: -20px">
-                <label for="exampleSelect1" ></label>
-                <select class="form-control" id="exampleSelect1">
-                    <option>Año Hasta</option>
-                    <option>1995</option>
-                    <option>1996</option>
-                    <option>1997</option>
-                    <option>1998</option>
-                    <option>1999</option>
-                    <option>2000</option>
-                    <option>2001</option>
-                    <option>2002</option>
-                    <option>2003</option>
-                    <option>2004</option>
-                    <option>2005</option>
-                    <option>2006</option>
-                    <option>2007</option>
-                    <option>2008</option>
-                    <option>2009</option>
-                    <option>2010</option>
-                    <option>2011</option>
-                    <option>2012</option>
-                    <option>2013</option>
-                    <option>2014</option>
-                    <option>2015</option>
-                    <option>2016</option>
-                    <option>2017</option>
-                    <option>2018</option>
-                    <option>2019</option>
-                </select>
-            </div>
+           
             <button type="button" class="btn btn-primary" style="width: 120px; color: white; font-family:'Raleway', sans-serif;">Buscar</button>
         </form>
     </div>
@@ -140,7 +68,7 @@
 	            <div class="col-md-6 col-lg-4" *ngFor="let automovil of automoviles" style="cursor:pointer;" (click)="onSelected(automovil.id)">
 	                <div class="card border-0 transform-on-hover">
                             <a class="lightbox" href="../articulos/list/">
-                                    <img src="../../assets/images/ford2011.jpg" alt="Card Image" class="card-img-top">
+                                    <img src="../../assets/images/genericcar2.jpg" alt="Card Image" class="card-img-top">
 	                	</a>
 	                    <div class="card-body" >
 	                        <h6><span>{{automovil.precioOriginal | currency}}</span></h6>

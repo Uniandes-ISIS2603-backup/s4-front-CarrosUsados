@@ -4,6 +4,8 @@ import { Automovil } from '../automovil/automovil'
 import { AutomovilService } from '../automovil/automovil.service';
 import { Modelo } from 'src/app/modelo/modelo';
 import { ModeloService } from 'src/app/modelo/modelo.service';
+import { Marca } from '../marca/marca'
+import { MarcaService } from '../marca/marca.service';
 
 @Component({
   selector: 'app-inicio',
@@ -14,7 +16,8 @@ export class InicioComponent implements OnInit {
     
     constructor(
     private automovilService: AutomovilService,
-    private modeloService: ModeloService) { }
+    private modeloService: ModeloService, 
+    private marcaService:MarcaService) { }
     
      automoviles: Automovil[];
      
@@ -22,6 +25,10 @@ export class InicioComponent implements OnInit {
        modelos: Modelo[];
 
     modelo_id: any;
+    marcas:Marca[];
+    
+    marca_id: any;
+    
      selectedAutomovil: Automovil;
      
       onSelected(automovil_id: number): void {
@@ -44,6 +51,11 @@ export class InicioComponent implements OnInit {
       .subscribe(automoviles => this.automoviles = automoviles);
   }
   
+    getMarcas() {
+      this.marcaService.getMarcas()
+        .subscribe(marcas => this.marcas = marcas);
+  }
+  
     getAutomovilesOfModelo(modeloId: any) {
     this.automovilService.getAutomovilesOfModelo(modeloId)
       .subscribe(automoviles => this.automoviles = automoviles);
@@ -60,7 +72,7 @@ export class InicioComponent implements OnInit {
             this.selectedAutomovil = undefined;
     this.automovil_id = undefined;
             this.getModelos();
-
+this.getMarcas();
     this.modelo_id = -1;
         
     }
